@@ -1,7 +1,7 @@
 {
   "name": "react-resume-template",
   "version": "2.0.0",
-  "homepage": "https://andrewcharlwood.github.io/",
+  "homepage": "https://andrewcharlwood.github.io/cv-website/",
   "private": true,
   "scripts": {
     "predeploy": "yarn run build",
@@ -58,7 +58,7 @@
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "react-icons": "^4.12.0",
-    "read-more-read-less-toggler-edit": "file:.\\..\\read-more-read-less-toggler\\",
+    "read-more-read-less-toggler-edit": "file:.\\read-more-read-less-toggler\\",
     "sass": "^1.64.2",
     "sort-package-json": "^2.5.1",
     "stylelint": "^15.10.2",
