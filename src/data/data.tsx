@@ -10,7 +10,6 @@ import {
     SparklesIcon,
 } from '@heroicons/react/24/outline';
 import React from "react";
-import {Player} from 'video-react';
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
@@ -21,9 +20,6 @@ import heroImage from '../images/header-background.webp';
 import porfolioImage1 from '../images/portfolio/ppa2.jpg';
 import porfolioImage2 from '../images/portfolio/nms.jpg';
 import porfolioImage3 from '../images/portfolio/blueteq.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
