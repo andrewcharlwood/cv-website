@@ -7,7 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9756762b-8376-4746-8bfa-725a47381d4a" name="Changes" comment="" />
+    <list default="true" id="9756762b-8376-4746-8bfa-725a47381d4a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sections/Portfolio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections/Portfolio.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,7 +108,8 @@
       <workItem from="1700512702448" duration="2020000" />
       <workItem from="1700521929477" duration="277000" />
       <workItem from="1700522323385" duration="203000" />
-      <workItem from="1700522749731" duration="8021000" />
+      <workItem from="1700522749731" duration="8081000" />
+      <workItem from="1700536105734" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="Main overhaul">
       <option name="closed" value="true" />
@@ -227,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700534365467</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="change homepage">
+      <option name="closed" value="true" />
+      <created>1700535922843</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700535922843</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
