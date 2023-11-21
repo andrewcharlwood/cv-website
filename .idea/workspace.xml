@@ -8,7 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9756762b-8376-4746-8bfa-725a47381d4a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/patient_pathway_analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/patient_pathway_analysis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/data.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +79,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Andy\Documents\GitHub\andrewcharlwood.github.io\src\components\Sections" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Andy\Documents\GitHub\cv-website\public" />
+      <recent name="C:\Users\Andy\Documents\GitHub\cv-website\src" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -103,7 +107,7 @@
       <workItem from="1700512702448" duration="2020000" />
       <workItem from="1700521929477" duration="277000" />
       <workItem from="1700522323385" duration="203000" />
-      <workItem from="1700522749731" duration="3429000" />
+      <workItem from="1700522749731" duration="3488000" />
     </task>
     <task id="LOCAL-00001" summary="Main overhaul">
       <option name="closed" value="true" />
@@ -201,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700528929242</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="change homepage">
+      <option name="closed" value="true" />
+      <created>1700529751256</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700529751256</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

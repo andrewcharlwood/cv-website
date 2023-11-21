@@ -277,7 +277,7 @@ export const portfolioItems: PortfolioItem[] = [
     {
         title: 'Patient pathway analysis',
         description: 'Give a short description of your project here.',
-        url: 'patient_pathway_analysis',
+        url: './patient_pathway_analysis.html',
         image: porfolioImage1,
         embed:
             <Player>
