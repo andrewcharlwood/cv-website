@@ -38,3 +38,4 @@ yarn-error.log*
 /.idea/inspectionProfiles/Project_Default.xml
 /read-more-read-less-toggler/README.md
 /.idea/vcs.xml
+/.idea/

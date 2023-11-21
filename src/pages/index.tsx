@@ -1,4 +1,5 @@
-import dynamic from 'next/dynamic';
+
+3+6import dynamic from 'next/dynamic';
 import {FC, memo} from 'react';
 
 import Page from '../components/Layout/Page';
