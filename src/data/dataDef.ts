@@ -83,7 +83,6 @@ export interface PortfolioItem {
   description: string;
   url: string;
   image: string | StaticImageData;
-  embed: JSX.Element;
 }
 
 /**

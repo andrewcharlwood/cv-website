@@ -18,9 +18,9 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
+import porfolioImage1 from '../images/portfolio/ppa2.jpg';
+import porfolioImage2 from '../images/portfolio/nms.jpg';
+import porfolioImage3 from '../images/portfolio/blueteq.jpg';
 import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
 import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
@@ -276,58 +276,23 @@ export const skills: SkillGroup[] = [
 export const portfolioItems: PortfolioItem[] = [
     {
         title: 'Patient pathway analysis',
-        description: 'Give a short description of your project here.',
+        description: 'An interactive chart displaying patient care pathways for high cost drugs (randomised cost/patient numbers)',
         url: './patient_pathway_analysis.html',
         image: porfolioImage1,
-        embed:
-            <Player>
-                <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-            </Player>,
     },
     {
         title: 'Blueteq generator',
         description: 'Give a short description of your project here.',
-        url: 'http://localhost:3000/#portfolio',
-        image: porfolioImage2,
-        embed:             <Player>
-                <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-            </Player>,
+        url: 'https://github.com/andrewcharlwood/blueteqforms?search=1',
+        image: porfolioImage3,
+        
     },
     {
         title: 'NMS video',
         description: 'Give a short description of your project here.',
-        url: 'http://localhost:3000/#portfolio',
-        image: porfolioImage3,
-        embed:             <Player>
-                <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-            </Player>,
-    },
-    {
-        title: 'Project title 4Project title 4',
-        description: 'Give a short description of your project here.',
-        url: 'http://localhost:3000/#portfolio',
-        image: porfolioImage4,
-        embed:             <Player>
-                <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-            </Player>,
-    },
-    {
-        title: 'Project title 5',
-        description: 'Give a short description of your project here.',
-        url: 'http://localhost:3000/#portfolio',
-        image: porfolioImage5,
-        embed:             <Player>
-                <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-            </Player>,
-    },
-    {
-        title: 'Project title 6',
-        description: 'Give a short description of your project here.',
-        url: 'http://localhost:3000/#portfolio',
-        image: porfolioImage6,
-        embed:             <Player>
-                <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-            </Player>,
+        url: 'https://www.youtube.com/watch?v=Rm1wcX92XlQ',
+        image: porfolioImage2,
+        
     },
 ];
 
