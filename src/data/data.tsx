@@ -1,4 +1,6 @@
 import 'node_modules/video-react/dist/video-react.css'; // import css
+
+import {PhoneIcon} from "@heroicons/react/20/solid";
 import {
     AcademicCapIcon,
     ArrowDownTrayIcon,
@@ -10,7 +12,6 @@ import {
     SparklesIcon,
 } from '@heroicons/react/24/outline';
 import React from "react";
-
 
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import heroImage from '../images/header-background.webp';
@@ -32,7 +33,6 @@ import {
     TestimonialSection,
     TimelineItem,
 } from './dataDef';
-import {PhoneIcon} from "@heroicons/react/20/solid";
 
 
 // eslint-disable-next-line react-memo/require-memo
