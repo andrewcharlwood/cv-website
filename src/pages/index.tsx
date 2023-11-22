@@ -1,5 +1,4 @@
-
-3+6import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import {FC, memo} from 'react';
 
 import Page from '../components/Layout/Page';
@@ -26,7 +25,6 @@ const Home: FC = memo(() => {
       <Letter />
       <Resume />
       <Portfolio />
-      <Testimonials />
       <Contact />
       <Footer />
     </Page>
