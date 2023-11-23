@@ -428,7 +428,7 @@ export const testimonial: TestimonialSection = {
 
 export const contact: ContactSection = {
     headerText: 'Get in touch.', items: [{
-        type: ContactType.Email, text: 'andrew.charlwood@gmail.com', href: 'mailto:andrew.charlwood@gmail.com',
+        type: ContactType.Email, text: 'contact@andrewcharlwood.live', href: 'mailto:andrew.charlwood@gmail.com',
     }, {
         type: ContactType.Location, text: 'Norwich, Norfolk', href: 'https://maps.app.goo.gl/AXTQR6nBwLC44FVA8',
     }, {
@@ -441,6 +441,6 @@ export const contact: ContactSection = {
  */
 export const socialLinks: Social[] = [{
     label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/andrewcharlwood/'
-}, {label: 'Email', Icon: EnvelopeIcon, href: 'mailto:andrew.charlwood@gmail.com'}, {
+}, {label: 'Email', Icon: EnvelopeIcon, href: 'mailto:contact@andrewcharlwood.live'}, {
     label: 'Phone', Icon: PhoneIcon, href: 'tel:07795553088'
 },];
