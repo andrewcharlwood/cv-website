@@ -43,7 +43,7 @@ export interface About {
   aboutItems: AboutItem[];
 }
 export interface Letter {
-  description: string;
+  description: JSX.Element;
 }
 export interface AboutItem {
   label: string;

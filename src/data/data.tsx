@@ -1,5 +1,4 @@
 import 'node_modules/video-react/dist/video-react.css'; // import css
-
 import {PhoneIcon} from "@heroicons/react/20/solid";
 import {
     AcademicCapIcon,
@@ -38,7 +37,7 @@ import {
 // eslint-disable-next-line react-memo/require-memo
 const Line = () => (<hr
     style={{
-        color: 'rgba(52, 52, 52, 0.05)', backgroundColor: 'rgba(52, 52, 52, 0.25)', height: 2,
+        color: 'rgba(52, 52, 52, 0.1)', backgroundColor: 'rgba(52, 52, 52, 0.5)', height: 2,
     }}
 />);
 
@@ -54,15 +53,7 @@ export const homePageMeta: HomepageMeta = {
  * Section definition
  */
 export const SectionId = {
-    Hero: 'hero',
-    About: 'about',
-    Contact: 'contact',
-    Portfolio: 'projects',
-    Letter: 'letter',
-    Resume: 'experience',
-    Skills: 'skills',
-    Stats: 'stats',
-    Testimonials: 'testimonials',
+    Hero: 'hero', About: 'about', Contact: 'contact', Portfolio: 'projects', Letter: 'letter', Resume: 'experience', Skills: 'skills', Stats: 'stats', Testimonials: 'testimonials',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -73,26 +64,23 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 export const heroData: Hero = {
     imageSrc: heroImage, name: `Hey, I'm Andy`, description: (<>
         <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-            <strong className="text-stone-100">I'm a Norfolk based medicine optimisation Pharmacist</strong>,
-            currently working
-            at the <strong className="text-stone-100">Norfolk & Waveney ICB</strong>. I'm focussed on
-            high-cost drugs, data analysis, and implementing innovative solutions to drive efficiency's within the
-            team.
+            <strong className="text-stone-100">I’m a medicine optimisation Pharmacist, working for the Norfolk & Waveney
+                ICB</strong>. I'm focussed on <strong className="text-stone-100">high-cost drugs</strong>, <strong
+            className="text-stone-100">data analysis</strong>, and implementing <strong className="text-stone-100">innovative
+            solutions</strong> to drive efficiency's within the team.
         </p>
         <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-            In my free time time, I'm an avid video/photographer
+            In my free time time, I'm an avid <strong className="text-stone-100">video/photographer</strong>
             {' '}
-            (the background to this page is from a trip to Verona), and a tech enthusiast who's a self-taught
-            developer (largely python) for data analysis, simple apps and AI.
+            (the background to this page is from a trip to Verona), and a tech enthusiast who's a <strong
+            className="text-stone-100">self-taught
+            developer</strong> (largely python) for data analysis, simple apps and AI.
         </p>
         <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-            I believe the use of data is still one of the most under utilised resources available to the NHS. At the
-            Eclipse conference I was extremely impressed not only with the platform, but the values the company
-            stood for, and the passion the team had for their work.
-        </p>
-        <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-            I wanted to demonstrate how enthusiastic I am about the prospect of working with Eclipse in the future, in a
-            unique way. I decided to create this website to host my CV, with some examples of my work.
+            I wanted to demonstrate how <strong className="text-stone-100">enthusiastic I am about the prospect of
+            working with Eclipse</strong>, in a
+            unique way. <br/><strong className="text-stone-100">I decided to create this website to host my CV, with
+            some examples of my work.</strong>
         </p>
     </>), actions: [{
         href: '/assets/resume.pdf', text: 'CV PDF', primary: true, Icon: ArrowDownTrayIcon,
@@ -105,22 +93,14 @@ export const heroData: Hero = {
  * About section
  */
 export const aboutData: About = {
-    profileImageSrc: profilepic,
-    description: `An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
+    profileImageSrc: profilepic, description: `An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
   drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.`,
-    aboutItems: [{label: 'Location', text: 'Norwich, Norfolk', Icon: MapIcon}, {
-        label: 'Age',
-        text: '30',
-        Icon: CalendarIcon
+  health commissioning, I’ve worked on both regional and national projects in both sectors.`, aboutItems: [{label: 'Location', text: 'Norwich, Norfolk', Icon: MapIcon}, {
+        label: 'Age', text: '30', Icon: CalendarIcon
     }, {label: 'Registration number', text: '2211810', Icon: FlagIcon}, {
-        label: 'Interests',
-        text: 'Technology, Photography, Rugby',
-        Icon: SparklesIcon
+        label: 'Interests', text: 'Technology, Photography, Rugby', Icon: SparklesIcon
     }, {label: 'Study', text: 'University of East Anglia', Icon: AcademicCapIcon}, {
-        label: 'Employment',
-        text: 'Norfolk & Waveney ICB',
-        Icon: BuildingOffice2Icon
+        label: 'Employment', text: 'Norfolk & Waveney ICB', Icon: BuildingOffice2Icon
     },],
 };
 
@@ -128,63 +108,82 @@ export const aboutData: About = {
  * About section
  */
 export const letterData: Letter = {
-    description: `An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.
-  An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.
-  An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.`,
+    description: (<>
+        <p className="prose-base mb-4">
+            I’m a medicine optimisation Pharmacist, working primarily with high-cost drugs for the Norfolk & Waveney
+            Integrated Care Board (ICB). I’m passionate about providing <strong>excellent healthcare to our population
+            and finding innovative ways to do so</strong>.
+            <br/><br/>
+            At the Eclipse conference I was excited by the passion for Eclipse held by Dr Brown and the other speakers.
+            I realise that there is no job role I am applying for, and no description of the person you might consider
+            employing. I believe you want someone <strong>innovative</strong>, with a passion
+            for <strong>technology</strong> whose motivation is to <strong>improve patient outcomes</strong>. I believe
+            I am that person.
+            <br/><br/>
+            I've been a registered pharmacist for over 7 years, with 5 years of experience in the community and nearly 2
+            years within the ICB. I have the expected skill set of a pharmacist working within those roles, but I also
+            have different, more unique skills that the typical pharmacist does not have, which would make me an asset
+            to Eclipse.
+        </p>
+            <Line/>
+        <p className="prose-base mb-4 mt-4">
+            <strong>My career as a registered pharmacist started in Tesco pharmacy, Great Yarmouth</strong>. I had significant
+            concerns relating to patient safety and potentially fraudulent activity in the branch. which, after
+            escalating through appropriate channels, led to the pharmacy manager being suspended and dismissed.
+            <br/><br/>
+            As a pharmacist with less than 2 months of experience and no personal contacts with locum pharmacists or
+            other branches (having recently moved to the area), being thrust into managing and being responsible for the
+            operation of a 100-hour pharmacy was extremely challenging.
+            <br/><br/>
+            That challenge, however, helped to <strong>define me as the pharmacy professional I am today.</strong> I am
+            proud of making the difficult decision to voice my concerns and being the driving force of change, which led
+            the branch to become far safer, from 1-2 medication errors a month to 1-2 a year. The branch grew much
+            busier, by around 50% in items supplied. Our KPIs also grew to the top of the group for the provision of NMS
+            and customer service scores.
+            <br/><br/>
+            <strong>My motivation has always been to provide excellent healthcare.</strong> How I channel that
+            motivation has changed massively since 2016. Thanks to courses such as the NHS Mary Seacole Leadership
+            course, I am far better equipped to use my leadership skills to engage with my colleagues or any stakeholder
+            to achieve what is needed.
+        </p>
+            <Line/>
+        <p className="prose-base mb-4 mt-4">
+            <strong>I feel innovation has been a core part of what has enabled me to progress successfully in my
+                career.</strong> One notable example in 2017,the quality payments scheme was introduced, requiring
+            checks on patient inhaler use. The solution proposed by the company involved checking patient summary care
+            records for each prescription with an inhaler dispensed. This process would have been laborious, possibly
+            taking up to an hour of pharmacist time each day.
+            <br/><br/>
+            I took the initiative to explore what could be achieved with the antiquated dispensing system and developed
+            a
+            process requiring an audit every 6 months, taking 4 hours to complete. Achieving this criterion was worth
+            <strong>nearly £1
+            million in total funding across all branches</strong>. I created a walkthrough document, which was distributed to
+            stores and
+            used as the official process for the company. <br/><br/><strong>All branches met the criteria successfully.</strong>
+        </p>
+        <Line/>
+        <p className="prose-base mb-4 mt-4">
+            <strong>I’m a big fan of tech</strong>, spending my spare time working on projects involving software development, in doing so I’ve been able to apply these skills to implement solutions in my current/previous role.
+            <br/><br/>
+            When I was working as a community pharmacist, we were responsible for ordering medication for patients. We had a process of manually checking to see if we had received these prescriptions, which would take ~6 hours each week. This prompted me to write some macros in visual basic that would cross-reference dispensed vs. requested items in under a minute. <strong>This saved us significant time each week, enabling us to serve our patients more effectively.</strong> I felt empowered by the fact that I could take an idea and create something that helped people.
+            <br/><br/>
+            <strong>That was nearly 6 years ago</strong>, and the first time I’d leveraged software to build my own solution. It led me down a path where I not only see the value in learning these skills but have a passion for it. More recently in my current role I’ve discovered how to link secondary care activity data to Blueteq form data, something previously not thought to be possible. Using this, I’ve initiated and completed projects which have improved efficiencies for my colleagues and clinicians in the wider integrated care system. To see some of these examples, please see the <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href={"#projects"}>projects part of this page.</a>
+            <br/><br/>
+            I hope these examples demonstrates the mindset I bring to work every day. I strive to develop and implement
+            efficient processes through innovative solutions. My fluency in technology and data analysis supports me in
+            this
+            endeavour, and where possible, I automate a large part of my workflow.
+            <br/><br/>
+            As a pharmacist, I feel I bring a clinical knowledge base. What I believe sets me apart from other
+            pharmacists is my
+            passion and understanding of technology & software. When building clinical technology products like Eclipse,
+            I
+            believe that bringing a clinical mind with an understanding of software development would be of real value.
+            <br/><br/>
+            Thank you for your consideration, and I look forward to hearing from you.
+        </p>
+    </>),
 };
 
 
@@ -229,21 +228,12 @@ export const skills: SkillGroup[] = [{
  * Portfolio section
  */
 export const portfolioItems: PortfolioItem[] = [{
-    title: 'Patient pathway analysis',
-    description: 'An interactive chart displaying patient care pathways for high cost drugs (randomised cost/patient numbers)',
-    url: './patient_pathway_analysis.html',
-    image: porfolioImage1,
+    title: 'Patient pathway analysis', description: 'An interactive chart displaying patient care pathways for high cost drugs (randomised cost/patient numbers)', url: './patient_pathway_analysis.html', image: porfolioImage1,
 }, {
-    title: 'Blueteq generator',
-    description: 'Give a short description of your project here.',
-    url: 'https://github.com/andrewcharlwood/blueteqforms?search=1',
-    image: porfolioImage3,
+    title: 'Blueteq generator', description: 'Give a short description of your project here.', url: 'https://github.com/andrewcharlwood/blueteqforms?search=1', image: porfolioImage3,
 
 }, {
-    title: 'NMS video',
-    description: 'Give a short description of your project here.',
-    url: 'https://www.youtube.com/watch?v=Rm1wcX92XlQ',
-    image: porfolioImage2,
+    title: 'NMS video', description: 'Give a short description of your project here.', url: 'https://www.youtube.com/watch?v=Rm1wcX92XlQ', image: porfolioImage2,
 
 },];
 
@@ -252,11 +242,8 @@ export const portfolioItems: PortfolioItem[] = [{
  */
 
 export const experience: TimelineItem[] = [{
-    date: 'May 2022 - Present',
-    location: 'NHS Norfolk and Waveney Integrated Care Board',
-    title: 'Medicines Optimisation - High cost drugs',
-    grade: "",
-    content: (<ul>
+    date: 'May 2022 - Present', location: 'NHS Norfolk and Waveney Integrated Care Board', title: 'Medicines Optimisation - High cost drugs', grade: "", content: (<>
+        <ul>
             As the high cost drug Pharmacist, my primary role relates to collaborating with specialists across the
             ICS to ensure patients have access to medicines mandated by new NICE technology appraisals (TA).
             <br/>
@@ -291,14 +278,9 @@ export const experience: TimelineItem[] = [{
                 cares</li>
             <li> &#8226; </li>
         </ul>
-
-    ),
+    </>),
 }, {
-    date: 'November 2017 - May 2022',
-    location: 'Tesco Pharmacy',
-    title: 'Pharmacy Manager',
-    grade: "",
-    content: (//<p> As the pharmacy manager, I was responsible for the day-to-day operation of the pharmacy. I was given a large amount of autonomy to ensure we deliver a high-quality service to our customers, whilst ensuring that safety is at the core of everything we do.</p>,
+    date: 'November 2017 - May 2022', location: 'Tesco Pharmacy', title: 'Pharmacy Manager', grade: "", content: (//<p> As the pharmacy manager, I was responsible for the day-to-day operation of the pharmacy. I was given a large amount of autonomy to ensure we deliver a high-quality service to our customers, whilst ensuring that safety is at the core of everything we do.</p>,
         <ul>
             As the pharmacy manager, I was responsible for the day-to-day operation of the pharmacy. I was given a
             large amount of autonomy to ensure we deliver a high-quality service to our customers, whilst ensuring
@@ -338,49 +320,43 @@ export const experience: TimelineItem[] = [{
             </li>
         </ul>),
 }, {
-    date: 'August 2016 - November 2017',
-    location: 'Tesco Pharmacy',
-    title: 'Duty Pharmacy Manager',
-    grade: "",
-    content: (<p>
-        In August 2016 I started working at Tesco as a newly qualified pharmacist, after two months of working
-        alongside the Pharmacy Manager, as Duty (deputy) Pharmacy manager, I stepped up to be the acting
-        Pharmacy Manager for the store.
-        <br/>
-        <br/>
-        Responsibilities were similar to that of the Pharmacy manager role. Notable work in this tole include
-        working as joint lead for NMS and asthma referrals, focussing on providing resources which can be used
-        by stores to help facilitate the provision of services.
-        <br/>
-        <br/>
-        One resource related to quality payments, involving screening asthma patients was implemented been used
-        nationally, which saved Pharmacists ~30-60 minutes of work a day, with the potential of generating
-        ~£500k in revenue from patient identification.
-    </p>),
+    date: 'August 2016 - November 2017', location: 'Tesco Pharmacy', title: 'Duty Pharmacy Manager', grade: "", content: (
+        <p>
+            In August 2016 I started working at Tesco as a newly qualified pharmacist, after two months of working
+            alongside the Pharmacy Manager, as Duty (deputy) Pharmacy manager, I stepped up to be the acting
+            Pharmacy Manager for the store.
+            <br/>
+            <br/>
+            Responsibilities were similar to that of the Pharmacy manager role. Notable work in this tole include
+            working as joint lead for NMS and asthma referrals, focussing on providing resources which can be used
+            by stores to help facilitate the provision of services.
+            <br/>
+            <br/>
+            One resource related to quality payments, involving screening asthma patients was implemented been used
+            nationally, which saved Pharmacists ~30-60 minutes of work a day, with the potential of generating
+            ~£500k in revenue from patient identification.
+        </p>),
 }, {
-    date: 'July 2015 - July 2016',
-    location: 'Paydens Pharmacy',
-    title: 'Pre-Registration Pharmacist',
-    grade: "",
-    content: (<ul>
-        As a pre-registration pharmacist I took the decision to move to a busier, understaffed pharmacy –
-        which provided a much wider variety of services and gave me the opportunity to challenge myself.
-        This provided me with a great foundation to begin my professional career.
-        My responsibilities included those atypical to a pre-registration pharmacist, such as consulting
-        patients
-        on new medications, highlighting and solving prescription interventions, and providing support to other
-        pharmacy staff.
-        <br/>
-        <br/>
-        Other areas where I have taken the opportunity to experience and learn from include:
-        <li> &#8226; Clinically screening patient charts for a palliative care hospice </li>
-        <li> &#8226; Understanding and undertaking wholesale procedure</li>
-        <li> &#8226; Undertaking audits, including one which resulted in an increase in completed NMS, from less
-            than 10% of target to reaching 50-60% target
-        </li>
-        <li> &#8226; Instigating multiple PGDs, including NRT, EHC & Chlamydia screening/treatment</li>
-        <li> &#8226; Two-week hospital-placement at the Queen Elizabeth The Queen Mother Hospital</li>
-    </ul>),
+    date: 'July 2015 - July 2016', location: 'Paydens Pharmacy', title: 'Pre-Registration Pharmacist', grade: "", content: (
+        <ul>
+            As a pre-registration pharmacist I took the decision to move to a busier, understaffed pharmacy –
+            which provided a much wider variety of services and gave me the opportunity to challenge myself.
+            This provided me with a great foundation to begin my professional career.
+            My responsibilities included those atypical to a pre-registration pharmacist, such as consulting
+            patients
+            on new medications, highlighting and solving prescription interventions, and providing support to other
+            pharmacy staff.
+            <br/>
+            <br/>
+            Other areas where I have taken the opportunity to experience and learn from include:
+            <li> &#8226; Clinically screening patient charts for a palliative care hospice </li>
+            <li> &#8226; Understanding and undertaking wholesale procedure</li>
+            <li> &#8226; Undertaking audits, including one which resulted in an increase in completed NMS, from less
+                than 10% of target to reaching 50-60% target
+            </li>
+            <li> &#8226; Instigating multiple PGDs, including NRT, EHC & Chlamydia screening/treatment</li>
+            <li> &#8226; Two-week hospital-placement at the Queen Elizabeth The Queen Mother Hospital</li>
+        </ul>),
 },];
 
 
@@ -392,37 +368,31 @@ export const education: TimelineItem[] = [{
         text...Some demo text...Some demo text...Some demo text...Some demo text...
     </p>,
 }, {
-    date: '2011 - 2015',
-    location: 'University of East Anglia',
-    title: 'Masters of Pharmacy (MPharm)',
-    grade: '2.1',
-    content: <ul>
-        During my time at UEA, I gained experience through a selection of societies and roles, gaining experience
-        and developing skills which would benefit my career. Academically I take most pride from my research
-        project,
-        based on drug delivery, which allowed me to independently explore and research complex ideas of cocrystals.
-        Throughout my studies I grew to develop excellent consultation skills, shown in my 4th year OSCE result of
-        80%.
-        <br/><br/>
-        My ability to work effectively, creatively, with strict time management, is shown with result of my final
-        year
-        project which attained a grade of 75.1%
-        <br/>
-        <br/>
-        <b>Non-academic activities</b>
-        <Line></Line>
-        During my time at UEA I supported a number of clubs/societies as a committee member:
-        <br/><br/>
-        <li> &#8226; President - Pharmacy society</li>
-        <li> &#8226; Secretary/Vice-president - Ultimate frisbee</li>
-        <li> &#8226; Publicity officer - Alzheimer's society</li>
-    </ul>
+    date: '2011 - 2015', location: 'University of East Anglia', title: 'Masters of Pharmacy (MPharm)', grade: '2.1', content:
+        <ul>
+            During my time at UEA, I gained experience through a selection of societies and roles, gaining experience
+            and developing skills which would benefit my career. Academically I take most pride from my research
+            project,
+            based on drug delivery, which allowed me to independently explore and research complex ideas of cocrystals.
+            Throughout my studies I grew to develop excellent consultation skills, shown in my 4th year OSCE result of
+            80%.
+            <br/><br/>
+            My ability to work effectively, creatively, with strict time management, is shown with result of my final
+            year
+            project which attained a grade of 75.1%
+            <br/>
+            <br/>
+            <b>Non-academic activities</b>
+            <Line></Line>
+            During my time at UEA I supported a number of clubs/societies as a committee member:
+            <br/><br/>
+            <li> &#8226; President - Pharmacy society</li>
+            <li> &#8226; Secretary/Vice-president - Ultimate frisbee</li>
+            <li> &#8226; Publicity officer - Alzheimer's society</li>
+        </ul>
 }, {
-    date: '2009 - 2011',
-    location: 'Highworth Grammar School',
-    title: 'A-Levels',
-    grade: 'Maths (A*), Chemistry (B), Politics (C)',
-    content: <p></p>,
+    date: '2009 - 2011', location: 'Highworth Grammar School', title: 'A-Levels', grade: 'Maths (A*), Chemistry (B), Politics (C)', content:
+        <p></p>,
 },];
 
 /**
@@ -450,11 +420,7 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [{
-    label: 'LinkedIn',
-    Icon: LinkedInIcon,
-    href: 'https://www.linkedin.com/in/andrewcharlwood/'
+    label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/andrewcharlwood/'
 }, {label: 'Email', Icon: EnvelopeIcon, href: 'mailto:andrew.charlwood@gmail.com'}, {
-    label: 'Phone',
-    Icon: PhoneIcon,
-    href: 'tel:07795553088'
+    label: 'Phone', Icon: PhoneIcon, href: 'tel:07795553088'
 },];
