@@ -4,11 +4,14 @@ import {ReadMoreToggler} from 'read-more-read-less-toggler-edit'
 import {letterData, SectionId} from '../../data/data';
 import Section from '../Layout/Section';
 
-const Line = () => (<hr
-    style={{
-        color: 'rgba(52, 52, 52, 0.8)', backgroundColor: 'rgba(52, 52, 52, 0.2)', height: 5,
-    }}
-/>);
+// eslint-disable-next-line react-memo/require-memo
+const Line = () => {
+    return (<hr
+        style={{
+            color: 'rgba(52, 52, 52, 0.8)', backgroundColor: 'rgba(52, 52, 52, 0.2)', height: 5,
+        }}
+    />);
+};
 
 const Letter: FC = memo(() => {
     const {description} = letterData;
@@ -19,8 +22,8 @@ const Letter: FC = memo(() => {
             <Line/>
             <ReadMoreToggler
                 bottomGradient="black"
-                desktopBreakLines="10"
-                mobileBreakLines="5"
+                desktopBreakLines="20"
+                mobileBreakLines="10"
                 topGradient="#D4D4D4">
                 <div className=" text-black justify-center start-centre gap-y-4">
                     {description}

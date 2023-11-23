@@ -1,4 +1,5 @@
 import 'node_modules/video-react/dist/video-react.css'; // import css
+
 import {PhoneIcon} from "@heroicons/react/20/solid";
 import {
     AcademicCapIcon,
@@ -125,9 +126,10 @@ export const letterData: Letter = {
             have different, more unique skills that the typical pharmacist does not have, which would make me an asset
             to Eclipse.
         </p>
-            <Line/>
+        <Line/>
         <p className="prose-base mb-4 mt-4">
-            <strong>My career as a registered pharmacist started in Tesco pharmacy, Great Yarmouth</strong>. I had significant
+            <strong>My career as a registered pharmacist started in Tesco pharmacy, Great Yarmouth</strong>. I had
+            significant
             concerns relating to patient safety and potentially fraudulent activity in the branch. which, after
             escalating through appropriate channels, led to the pharmacy manager being suspended and dismissed.
             <br/><br/>
@@ -146,7 +148,7 @@ export const letterData: Letter = {
             course, I am far better equipped to use my leadership skills to engage with my colleagues or any stakeholder
             to achieve what is needed.
         </p>
-            <Line/>
+        <Line/>
         <p className="prose-base mb-4 mt-4">
             <strong>I feel innovation has been a core part of what has enabled me to progress successfully in my
                 career.</strong> One notable example in 2017,the quality payments scheme was introduced, requiring
@@ -157,19 +159,37 @@ export const letterData: Letter = {
             I took the initiative to explore what could be achieved with the antiquated dispensing system and developed
             a
             process requiring an audit every 6 months, taking 4 hours to complete. Achieving this criterion was worth
-            <strong>nearly £1
-            million in total funding across all branches</strong>. I created a walkthrough document, which was distributed to
+            <strong> nearly £1
+                million in total funding across all branches</strong>. I created a walkthrough document, which was
+            distributed to
             stores and
-            used as the official process for the company. <br/><br/><strong>All branches met the criteria successfully.</strong>
+            used as the official process for the company. <br/><br/><strong>All branches met the criteria
+            successfully.</strong>
         </p>
         <Line/>
         <p className="prose-base mb-4 mt-4">
-            <strong>I’m a big fan of tech</strong>, spending my spare time working on projects involving software development, in doing so I’ve been able to apply these skills to implement solutions in my current/previous role.
+            <strong>I’m a big fan of tech</strong>, spending my spare time working on projects involving software
+            development, in doing so I’ve been able to apply these skills to implement solutions in my current/previous
+            role.
             <br/><br/>
-            When I was working as a community pharmacist, we were responsible for ordering medication for patients. We had a process of manually checking to see if we had received these prescriptions, which would take ~6 hours each week. This prompted me to write some macros in visual basic that would cross-reference dispensed vs. requested items in under a minute. <strong>This saved us significant time each week, enabling us to serve our patients more effectively.</strong> I felt empowered by the fact that I could take an idea and create something that helped people.
+            When I was working as a community pharmacist, we were responsible for ordering medication for patients. We
+            had a process of manually checking to see if we had received these prescriptions, which would take ~6 hours
+            each week. This prompted me to write some macros in visual basic that would cross-reference dispensed vs.
+            requested items in under a minute. <strong>This saved us significant time each week, enabling us to serve
+            our patients more effectively.</strong> I felt empowered by the fact that I could take an idea and create
+            something that helped people.
             <br/><br/>
-            <strong>That was nearly 6 years ago</strong>, and the first time I’d leveraged software to build my own solution. It led me down a path where I not only see the value in learning these skills but have a passion for it. More recently in my current role I’ve discovered how to link secondary care activity data to Blueteq form data, something previously not thought to be possible. Using this, I’ve initiated and completed projects which have improved efficiencies for my colleagues and clinicians in the wider integrated care system. To see some of these examples, please see the <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href={"#projects"}>projects part of this page.</a>
-            <br/><br/>
+            <strong>That was nearly 6 years ago</strong>, and the first time I’d leveraged software to build my own
+            solution. It led me down a path where I not only see the value in learning these skills but have a passion
+            for it. More recently in my current role I’ve discovered how to link secondary care activity data to Blueteq
+            form data, something previously not thought to be possible. Using this, I’ve initiated and completed
+            projects which have improved efficiencies for my colleagues and clinicians in the wider integrated care
+            system. To see some of these examples, please see the <a
+            className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="#projects">projects part of
+            this page.</a>
+        </p>
+        <Line/>
+        <p className="prose-base mb-4 mt-4">
             I hope these examples demonstrates the mindset I bring to work every day. I strive to develop and implement
             efficient processes through innovative solutions. My fluency in technology and data analysis supports me in
             this
@@ -177,7 +197,7 @@ export const letterData: Letter = {
             <br/><br/>
             As a pharmacist, I feel I bring a clinical knowledge base. What I believe sets me apart from other
             pharmacists is my
-            passion and understanding of technology & software. When building clinical technology products like Eclipse,
+            passion and understanding for technology & software. When building clinical technology products like Eclipse,
             I
             believe that bringing a clinical mind with an understanding of software development would be of real value.
             <br/><br/>
