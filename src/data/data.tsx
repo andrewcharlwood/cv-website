@@ -1,5 +1,4 @@
 import 'node_modules/video-react/dist/video-react.css'; // import css
-
 import {PhoneIcon} from "@heroicons/react/20/solid";
 import {
     AcademicCapIcon,
@@ -269,13 +268,16 @@ export const portfolioItems: PortfolioItem[] = [{
     image: porfolioImage1,
 }, {
     title: 'Blueteq generator',
-    description: 'As part of my project to automate work flow relating to Blueteq forms, I created a program which automatically scrapes information rom NICE technology appraisals, and generates forms for clinical review before going live. This enables minimal admin work to generate the forms in the future, but more importantly enabled us to standardise and recreate all current live forms with minimal effort.',
+    description: 'As part of my project to automate work flow relating to Blueteq forms, I created a program which automatically scrapes information from NICE technology appraisals, and generates forms for clinical review before going live. This enables minimal admin work to generate the forms in the future, but more importantly enabled us to standardise and recreate all current live forms with minimal effort.',
     url: 'https://github.com/andrewcharlwood/blueteqforms?search=1',
     image: porfolioImage3,
 
 }, {
     title: 'NMS video',
-    description: 'Whilst working at Tesco as a community pharmacist, I took initiative in writing, and producing this video explaining NMS. The intention of the video was to train non-pharmacist staff members on how they can support with the NMS service.',
+    description: 'Whilst working at Tesco as a community pharmacist, I felt there was an opportunity to expand on NMS ' +
+        'provision across stores. I took the initiative in writing, and producing this ' +
+        'video explaining NMS. The intention of the video was to train non-pharmacist staff members on how they can ' +
+        'support with the NMS service.',
     url: 'https://www.youtube.com/watch?v=Rm1wcX92XlQ',
     image: porfolioImage2,
 
@@ -335,7 +337,8 @@ export const experience: TimelineItem[] = [{
                 <li>Creating an oxygen data dashboard to to support primary care clinicians to identify patient in need
                     of review
                 </li>
-                <li>Completing high cost drug pathways for a number of directorates such as rheumatology, ophthalmology and gastroenterology.
+                <li>Completing high cost drug pathways for a number of directorates such as rheumatology, ophthalmology
+                    and gastroenterology.
                 </li>
             </ul>
         </div>
