@@ -335,6 +335,8 @@ export const experience: TimelineItem[] = [{
                 <li>Creating an oxygen data dashboard to to support primary care clinicians to identify patient in need
                     of review
                 </li>
+                <li>Completeing high cost drug pathways for a number of directorates such as rheumatology, ophthalmology and gastroenterology.
+                </li>
             </ul>
         </div>
     </>),
