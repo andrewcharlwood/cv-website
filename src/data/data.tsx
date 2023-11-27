@@ -463,7 +463,7 @@ export const education: TimelineItem[] = [{
 }, {
     date: '2011 - 2015',
     location: 'University of East Anglia',
-    title: 'Masters of Pharmacy (MPharm)',
+    title: 'Master of Pharmacy (MPharm)',
     grade: '2.1',
     content: <>
         <p className="prose-base">
@@ -484,7 +484,7 @@ export const education: TimelineItem[] = [{
         <Line></Line>
         <div className="prose max-w-none">
             <ul>
-                During my time at UEA I supported a number of clubs/societies as a committee member:
+                During my time at UEA I supported several clubs/societies as a committee member:
                 <li>President - Pharmacy society</li>
                 <li>Secretary/Vice-president - Ultimate frisbee</li>
                 <li>Publicity officer - Alzheimer's society</li>
