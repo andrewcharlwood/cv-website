@@ -444,7 +444,7 @@ export const experience: TimelineItem[] = [{
 
 export const education: TimelineItem[] = [{
     date: 'April - October 2018',
-    location: 'NHS Leadership academy',
+    location: 'NHS Leadership Academy',
     title: 'Mary Seacole',
     grade: "79%",
     content: <p className="prose-base">
