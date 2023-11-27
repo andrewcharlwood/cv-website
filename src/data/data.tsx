@@ -400,12 +400,12 @@ export const experience: TimelineItem[] = [{
         Pharmacy Manager for the store.
         <br/>
         <br/>
-        Responsibilities were similar to that of the Pharmacy manager role. Notable work in this tole include
+        Notable work in this role include
         working as joint lead for NMS and asthma referrals, focussing on providing resources which can be used
         by stores to help facilitate the provision of services.
         <br/>
         <br/>
-        One resource related to quality payments, involving screening asthma patients was implemented been used
+        One solution related to quality payments, involving screening asthma patients was implemented been used
         nationally, which saved Pharmacists ~30-60 minutes of work a day, with the potential of generating
         <strong> ~£1 million</strong> in revenue from patient identification.
     </p>),
