@@ -349,8 +349,8 @@ export const experience: TimelineItem[] = [{
         <>
             <p className="prose-base">
                 As the pharmacy manager, I was responsible for the day-to-day operation of the pharmacy. I was given a
-                large amount of autonomy to ensure we deliver a high-quality service to our customers, whilst ensuring
-                that safety is at the core of everything we do.
+                large amount of autonomy to ensure we delivered a high-quality service to our customers, whilst ensuring
+                that safety is at the core of everything we did.
             </p>
             <br/>
             <h2 className="text-lg font-bold">Responsibilities</h2>
