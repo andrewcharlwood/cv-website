@@ -264,7 +264,7 @@ export const skills: SkillGroup[] = [{
  */
 export const portfolioItems: PortfolioItem[] = [{
     title: 'Patient pathway analysis',
-    description: 'An interactive chart displaying patient care pathways for high cost drugs (example provided has randomised cost/patient numbers). This graph enables an intuitive way to explore patient journeys by trust/directorate, and provides a detailed breakdown of figures such as total patients, cost, frequency of dosing, average cost per patient. Data can be filtered by date/directorate to identify trends of medicine used easily. ',
+    description: 'An interactive chart displaying patient care pathways for high-cost drugs (example provided has randomised cost/patient numbers). This graph enables an intuitive way to explore patient journeys by trust/directorate, and provides a detailed breakdown of figures such as total patients, cost, frequency of dosing, average cost per patient. Data can be filtered by date/directorate to identify trends of medicine used easily. ',
     url: './patient_pathway_analysis.html',
     image: porfolioImage1,
 }, {
@@ -291,11 +291,11 @@ export const portfolioItems: PortfolioItem[] = [{
 export const experience: TimelineItem[] = [{
     date: 'May 2022 - Present',
     location: 'NHS Norfolk and Waveney Integrated Care Board',
-    title: 'Medicines Optimisation - High cost drugs',
+    title: 'Medicines Optimisation - high-cost drugs',
     grade: "",
     content: (<>
         <p className="prose-base">
-            As the high cost drug Pharmacist, my primary role relates to collaborating with specialists across the
+            As the high-cost drug Pharmacist, my primary role relates to collaborating with specialists across the
             ICS to ensure patients have access to medicines mandated by new NICE technology appraisals (TA).
             <br/>
             <br/>
@@ -338,7 +338,7 @@ export const experience: TimelineItem[] = [{
                 <li>Creating an oxygen data dashboard to to support primary care clinicians to identify patient in need
                     of review
                 </li>
-                <li>Completing high cost drug pathways for a number of directorates such as rheumatology, ophthalmology
+                <li>Completing high-cost drug pathways for a number of directorates such as rheumatology, ophthalmology
                     and gastroenterology.
                 </li>
             </ul>
