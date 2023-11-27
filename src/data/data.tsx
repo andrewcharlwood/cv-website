@@ -93,7 +93,7 @@ export const heroData: Hero = {
             some examples of my work.</strong>
         </p>
     </>), actions: [{
-        href: '/assets/resume.pdf', text: 'CV PDF', primary: true, Icon: ArrowDownTrayIcon,
+        href: './A Charlwood - CV.pdf', text: 'CV PDF', primary: true, Icon: ArrowDownTrayIcon,
     }, {
         href: `#${SectionId.Contact}`, text: 'Contact', primary: false,
     },],
