@@ -4652,7 +4652,13 @@ read-cache@^1.0.0:
   dependencies:
     pify "^2.3.0"
 
-"read-more-read-less-toggler-edit@file:read-more-read-less-toggler":
+"read-more-read-less-toggler-edit@file:../read-more-read-less-toggler":
+  version "1.0.9"
+  dependencies:
+    react-icons "^4.2.0"
+    styled-components "^5.3.0"
+
+"read-more-read-less-toggler@file:.\\\\..\\\\read-more-read-less-toggler\\\\":
   version "1.0.9"
   dependencies:
     react-icons "^4.2.0"
