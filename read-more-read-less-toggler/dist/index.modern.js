@@ -12,7 +12,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 var _templateObject, _templateObject2, _templateObject3;
-var Paragraph = styled.p(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  max-height: ${props => props.paragraphHeight || '1px';\n  overflow: hidden;\n  background-image: ", ";\n  background-clip: ", ";\n  -webkit-background-clip: ", ";\n  -webkit-text-fill-color: ", ";\n  transition: ", ";\n  line-height: 22px;\n  margin: 10px;\n"])), function (props) {
+var Paragraph = styled.p(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  max-height: ${props => props.paragraphHeight || '1px';\n  overflow: hidden;\n  background-image: ", ";\n  background-clip: ", ";\n  -webkit-background-clip: ", ";\n  -webkit-text-fill-color: ", ";\ntransition: 'all 0.3s ease-in-out';", ";\n  line-height: 22px;\n  margin: 10px;\n"])), function (props) {
   return props.paragraphHeight;
 }, function (props) {
   return props.gradientColor && props.gradientColor;
