@@ -39,3 +39,4 @@ yarn-error.log*
 /read-more-read-less-toggler/README.md
 /.idea/vcs.xml
 /.idea/
+/read-more-read-less-toggler/node_modules/
