@@ -26,7 +26,7 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "react-jss": "^10.10.0",
-    "reactjs-popup": "^2.0.6", ,
+    "reactjs-popup": "^2.0.6",
     "read-more-read-less-toggler-edit": "file:.\\read-more-read-less-toggler\\",
     "sharp": "^0.33.5",
     "ts-pattern": "^5.0.4",
