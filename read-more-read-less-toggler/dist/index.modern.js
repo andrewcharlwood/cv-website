@@ -12,7 +12,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 var _templateObject, _templateObject2, _templateObject3;
-var Paragraph = styled.p(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  max-height: ", ";\n  overflow: hidden;\n  background-image: ", ";\n  background-clip: ", ";\n  -webkit-background-clip: ", ";\n  -webkit-text-fill-color: ", ";\n  transition: ", ";\n  line-height: 22px;\n  margin: 10px;\n"])), function (props) {
+var Paragraph = styled.p(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  max-height: ${props => props.paragraphHeight || '1px';\n  overflow: hidden;\n  background-image: ", ";\n  background-clip: ", ";\n  -webkit-background-clip: ", ";\n  -webkit-text-fill-color: ", ";\n  transition: ", ";\n  line-height: 22px;\n  margin: 10px;\n"])), function (props) {
   return props.paragraphHeight;
 }, function (props) {
   return props.gradientColor && props.gradientColor;
@@ -32,9 +32,34 @@ var Caret = styled(BsArrowUpShort)(_templateObject3 || (_templateObject3 = _tagg
   return props.collapse && 'rotate(-180deg)';
 });
 
+const calculateHeight = () => {
+  if (paragraphRef.current) {
+    const height = paragraphRef.current.scrollHeight;
+    setParagraphScrollHeight(height);
+  }
+};
+
+const toggleHandler = () => {
+  calculateHeight(); // Pre-calculate before state change
+  setReadMore(!readMore);
+};
+
 var BREAKPOINTS = {
   mobile: 576
 };
+const debounce = (fn, delay) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn(...args), delay);
+  };
+};
+
+useEffect(() => {
+  const handleResize = debounce(calculateHeight, 200);
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
 
 var ReadMoreToggler = function ReadMoreToggler(_ref) {
   var children = _ref.children,
@@ -68,31 +93,27 @@ var ReadMoreToggler = function ReadMoreToggler(_ref) {
   var toggleHandler = function toggleHandler() {
     setReadMore(!readMore);
   };
+  
+const calculateHeight = () => {
+  if (paragraphRef.current) {
+    const elementStyle = window.getComputedStyle(paragraphRef.current);
+    const lineHeight = parseInt(elementStyle.getPropertyValue('line-height'), 10);
+    const isMobile = window.innerWidth < BREAKPOINTS.mobile;
+    const breakLines = isMobile ? mobileBreakLines || 5 : desktopBreakLines || 3;
 
-  var calculateHeight = function calculateHeight() {
-    var _paragraphRef$current;
-
-    var elementStyle = window.getComputedStyle(paragraphRef.current);
-    var calculatedLineHeight = elementStyle.getPropertyValue('line-height');
-    var lineHeight = parseInt(calculatedLineHeight, 10);
-    var isMobileBreakpoint = window.innerWidth < BREAKPOINTS.mobile;
-    var definedMobileBreakLines = mobileBreakLines != null ? mobileBreakLines : 5;
-    var definedDesktopBreakLines = desktopBreakLines != null ? desktopBreakLines : 3;
-    var calculatedAcceptableLines = isMobileBreakpoint ? definedMobileBreakLines : definedDesktopBreakLines;
-    var calculatedParagraphHeight = calculatedAcceptableLines * lineHeight;
-    setParagraphCollapseHeight(calculatedParagraphHeight);
-    var scrollHeight = (_paragraphRef$current = paragraphRef.current) === null || _paragraphRef$current === void 0 ? void 0 : _paragraphRef$current.scrollHeight;
+    const collapseHeight = breakLines * lineHeight;
+    const scrollHeight = paragraphRef.current.scrollHeight;
+    setParagraphCollapseHeight(collapseHeight);
     setParagraphScrollHeight(scrollHeight);
-    var isParagraphHeightGreater = calculatedParagraphHeight < scrollHeight;
-    setIsParagraphExceed(isParagraphHeightGreater);
-  };
+    setIsParagraphExceed(collapseHeight < scrollHeight);
+  }
+};
 
-  useEffect(function () {
-    window.addEventListener('resize', calculateHeight);
+  
+  useEffect(() => {
     calculateHeight();
-    return function () {
-      window.removeEventListener('resize', calculateHeight);
-    };
+    window.addEventListener('resize', calculateHeight); // Recalculate on resize
+    return () => window.removeEventListener('resize', calculateHeight); // Cleanup
   }, []);
 
   var ReadMoreButton = function ReadMoreButton() {
