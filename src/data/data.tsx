@@ -1,4 +1,4 @@
-import 'node_modules/video-react/dist/video-react.css'; // import css
+import '..//..//node_modules//video-react//dist//video-react.css'; // import css
 
 import {PhoneIcon} from '@heroicons/react/20/solid';
 import {
