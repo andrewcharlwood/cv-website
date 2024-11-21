@@ -1,5 +1,5 @@
 import {Head, Html, Main, NextScript} from 'next/document';
-import React from 'react'
+import React from 'react';
 
 // next/document <Head /> vs next/head <Head />
 //

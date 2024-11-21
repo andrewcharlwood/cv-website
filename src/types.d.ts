@@ -31,6 +31,6 @@ declare module '*.mp4' {
 declare module 'read-more-read-less-toggler-edit';
 declare module 'video-react';
 //declare module "read-more-read-less-toggler" {
-  //function ReadMoreToggler(): any;
-  //export = ReadMoreToggler;
+//function ReadMoreToggler(): any;
+//export = ReadMoreToggler;
 //}

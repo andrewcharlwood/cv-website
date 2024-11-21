@@ -80,11 +80,11 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-100 sm:prose-base lg:prose-lg">
-        As part of the NHS Norfolk and Waveney ICB, as Deputy Head of
-        Population Health & Data Analysis within the medicines optimisation team - I focus on leveraging data analytics
-        to optimise medicines usage, enhance prescribing quality, and address health inequalities. Drawing on expertise
-        as a pharmacist with experience using Python, SQL, and Power BI. I develop analysis to inform and guide the
-        strategic plan of the medicine optimisation team.
+        As part of the NHS Norfolk and Waveney ICB, as Deputy Head of Population Health & Data Analysis within the
+        medicines optimisation team - I focus on leveraging data analytics to optimise medicines usage, enhance
+        prescribing quality, and address health inequalities. Drawing on expertise as a pharmacist with experience using
+        Python, SQL, and Power BI. I develop analysis to inform and guide the strategic plan of the medicine
+        optimisation team.
       </p>
       <p className="prose-sm text-stone-100 sm:prose-base lg:prose-lg">
         In my free time time, I'm a father, an avid video/photographer and a tech enthusiast.
@@ -124,7 +124,7 @@ export const aboutData: About = {
     {
       label: 'Registration number',
       text: '2211810',
-      Icon: FingerPrintIcon
+      Icon: FingerPrintIcon,
     },
     {
       label: 'Interests',
@@ -134,7 +134,7 @@ export const aboutData: About = {
     {
       label: 'Study',
       text: 'University of East Anglia',
-      Icon: AcademicCapIcon
+      Icon: AcademicCapIcon,
     },
     {
       label: 'Employment',
