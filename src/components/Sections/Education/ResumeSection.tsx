@@ -1,4 +1,4 @@
-import {FC, memo, PropsWithChildren} from 'react';
+import React, {FC, memo, PropsWithChildren} from 'react';
 
 const ResumeSection: FC<PropsWithChildren<{title: string}>> = memo(({title, children}) => {
   return (

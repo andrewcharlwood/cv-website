@@ -1,4 +1,4 @@
-import {FC, memo} from 'react';
+import React, {FC, memo} from 'react';
 
 import {experience, SectionId} from '../../../data/data';
 import Section from '../../Layout/Section';

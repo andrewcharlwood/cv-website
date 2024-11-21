@@ -1,4 +1,4 @@
-import {FC, memo} from 'react';
+import React, {FC, memo} from 'react';
 import {ReadMoreToggler} from 'read-more-read-less-toggler-edit'
 
 import {TimelineItem} from '../../../data/dataDef';
