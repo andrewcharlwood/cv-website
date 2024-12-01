@@ -105,6 +105,11 @@ var ReadMoreToggler = function ReadMoreToggler(_ref) {
       window.removeEventListener('resize', debouncedResize);
     };
   }, []);
+  
+  // Add this useEffect to update heights when readMore changes
+  React.useEffect(() => {
+    calculateHeight();
+  }, [readMore]);
 
   var ReadMoreButton = function ReadMoreButton() {
     return isParagraphExceed && /*#__PURE__*/React__default.createElement(ReadMoreWrapper, {
