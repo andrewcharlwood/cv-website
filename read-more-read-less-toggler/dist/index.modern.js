@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { BsArrowUpShort } from 'react-icons/all';
+import { BsArrowUpShort } from 'react-icons/bs';
 import debounce from 'lodash/debounce';
 
 function _taggedTemplateLiteralLoose(strings, raw) {

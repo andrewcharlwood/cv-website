@@ -3,7 +3,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 var styled = _interopDefault(require('styled-components'));
-var all = require('react-icons/all');
+var bs = require('react-icons/bs');
 var debounce = _interopDefault(require('lodash/debounce'));
 
 function _taggedTemplateLiteralLoose(strings, raw) {
@@ -32,7 +32,7 @@ var Paragraph = styled.p(_templateObject || (_templateObject = _taggedTemplateLi
 var ReadMoreWrapper = styled.span(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n  cursor: pointer;\n  text-transform: uppercase;\n  font-size: 14px;\n  font-weight: 700;\n  line-height: 20.8px;\n  position: relative;\n  margin: 10px;\n  display: flex;\n  align-items: center;\n  color: ", ";\n"])), function (props) {
   return props.buttonColor && props.buttonColor;
 });
-var Caret = styled(all.BsArrowUpShort)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteralLoose(["\n  width: 36px;\n  height: 36px;\n  transform: ", ";\n"])), function (props) {
+var Caret = styled(bs.BsArrowUpShort)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteralLoose(["\n  width: 36px;\n  height: 36px;\n  transform: ", ";\n"])), function (props) {
   return props.collapse && 'rotate(-180deg)';
 });
 
@@ -105,11 +105,6 @@ var ReadMoreToggler = function ReadMoreToggler(_ref) {
       window.removeEventListener('resize', debouncedResize);
     };
   }, []);
-  
-  // Add this useEffect to update heights when readMore changes
-  React.useEffect(() => {
-    calculateHeight();
-  }, [readMore]);
 
   var ReadMoreButton = function ReadMoreButton() {
     return isParagraphExceed && /*#__PURE__*/React__default.createElement(ReadMoreWrapper, {

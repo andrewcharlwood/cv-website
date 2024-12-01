@@ -24,6 +24,7 @@ const Header: FC = memo(() => {
   );
 
   const intersectionHandler = useCallback((section: SectionId | null) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     section && setCurrentSection(section);
   }, []);
 
