@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import {BsArrowUpShort} from 'react-icons/bs';
+import { BsArrowUpShort } from 'react-icons/all';
+import debounce from 'lodash/debounce';
 
 function _taggedTemplateLiteralLoose(strings, raw) {
   if (!raw) {
@@ -23,7 +24,7 @@ var Paragraph = styled.p(_templateObject || (_templateObject = _taggedTemplateLi
 }, function (props) {
   return props.collapse && 'transparent';
 }, function (props) {
-  return props.collapse ? 'all 0.1s' : 'all 1s';
+  return props.collapse ? 'all 0.3s' : 'all 0.5s';
 });
 var ReadMoreWrapper = styled.span(_templateObject2 || (_templateObject2 = _taggedTemplateLiteralLoose(["\n  cursor: pointer;\n  text-transform: uppercase;\n  font-size: 14px;\n  font-weight: 700;\n  line-height: 20.8px;\n  position: relative;\n  margin: 10px;\n  display: flex;\n  align-items: center;\n  color: ", ";\n"])), function (props) {
   return props.buttonColor && props.buttonColor;
@@ -66,11 +67,17 @@ var ReadMoreToggler = function ReadMoreToggler(_ref) {
   var gradientColor = topGradient && bottomGradient ? "linear-gradient(to top," + topGradient + "," + bottomGradient + ")" : 'linear-gradient(to top,#FFFFFF,#25232363)';
 
   var toggleHandler = function toggleHandler() {
-    setReadMore(!readMore);
+    var _paragraphRef$current;
+
+    var scrollHeight = (_paragraphRef$current = paragraphRef.current) === null || _paragraphRef$current === void 0 ? void 0 : _paragraphRef$current.scrollHeight;
+    setParagraphScrollHeight(scrollHeight);
+    setReadMore(function (prev) {
+      return !prev;
+    });
   };
 
   var calculateHeight = function calculateHeight() {
-    var _paragraphRef$current;
+    var _paragraphRef$current2;
 
     var elementStyle = window.getComputedStyle(paragraphRef.current);
     var calculatedLineHeight = elementStyle.getPropertyValue('line-height');
@@ -81,17 +88,18 @@ var ReadMoreToggler = function ReadMoreToggler(_ref) {
     var calculatedAcceptableLines = isMobileBreakpoint ? definedMobileBreakLines : definedDesktopBreakLines;
     var calculatedParagraphHeight = calculatedAcceptableLines * lineHeight;
     setParagraphCollapseHeight(calculatedParagraphHeight);
-    var scrollHeight = (_paragraphRef$current = paragraphRef.current) === null || _paragraphRef$current === void 0 ? void 0 : _paragraphRef$current.scrollHeight;
+    var scrollHeight = (_paragraphRef$current2 = paragraphRef.current) === null || _paragraphRef$current2 === void 0 ? void 0 : _paragraphRef$current2.scrollHeight;
     setParagraphScrollHeight(scrollHeight);
     var isParagraphHeightGreater = calculatedParagraphHeight < scrollHeight;
     setIsParagraphExceed(isParagraphHeightGreater);
   };
 
   useEffect(function () {
-    window.addEventListener('resize', calculateHeight);
+    var debouncedResize = debounce(calculateHeight, 100);
+    window.addEventListener('resize', debouncedResize);
     calculateHeight();
     return function () {
-      window.removeEventListener('resize', calculateHeight);
+      window.removeEventListener('resize', debouncedResize);
     };
   }, []);
 
@@ -106,7 +114,7 @@ var ReadMoreToggler = function ReadMoreToggler(_ref) {
 
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Paragraph, {
     collapse: isOverflow,
-    paragraphHeight: readMore ? paragraphScrollHeight + "px" : paragraphCollapseHeight + "px",
+    paragraphHeight: readMore ? (paragraphScrollHeight || 'auto') + "px" : (paragraphCollapseHeight || 'auto') + "px",
     gradientColor: isOverflow ? gradientColor : false,
     ref: paragraphRef
   }, children), /*#__PURE__*/React.createElement(ReadMoreButton, null));

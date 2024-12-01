@@ -4,7 +4,7 @@
   "description": "Turncate overflow text with beautiful gradient & transition collapse view for React JS",
   "author": "Hasham-dev",
   "license": "MIT",
-  "repository": "Hasham-dev/read-more-read-less-toggler",
+    "repository": "Hasham-dev/read-more-read-less-toggler",
   "keywords": [
     "read-more",
     "turncate",
