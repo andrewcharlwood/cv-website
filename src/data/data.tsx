@@ -14,7 +14,7 @@ import {
 import React from 'react';
 
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import heroImage from '../images/header-background.webp';
+import heroImage from '../images/hero.jpg';
 import porfolioImage3 from '../images/portfolio/blueteq.jpg';
 import porfolioImage2 from '../images/portfolio/nms.jpg';
 import porfolioImage1 from '../images/portfolio/ppa2.jpg';
@@ -80,21 +80,20 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-100 sm:prose-base lg:prose-lg">
-        As part of the NHS Norfolk and Waveney ICB, as Deputy Head of Population Health & Data Analysis within the
-        medicines optimisation team - I focus on leveraging data analytics to optimise medicines usage, enhance
-        prescribing quality, and address health inequalities. Drawing on expertise as a pharmacist with experience using
-        Python, SQL, and Power BI. I develop analysis to inform and guide the strategic plan of the medicine
-        optimisation team.
+        As Deputy Head of Population Health & Data Analysis within the Medicines Optimisation team at the NHS Norfolk
+        and Waveney ICB, I focus on leveraging data analytics to optimise medicines usage, enhance prescribing quality,
+        and address health inequalities. I develop analysis via Python, SQL, and Power BI to inform and guide the
+        strategic plan of the medicine optimisation team.
       </p>
       <p className="prose-sm text-stone-100 sm:prose-base lg:prose-lg">
-        In my free time time, I'm a father, an avid video/photographer and a tech enthusiast.
+        In my free time, I'm a father, an avid video/photographer and a tech enthusiast.
       </p>
     </>
   ),
   actions: [
     {
       href: './A Charlwood - CV.pdf',
-      text: 'CV PDF',
+      text: 'PDF',
       primary: true,
       Icon: ArrowDownTrayIcon,
     },
@@ -224,8 +223,9 @@ export const letterData: Letter = {
         process of manually checking to see if we had received these prescriptions, which would take ~6 hours each week.
         This prompted me to write some macros in visual basic that would cross-reference dispensed vs. requested items
         in under a minute.{' '}
-        <strong>This saved us significant time each week, enabling us to serve our patients more effectively.</strong> I
-        felt empowered by the fact that I could take an idea and create something that helped people.
+        <strong>
+          This saved us significant time each week, enabling us to serve our patients more effectively.
+        </strong> I felt empowered by the fact that I could take an idea and create something that helped people.
         <br />
         <br />
         <strong>That was nearly 6 years ago</strong>, and the first time I’d leveraged software to build my own
@@ -625,8 +625,8 @@ export const contact: ContactSection = {
   items: [
     {
       type: ContactType.Email,
-      text: 'contact@andrewcharlwood.live',
-      href: 'mailto:andrew.charlwood@gmail.com',
+      text: 'andy@charlwood.xyz',
+      href: 'mailto:andy@charlwood.xyz',
     },
     {
       type: ContactType.Location,
