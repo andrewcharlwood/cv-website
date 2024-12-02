@@ -21,7 +21,6 @@ import porfolioImage1 from '../images/portfolio/ppa2.jpg';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
-  About,
   ContactSection,
   ContactType,
   Hero,
@@ -57,8 +56,7 @@ export const homePageMeta: HomepageMeta = {
  * Section definition
  */
 export const SectionId = {
-  Hero: 'hero',
-  About: 'about',
+  Hero: 'about',
   Contact: 'contact',
   Portfolio: 'projects',
   Letter: 'letter',
@@ -76,6 +74,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
+  profileImageSrc: profilepic,
   name: `Hey, I'm Andy`,
   description: (
     <>
@@ -86,33 +85,35 @@ export const heroData: Hero = {
         strategic plan of the medicine optimisation team.
       </p>
       <p className="prose-sm text-stone-100 sm:prose-base lg:prose-lg">
-        In my free time, I'm a father, an avid video/photographer and a tech enthusiast.
+        An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to drive
+        efficiencies through automation. In my free time, I'm a father, an avid video/photographer and a tech
+        enthusiast.
       </p>
     </>
   ),
   actions: [
     {
       href: './A Charlwood - CV.pdf',
-      text: 'PDF',
+      text: 'CV',
       primary: true,
       Icon: ArrowDownTrayIcon,
     },
     {
-      href: `#${SectionId.Contact}`,
-      text: 'Contact',
+      href: 'https://www.linkedin.com/in/andrewcharlwood/',
       primary: false,
+      Icon: LinkedInIcon,
+    },
+    {
+      primary: false,
+      href: 'mailto:andy@charlwood.xyz',
+      Icon: EnvelopeIcon,
+    },
+    {
+      primary: false,
+      Icon: PhoneIcon,
+      href: 'tel:07795553088',
     },
   ],
-};
-
-/**
- * About section
- */
-export const aboutData: About = {
-  profileImageSrc: profilepic,
-  description: `An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to 
-  drive efficiencies through automation. With an extensive background in community pharmacy before moving into local 
-  health commissioning, I’ve worked on both regional and national projects in both sectors.`,
   aboutItems: [
     {label: 'Location', text: 'Norwich, Norfolk', Icon: MapIcon},
     {
@@ -146,6 +147,7 @@ export const aboutData: About = {
 /**
  * About section
  */
+
 export const letterData: Letter = {
   description: (
     <>

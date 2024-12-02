@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 import React, {FC, memo} from 'react';
 
 import Page from '../components/Layout/Page';
-import About from '../components/Sections/About';
 import Contact from '../components/Sections/Contact';
 import Education from '../components/Sections/Education';
 import Footer from '../components/Sections/Footer';
@@ -21,7 +20,6 @@ const Home: FC = memo(() => {
     <Page description={description} title={title}>
       <Header />
       <Hero />
-      <About />
       <Letter />
       <Resume />
       <Education />

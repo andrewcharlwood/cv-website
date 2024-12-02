@@ -22,16 +22,18 @@ export interface HomepageMeta {
  */
 export interface Hero {
   imageSrc: string;
+  profileImageSrc: string;
   name: string;
   description: JSX.Element;
   actions: HeroActionItem[];
+  aboutItems: AboutItem[];
 }
 
 interface HeroActionItem {
   href: string;
-  text: string;
+  text?: string;
   primary?: boolean;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
+  Icon?: FC<IconProps> | ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
 }
 
 /**
@@ -52,6 +54,7 @@ export interface AboutItem {
 }
 
 /**
+ * Stat section
  * Stat section
  */
 export interface Stat {
