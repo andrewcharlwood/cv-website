@@ -25,7 +25,7 @@ var Paragraph = styled.p(_templateObject || (_templateObject = _taggedTemplateLi
 }, function (props) {
   return props.collapse && 'text';
 }, function (props) {
-  return props.collapse && 'transparent';
+  return props.collapse;
 }, function (props) {
   return props.collapse ? 'all 0.3s' : 'all 0.5s';
 });

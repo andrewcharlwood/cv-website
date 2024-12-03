@@ -1,10 +1,10 @@
 {
-  "name": "read-more-read-less-toggler-edit1",
-  "version": "1.0.9",
+  "name": "read-more-read-less-toggler-edit",
+  "version": "1.1.0",
   "description": "Turncate overflow text with beautiful gradient & transition collapse view for React JS",
-  "author": "Hasham-dev",
+  "author": "andrewcharlwood",
   "license": "MIT",
-    "repository": "Hasham-dev/read-more-read-less-toggler",
+    "repository": "andrewcharlwood/read-more-read-less-toggler",
   "keywords": [
     "read-more",
     "turncate",

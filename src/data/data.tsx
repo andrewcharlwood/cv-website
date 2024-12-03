@@ -157,13 +157,9 @@ export const letterData: Letter = {
         automatically check if prescription requests to local GPs could be automatically checked against dispensed items
         to identify unfilled requests. This saved ~6 hours of staff time checking repeat requests by staff each week.
         <br />
-        <br />
-
-        <br />
-        <br />
         My motivation has always been to provide excellent healthcare. How I channel that motivation has changed
         massively since 2016. Thanks to courses such as the NHS Mary Seacole Leadership course, I am far better equipped
-        to use my leadership skills to engage with my colleagues or any stakeholder to achieve what is needed.
+        to use my leadership skills to engage with my colleagues or stakeholders to achieve what is needed.
       </p>
       <Line />
       <p className="prose-base mb-4 mt-4">

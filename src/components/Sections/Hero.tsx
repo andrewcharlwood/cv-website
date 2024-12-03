@@ -11,7 +11,7 @@ const Hero: FC = memo(() => {
 
   return (
     <Section noPadding sectionId={SectionId.Hero}>
-      <div className="relative flex h-screen w-full items-center justify-center">
+      <div class="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
         <Image
           alt={`${name}-image`}
           className="absolute z-0 h-full w-full object-cover"
@@ -19,9 +19,8 @@ const Hero: FC = memo(() => {
           priority
           src={imageSrc}
         />
-        <div className="z-10  max-w-screen-lg px-4 lg:px-0">
-          <div
-            className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 justify-center text-center shadow-lg backdrop-blur-sm">
+        <div className="z-10 pt-4 sm:pt-14 max-w-screen-lg px-4 lg:px-0">
+          <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 justify-center text-center shadow-lg backdrop-blur-sm  z-10">
             <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">{name}</h1>
             <div
               className={classNames('grid grid-cols-1 gap-y-4 gap-x-4 justify-center items-center', {
@@ -37,26 +36,20 @@ const Hero: FC = memo(() => {
               <div className={classNames('col-span-2 flex flex-col gap-y-6', {'md:col-span-3': !!profileImageSrc})}>
                 <div className="flex flex-col gap-y-2">
                   <h2 className="text-2xl font-bold text-white">About me</h2>
-                  <p className=" text-gray-300 sm:prose-base ">{description}</p>
+                  <p className=" text-gray-300 sm:prose-base">{description}</p>
                 </div>
               </div>
             </div>
 
-            <ul className="grid grid-cols-2 gap-5 sm:grid-cols-2">
+            <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
               {aboutItems.map(({label, text, Icon}, idx) => (
-                <li className="col-span-1 flex items-start gap-x-2" key={idx}>
-                  {Icon && <Icon className="h-6 w-6 text-white" />}
-                  <span className="text-sm md:text-lg font-bold text-start text-white">{label}:</span>
-                  <span className=" text-sm md:text-lg text-gray-300 text-end">{text}</span>
+                <li className="flex flex-wrap items-center gap-x-2 gap-y-1" key={idx}>
+                  {Icon && <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />}
+                  <span className="text-sm md:text-lg font-bold text-white whitespace-nowrap">{label}:</span>
+                  <span className="text-sm md:text-lg text-gray-300">{text}</span>
                 </li>
               ))}
             </ul>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-1">
-              <div className="flex text-white w-full justify-center items-center gap-x-4">
-
-              </div>
-
-            </div>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-1">
               <div className="flex w-full justify-center items-center gap-x-4">
                 {actions.map(({href, text, primary, Icon}) => (
@@ -73,15 +66,17 @@ const Hero: FC = memo(() => {
                 ))}
               </div>
             </div>
+
+            <div className="flex justify-center pt-4 sn:pt-6 md:pt-8 lg:pt-10">
+              <a
+                className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
+                href={`/#${SectionId.Letter}`}>
+                <ChevronDownIcon className="bg-transparent h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10" />
+              </a>
+            </div>
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-10 flex justify-center">
-          <a
-            className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
-            href={`/#${SectionId.Letter}`}>
-            <ChevronDownIcon className="h-5 w-5 bg-transparent sm:h-6 sm:w-6" />
-          </a>
-        </div>
+
       </div>
     </Section>
   );
