@@ -46,8 +46,8 @@ const Hero: FC = memo(() => {
               {aboutItems.map(({label, text, Icon}, idx) => (
                 <li className="col-span-1 flex items-start gap-x-2" key={idx}>
                   {Icon && <Icon className="h-6 w-6 text-white" />}
-                  <span className="text-sm font-bold text-white">{label}:</span>
-                  <span className=" text-sm text-gray-300 text-start">{text}</span>
+                  <span className="text-sm md:text-lg font-bold text-start text-white">{label}:</span>
+                  <span className=" text-sm md:text-lg text-gray-300 text-end">{text}</span>
                 </li>
               ))}
             </ul>

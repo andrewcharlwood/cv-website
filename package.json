@@ -1,7 +1,7 @@
 {
   "name": "andrew-charlwood-cv",
   "version": "2.0.0",
-  "homepage": "https://andrewcharlwood.github.io/cv-website/",
+  "homepage": "https://andrew.charlwood.xyz/",
   "private": true,
   "scripts": {
     "predeploy": "yarn run build",

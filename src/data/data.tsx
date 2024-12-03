@@ -48,7 +48,7 @@ const Line = () => (
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Andrew Charlwood CV',
+  title: 'Andy Charlwood CV',
   description: 'React webapp CV',
 };
 
@@ -151,109 +151,62 @@ export const heroData: Hero = {
 export const letterData: Letter = {
   description: (
     <>
-      {/*<p className="prose-base mb-4">*/}
-      {/*  I’m a medicine optimisation Pharmacist, working primarily with high-cost drugs for the Norfolk & Waveney*/}
-      {/*  Integrated Care Board (ICB). I’m passionate about providing{' '}*/}
-      {/*  <strong>excellent healthcare to our population and finding innovative ways to do so</strong>.*/}
-      {/*  <br />*/}
-      {/*  <br />*/}
-      {/*  At the Eclipse conference I was excited by the passion for Eclipse held by Dr Brown and the other speakers. I*/}
-      {/*  realise that there is no job role I am applying for, and no description of the person you might consider*/}
-      {/*  employing. I believe you want someone <strong>innovative</strong>, with a passion for{' '}*/}
-      {/*  <strong>technology</strong> whose motivation is to <strong>improve patient outcomes</strong>. I believe I am*/}
-      {/*  that person.*/}
-      {/*  <br />*/}
-      {/*  <br />*/}
-      {/*  I've been a registered pharmacist for over 7 years, with 5 years of experience in the community and nearly 2*/}
-      {/*  years within the ICB. I have the expected skill set of a pharmacist working within those roles, but I also have*/}
-      {/*  different, more unique skills that the typical pharmacist does not have, which would make me an asset to*/}
-      {/*  Eclipse.*/}
-      {/*  <br />*/}
-      {/*  <br />I wanted to demonstrate my eagerness to learn new skills, and enthusiasm for Eclipse, so I decided to use*/}
-      {/*  this opportunity to learn the basics of Typescript and build this website.*/}
-      {/*</p>*/}
-      <Line />
       <p className="prose-base mb-4 mt-4">
-        <strong>My career as a registered pharmacist started in Tesco pharmacy, Great Yarmouth</strong>. I had
-        significant concerns relating to patient safety and potentially fraudulent activity in the branch. which, after
-        escalating through appropriate channels, led to the pharmacy manager being suspended and dismissed.
+        <strong>My career as a registered pharmacist started in Tesco pharmacy, Great Yarmouth</strong>. It was here where I first became
+        curious to the idea of automating workflows through coding, specifically implementing a system which could
+        automatically check if prescription requests to local GPs could be automatically checked against dispensed items
+        to identify unfilled requests. This saved ~6 hours of staff time checking repeat requests by staff each week.
         <br />
         <br />
-        As a pharmacist with less than 2 months of experience and no personal contacts with locum pharmacists or other
-        branches (having recently moved to the area), being thrust into managing and being responsible for the operation
-        of a 100-hour pharmacy was extremely challenging.
+
         <br />
         <br />
-        That challenge, however, helped to <strong>define me as the pharmacy professional I am today.</strong> I am
-        proud of making the difficult decision to voice my concerns and being the driving force of change, which led the
-        branch to become far safer, from 1-2 medication errors a month to 1-2 a year. The branch grew much busier, by
-        around 50% in items supplied. Our KPIs also grew to the top of the group for the provision of NMS and customer
-        service scores.
-        <br />
-        <br />
-        <strong>My motivation has always been to provide excellent healthcare.</strong> How I channel that motivation
-        has changed massively since 2016. Thanks to courses such as the NHS Mary Seacole Leadership course, I am far
-        better equipped to use my leadership skills to engage with my colleagues or any stakeholder to achieve what is
-        needed.
+        My motivation has always been to provide excellent healthcare. How I channel that motivation has changed
+        massively since 2016. Thanks to courses such as the NHS Mary Seacole Leadership course, I am far better equipped
+        to use my leadership skills to engage with my colleagues or any stakeholder to achieve what is needed.
       </p>
       <Line />
       <p className="prose-base mb-4 mt-4">
-        <strong>
-          I feel innovation has been a core part of what has enabled me to progress successfully in my career.
-        </strong>{' '}
-        One notable example in 2017,the quality payments scheme was introduced, requiring checks on patient inhaler use.
-        The solution proposed by the company involved checking patient summary care records for each prescription with
-        an inhaler dispensed. This process would have been laborious, possibly taking up to an hour of pharmacist time
-        each day.
+        I feel innovation has been a core part of what has enabled me to progress successfully in my career. One notable
+        example in 2017,the quality payments scheme was introduced, requiring checks on patient inhaler use. The
+        solution proposed by the company involved checking patient summary care records for each prescription with an
+        inhaler dispensed. This process would have been laborious, possibly taking up to an hour of pharmacist time each
+        day.
         <br />
         <br />I took the initiative to explore what could be achieved with the antiquated dispensing system and
         developed a process requiring an audit every 6 months, taking 4 hours to complete. Achieving this criterion was
-        worth
-        <strong> nearly £1 million in total funding across all branches</strong>. I created a walkthrough document,
-        which was distributed to stores and used as the official process for the company. <br />
+        worth nearly £1 million in total funding across all branches. I created a walkthrough document, which was
+        distributed to stores and used as the official process for the company. <br />
         <br />
-        <strong>All branches met the criteria successfully.</strong>
+        All branches met the criteria successfully.
       </p>
       <Line />
       <p className="prose-base mb-4 mt-4">
-        <strong>I’m a big fan of tech</strong>, spending my spare time working on projects involving software
-        development, in doing so I’ve been able to apply these skills to implement solutions in my current/previous
-        role.
+        I’m a big fan of tech, spending my spare time working on projects involving software development, in doing so
+        I’ve been able to apply these skills to implement solutions in my current/previous role.
         <br />
         <br />
         When I was working as a community pharmacist, we were responsible for ordering medication for patients. We had a
         process of manually checking to see if we had received these prescriptions, which would take ~6 hours each week.
         This prompted me to write some macros in visual basic that would cross-reference dispensed vs. requested items
-        in under a minute.{' '}
-        <strong>
-          This saved us significant time each week, enabling us to serve our patients more effectively.
-        </strong> I felt empowered by the fact that I could take an idea and create something that helped people.
+        in under a minute. This saved us significant time each week, enabling us to serve our patients more effectively.
+        I felt empowered by the fact that I could take an idea and create something that helped people.
         <br />
         <br />
-        <strong>That was nearly 6 years ago</strong>, and the first time I’d leveraged software to build my own
-        solution. It led me down a path where I not only see the value in learning these skills but have a passion for
-        it. More recently in my current role I’ve discovered how to link secondary care activity data to Blueteq form
-        data, something previously not thought to be possible. Using this, I’ve initiated and completed projects which
-        have improved efficiencies for my colleagues and clinicians in the wider integrated care system. To see some of
-        these examples, please see the{' '}
+        That was nearly 6 years ago, and the first time I’d leveraged software to build my own solution. It led me down
+        a path where I not only see the value in learning these skills but have a passion for it. More recently in my
+        current role I’ve discovered how to link secondary care activity data to Blueteq form data, something previously
+        not thought to be possible. Using this, I’ve initiated and completed projects which have improved efficiencies
+        for my colleagues and clinicians in the wider integrated care system. To see some of these examples, please see
+        the{' '}
         <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="#projects">
           projects part of this page.
         </a>
       </p>
       <Line />
       <p className="prose-base mb-4 mt-4">
-        I hope these examples demonstrates the mindset I bring to work every day. I strive to develop and implement
-        efficient processes through innovative solutions. My fluency in technology and data analysis supports me in this
-        endeavour, and where possible, I automate a large part of my workflow.
-        <br />
-        <br />
         As a pharmacist, I feel I bring a clinical knowledge base. What I believe sets me apart from other pharmacists
-        is my passion and understanding for technology & software. When building clinical technology products like
-        Eclipse, I believe that bringing a clinical mind with an understanding of software development would be of real
-        value.
-        <br />
-        <br />
-        Thank you for your consideration, and I look forward to hearing from you.
+        is my passion for technology, and relentless determinism to bring my vision to reality.
       </p>
     </>
   ),
@@ -652,7 +605,7 @@ export const socialLinks: Social[] = [
     Icon: LinkedInIcon,
     href: 'https://www.linkedin.com/in/andrewcharlwood/',
   },
-  {label: 'Email', Icon: EnvelopeIcon, href: 'mailto:contact@andrewcharlwood.live'},
+  {label: 'Email', Icon: EnvelopeIcon, href: 'mailto:andy@charlwood.xyz'},
   {
     label: 'Phone',
     Icon: PhoneIcon,
