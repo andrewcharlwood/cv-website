@@ -75,7 +75,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 export const heroData: Hero = {
   imageSrc: heroImage,
   profileImageSrc: profilepic,
-  name: `Hey, I'm Andy`,
+  name: `Andy Charlwood`,
   description: (
     <>
       <p className="prose-sm text-stone-100 sm:prose-base lg:prose-lg">
@@ -115,30 +115,39 @@ export const heroData: Hero = {
     },
   ],
   aboutItems: [
-    {label: 'Location', text: 'Norwich, Norfolk', Icon: MapIcon},
     {
+      id: 1,
+      label: 'Location',
+      text: 'Norwich, Norfolk',
+      Icon: MapIcon},
+    {
+      id: 2,
       label: 'Age',
       text: '31',
       Icon: CalendarIcon,
     },
     {
+      id: 3,
       label: 'Registration number',
       text: '2211810',
       Icon: FingerPrintIcon,
     },
     {
+      id: 4,
       label: 'Interests',
       text: 'Technology, Photography, Rugby',
       Icon: SparklesIcon,
     },
     {
-      label: 'Study',
-      text: 'University of East Anglia',
+      id: 5,
+      label: 'Education',
+      text: 'Master of Pharmacy (MPharm), University of East Anglia',
       Icon: AcademicCapIcon,
     },
     {
+      id: 6,
       label: 'Employment',
-      text: 'Norfolk & Waveney ICB',
+      text: 'NHS Norfolk and Waveney Integrated Care Board (ICB)',
       Icon: BuildingOffice2Icon,
     },
   ],
@@ -152,10 +161,11 @@ export const letterData: Letter = {
   description: (
     <>
       <p className="prose-base mb-4 mt-4">
-        <strong>My career as a registered pharmacist started in Tesco pharmacy, Great Yarmouth</strong>. It was here where I first became
-        curious to the idea of automating workflows through coding, specifically implementing a system which could
-        automatically check if prescription requests to local GPs could be automatically checked against dispensed items
-        to identify unfilled requests. This saved ~6 hours of staff time checking repeat requests by staff each week.
+        <strong>My career as a registered pharmacist started in Tesco pharmacy, Great Yarmouth</strong>. It was here
+        where I first became curious to the idea of automating workflows through coding, specifically implementing a
+        system which could automatically check if prescription requests to local GPs could be automatically checked
+        against dispensed items to identify unfilled requests. This saved ~6 hours of staff time checking repeat
+        requests by staff each week.
         <br />
         My motivation has always been to provide excellent healthcare. How I channel that motivation has changed
         massively since 2016. Thanks to courses such as the NHS Mary Seacole Leadership course, I am far better equipped

@@ -49,6 +49,7 @@ export interface Letter {
 }
 export interface AboutItem {
   label: string;
+  id: number;
   text: string;
   Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
 }

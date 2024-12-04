@@ -19,9 +19,10 @@ const Hero: FC = memo(() => {
           priority
           src={imageSrc}
         />
-        <div className="z-10 pt-4 sm:pt-14 max-w-screen-lg px-4 lg:px-0">
-          <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 justify-center text-center shadow-lg backdrop-blur-sm  z-10">
-            <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">{name}</h1>
+        <div className="z-10 pt-4 sm:pt-14 max-w-screen-xl px-4 lg:px-0">
+          <div
+            className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 justify-center text-center shadow-lg backdrop-blur-sm  z-10">
+            <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl pb-2">{name}</h1>
             <div
               className={classNames('grid grid-cols-1 gap-y-4 gap-x-4 justify-center items-center', {
                 'gap-y-13 md:grid-cols-4': profileImageSrc,
@@ -42,8 +43,8 @@ const Hero: FC = memo(() => {
             </div>
 
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-              {aboutItems.map(({label, text, Icon}, idx) => (
-                <li className="flex flex-wrap items-center gap-x-2 gap-y-1" key={idx}>
+              {aboutItems.map(({id, label, text, Icon}) => (
+                <li className="flex flex-wrap items-center gap-x-2 gap-y-1" key={id}>
                   {Icon && <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />}
                   <span className="text-sm md:text-lg font-bold text-white whitespace-nowrap">{label}:</span>
                   <span className="text-sm md:text-lg text-gray-300">{text}</span>
