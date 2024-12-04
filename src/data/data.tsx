@@ -141,13 +141,13 @@ export const heroData: Hero = {
     {
       id: 5,
       label: 'Education',
-      text: 'Master of Pharmacy (MPharm), University of East Anglia',
+      text: 'Master of Pharmacy, University of East Anglia',
       Icon: AcademicCapIcon,
     },
     {
       id: 6,
       label: 'Employment',
-      text: 'NHS Norfolk and Waveney Integrated Care Board (ICB)',
+      text: 'NHS Norfolk & Waveney Integrated Care Board',
       Icon: BuildingOffice2Icon,
     },
   ],

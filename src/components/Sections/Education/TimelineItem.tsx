@@ -1,7 +1,7 @@
 import React, {FC, memo} from 'react';
-import {ReadMoreToggler} from 'read-more-read-less-toggler-edit';
 
 import {TimelineItem} from '../../../data/dataDef';
+import {ReadMoreToggler} from '../../../index';
 
 // eslint-disable-next-line react-memo/require-memo
 const Line = () => (

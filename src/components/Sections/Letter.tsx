@@ -1,7 +1,7 @@
 import React, {FC, memo} from 'react';
-import {ReadMoreToggler} from 'read-more-read-less-toggler-edit';
 
 import {letterData, SectionId} from '../../data/data';
+import {ReadMoreToggler} from '../../index';
 import Section from '../Layout/Section';
 
 const Letter: FC = memo(() => {
