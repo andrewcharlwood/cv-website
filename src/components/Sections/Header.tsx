@@ -14,7 +14,7 @@ const Header: FC = memo(() => {
   const navSections = useMemo(
     () => [
       SectionId.Hero,
-      SectionId.Letter,
+      SectionId.Summary,
       SectionId.Resume,
       SectionId.Education,
       SectionId.Portfolio,

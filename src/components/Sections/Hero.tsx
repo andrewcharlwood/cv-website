@@ -71,7 +71,7 @@ const Hero: FC = memo(() => {
             <div className="flex justify-center pt-4 sn:pt-6 md:pt-8 lg:pt-10">
               <a
                 className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
-                href={`/#${SectionId.Letter}`}>
+                href={`/#${SectionId.Summary}`}>
                 <ChevronDownIcon className="bg-transparent h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10" />
               </a>
             </div>

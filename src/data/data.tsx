@@ -25,10 +25,10 @@ import {
   ContactType,
   Hero,
   HomepageMeta,
-  Letter,
   PortfolioItem,
   SkillGroup,
   Social,
+  Summary,
   TestimonialSection,
   TimelineItem,
 } from './dataDef';
@@ -59,7 +59,7 @@ export const SectionId = {
   Hero: 'about',
   Contact: 'contact',
   Portfolio: 'projects',
-  Letter: 'letter',
+  Summary: 'summary',
   Resume: 'experience',
   Education: 'education',
   Skills: 'skills',
@@ -119,7 +119,8 @@ export const heroData: Hero = {
       id: 1,
       label: 'Location',
       text: 'Norwich, Norfolk',
-      Icon: MapIcon},
+      Icon: MapIcon,
+    },
     {
       id: 2,
       label: 'Age',
@@ -157,62 +158,34 @@ export const heroData: Hero = {
  * About section
  */
 
-export const letterData: Letter = {
+export const summaryData: Summary = {
   description: (
     <>
       <p className="prose-base mb-4 mt-4">
-        <strong>My career as a registered pharmacist started in Tesco pharmacy, Great Yarmouth</strong>. It was here
-        where I first became curious to the idea of automating workflows through coding, specifically implementing a
-        system which could automatically check if prescription requests to local GPs could be automatically checked
-        against dispensed items to identify unfilled requests. This saved ~6 hours of staff time checking repeat
+        <strong>My career as a registered pharmacist started in Tesco pharmacy, Great Yarmouth.</strong> It was here
+        where I first became curious to the idea of automating workflows through coding, specifically, I created and
+        implemented a system that could automatically check if prescription requests to local GPs could be automatically
+        checked against dispensed items to identify unfilled requests. This saved ~6 hours of staff time checking repeat
         requests by staff each week.
         <br />
-        My motivation has always been to provide excellent healthcare. How I channel that motivation has changed
-        massively since 2016. Thanks to courses such as the NHS Mary Seacole Leadership course, I am far better equipped
-        to use my leadership skills to engage with my colleagues or stakeholders to achieve what is needed.
-      </p>
-      <Line />
-      <p className="prose-base mb-4 mt-4">
-        I feel innovation has been a core part of what has enabled me to progress successfully in my career. One notable
-        example in 2017,the quality payments scheme was introduced, requiring checks on patient inhaler use. The
-        solution proposed by the company involved checking patient summary care records for each prescription with an
-        inhaler dispensed. This process would have been laborious, possibly taking up to an hour of pharmacist time each
-        day.
         <br />
-        <br />I took the initiative to explore what could be achieved with the antiquated dispensing system and
-        developed a process requiring an audit every 6 months, taking 4 hours to complete. Achieving this criterion was
-        worth nearly £1 million in total funding across all branches. I created a walkthrough document, which was
-        distributed to stores and used as the official process for the company. <br />
-        <br />
-        All branches met the criteria successfully.
-      </p>
-      <Line />
-      <p className="prose-base mb-4 mt-4">
-        I’m a big fan of tech, spending my spare time working on projects involving software development, in doing so
-        I’ve been able to apply these skills to implement solutions in my current/previous role.
+        That was the first time I built my own software solution to a problem I was facing. It led me down a path where
+        I not only see the value in learning these skills but have a passion for it. This hobby led me to becoming
+        proficient in python & SQL, and enables me to provide significant value in my current role as Deputy Head
+        of Population Health & Data Analysis within the Medicines Optimisation team.
         <br />
         <br />
-        When I was working as a community pharmacist, we were responsible for ordering medication for patients. We had a
-        process of manually checking to see if we had received these prescriptions, which would take ~6 hours each week.
-        This prompted me to write some macros in visual basic that would cross-reference dispensed vs. requested items
-        in under a minute. This saved us significant time each week, enabling us to serve our patients more effectively.
-        I felt empowered by the fact that I could take an idea and create something that helped people.
-        <br />
-        <br />
-        That was nearly 6 years ago, and the first time I’d leveraged software to build my own solution. It led me down
-        a path where I not only see the value in learning these skills but have a passion for it. More recently in my
-        current role I’ve discovered how to link secondary care activity data to Blueteq form data, something previously
-        not thought to be possible. Using this, I’ve initiated and completed projects which have improved efficiencies
-        for my colleagues and clinicians in the wider integrated care system. To see some of these examples, please see
-        the{' '}
+        I’ve initiated and completed projects which have improved efficiencies for my colleagues and clinicians in the wider integrated care system. To see some of these
+        examples, please see the{' '}
         <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="#projects">
           projects part of this page.
         </a>
-      </p>
-      <Line />
-      <p className="prose-base mb-4 mt-4">
-        As a pharmacist, I feel I bring a clinical knowledge base. What I believe sets me apart from other pharmacists
-        is my passion for technology, and relentless determinism to bring my vision to reality.
+        <br />
+        <br />
+        My motivation has always been to facilitate excellent healthcare. How I channel that motivation has changed
+        massively since 2016. I realise I don't need to be patient facing to achieve that goal.
+        Pivoting from community pharmacy to local health commissioning was driven by a desire to positively impact
+        patient outcomes at a regional level.
       </p>
     </>
   ),
@@ -328,7 +301,39 @@ export const portfolioItems: PortfolioItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'May 2022 - Present',
+    date: 'June 2024 - Present',
+    location: 'NHS Norfolk and Waveney Integrated Care Board',
+    title: 'Deputy Head of Population Health & Data Analysis, Medicines Optimisation',
+    grade: '',
+    content: (
+      <>
+        <p className="prose-base">
+        </p>
+        <br />
+        <br />
+        <h3 className="text-md font-bold">Other recent notable pieces of work:</h3>
+        <Line></Line>
+        <div className="prose max-w-none">
+          <ul>
+            <li>
+              Responding to the recent ADHD medicine shortage, collaborating with NSFT to formulate guidance for primary
+              care
+            </li>
+            <li>
+              Creating an oxygen data dashboard to to support primary care clinicians to identify patient in need of
+              review
+            </li>
+            <li>
+              Completing high-cost drug pathways for a number of directorates such as rheumatology, ophthalmology and
+              gastroenterology.
+            </li>
+          </ul>
+        </div>
+      </>
+    ),
+  },
+  {
+    date: 'May 2022 - June 2024',
     location: 'NHS Norfolk and Waveney Integrated Care Board',
     title: 'Medicines Optimisation - high-cost drugs',
     grade: '',

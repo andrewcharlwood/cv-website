@@ -44,7 +44,7 @@ export interface About {
   description: string;
   aboutItems: AboutItem[];
 }
-export interface Letter {
+export interface Summary {
   description: JSX.Element;
 }
 export interface AboutItem {
