@@ -171,21 +171,21 @@ export const summaryData: Summary = {
         <br />
         That was the first time I built my own software solution to a problem I was facing. It led me down a path where
         I not only see the value in learning these skills but have a passion for it. This hobby led me to becoming
-        proficient in python & SQL, and enables me to provide significant value in my current role as Deputy Head
-        of Population Health & Data Analysis within the Medicines Optimisation team.
+        proficient in python & SQL, and enables me to provide significant value in my current role as Deputy Head of
+        Population Health & Data Analysis within the Medicines Optimisation team.
         <br />
         <br />
-        I’ve initiated and completed projects which have improved efficiencies for my colleagues and clinicians in the wider integrated care system. To see some of these
-        examples, please see the{' '}
+        I’ve initiated and completed projects which have improved efficiencies for my colleagues and clinicians in the
+        wider integrated care system. To see some of these examples, please see the{' '}
         <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="#projects">
           projects part of this page.
         </a>
         <br />
         <br />
         My motivation has always been to facilitate excellent healthcare. How I channel that motivation has changed
-        massively since 2016. I realise I don't need to be patient facing to achieve that goal.
-        Pivoting from community pharmacy to local health commissioning was driven by a desire to positively impact
-        patient outcomes at a regional level.
+        massively since 2016. I realise I don't need to be patient facing to achieve that goal. Pivoting from community
+        pharmacy to local health commissioning was driven by a desire to positively impact patient outcomes at a
+        regional level.
       </p>
     </>
   ),
@@ -308,25 +308,30 @@ export const experience: TimelineItem[] = [
     content: (
       <>
         <p className="prose-base">
+          I drive the strategic delivery of population health initiatives from the perspective of medicines
+          optimisation. My role involves spearheading data-driven approaches to improve prescribing quality, address
+          health inequalities, and enhance system efficiency. I provide clinical expertise and oversee complex projects,
+          ensuring alignment with national policies and local healthcare needs.
+          <br />
+          <br />
+          In this role, I have successfully implemented solutions using Python, SQL, and Power BI to deliver actionable
+          insights, develop interactive dashboards, and streamline decision-making processes for medicines optimisation
+          and population health management.
         </p>
         <br />
-        <br />
-        <h3 className="text-md font-bold">Other recent notable pieces of work:</h3>
+        <h2 className="text-lg font-bold">Examples of completed/ongoing work include:</h2>
         <Line></Line>
         <div className="prose max-w-none">
           <ul>
             <li>
-              Responding to the recent ADHD medicine shortage, collaborating with NSFT to formulate guidance for primary
-              care
+              Collaborating with the ICB data team to access, and create insights with patient-level data. Previously
+              the Medicine Optimisation team has been limited to practice-level.
             </li>
             <li>
-              Creating an oxygen data dashboard to to support primary care clinicians to identify patient in need of
-              review
+              Creating an Opioid dashboard to convert all opiates to oral morphine equivalent, to identify and
+              prioritise reviews of patients being over prescribed opiates
             </li>
-            <li>
-              Completing high-cost drug pathways for a number of directorates such as rheumatology, ophthalmology and
-              gastroenterology.
-            </li>
+            <li>Leveraging AI to audit repeat prescription adherence at a system-wide level.</li>
           </ul>
         </div>
       </>
@@ -335,56 +340,29 @@ export const experience: TimelineItem[] = [
   {
     date: 'May 2022 - June 2024',
     location: 'NHS Norfolk and Waveney Integrated Care Board',
-    title: 'Medicines Optimisation - high-cost drugs',
+    title: 'Medicines Optimisation - High cost drugs & care homes',
     grade: '',
     content: (
       <>
         <p className="prose-base">
-          As the high-cost drug Pharmacist, my primary role relates to collaborating with specialists across the ICS to
-          ensure patients have access to medicines mandated by new NICE technology appraisals (TA).
-          <br />
-          <br />I collaborate with specialists across the ICS to formulate patient care pathways which follow NICE TA
-          recommendations, include local advice from specialists and follow a best value approach to delivering care to
-          minimise wasteful spending.
+          Collaborated with specialists to ensure patient access to medicines mandated by new NICE technology appraisals
+          (TAs) while optimizing care pathways to align with national and local guidance and minimize waste.
         </p>
         <br />
-        <Line />
-        <br />
-        <p className="prose-base">
-          <strong>A substantive project</strong> I've undertaken related to the Blueteq platform, which is used to send
-          approval requests for high-cost drugs to ICB. Despite our BI team having stated activity data from secondary
-          care could not be connected to data from Blueteq, I was able to match all forms submitted to the relevant
-          activity data.
-          <br />
-          <br />I proposed an entire revamp of all Blueteq forms, with automatic form generation directly from NICE TAs,
-          and removing redundant forms which could now be replaced with the linked data. The results were:
-        </p>
-        <div className="prose max-w-none">
-          <ul>
-            <li>Number of forms reduced by 70%</li>
-            <li>Saving ~5-6 hours of ICB admin time per week</li>
-            <li>Saving ~10 hours of ICB Pharmacist time per month</li>
-            <li>Reduced admin burden on secondary care clinicians</li>
-            <li>Auditing of drug usage to be completed significantly faster, with greater precision</li>
-          </ul>
-        </div>
-        <br />
-        <h3 className="text-md font-bold">Other recent notable pieces of work:</h3>
+        <h2 className="text-lg font-bold">Responsibilities & achievements</h2>
         <Line></Line>
         <div className="prose max-w-none">
           <ul>
             <li>
-              Responding to the recent ADHD medicine shortage, collaborating with NSFT to formulate guidance for primary
-              care
+              Integrated Blueteq platform data with secondary care activity data, resolving data-matching limitations.
             </li>
             <li>
-              Creating an oxygen data dashboard to to support primary care clinicians to identify patient in need of
-              review
+              Redesigned Blueteq forms based on NICE TAs, reducing forms by 70% and saving ~30 hours of admin and
+              pharmacist time monthly.
             </li>
-            <li>
-              Completing high-cost drug pathways for a number of directorates such as rheumatology, ophthalmology and
-              gastroenterology.
-            </li>
+            <li>Developed primary care guidance with NSFT during the ADHD medicine shortage</li>
+            <li>Created an oxygen data dashboard to identify primary care patients needing review.</li>
+            <li>Completed high-cost drug pathways for rheumatology, ophthalmology, and gastroenterology.</li>
           </ul>
         </div>
       </>
@@ -399,50 +377,31 @@ export const experience: TimelineItem[] = [
     content: (
       <>
         <p className="prose-base">
-          As the pharmacy manager, I was responsible for the day-to-day operation of the pharmacy. I was given a large
-          amount of autonomy to ensure we delivered a high-quality service to our customers, whilst ensuring that safety
-          is at the core of everything we did.
+          Oversaw day-to-day pharmacy operations with autonomy to deliver high-quality, safety-focused services.
         </p>
         <br />
-        <h2 className="text-lg font-bold">Responsibilities</h2>
+        <h2 className="text-lg font-bold">Responsibilities & key achievements</h2>
         <Line></Line>
         <div className="prose max-w-none">
           <ul>
             <li>
-              Leading projects within my region, including KPIs such as the New Medication Service (NMS), and
-              operational changes being rolled out nationally
+              Led regional projects, including achieving KPIs like the New Medication Service (NMS) and implementing
+              national operational changes.
+            </li>
+            <li>Contributed to national initiatives, such as developing induction training plans for new starters.</li>
+            <li>Served on the Local Pharmaceutical Committee (LPC), supporting Norfolk's community pharmacies.</li>
+            <li>
+              Created and executed plans to meet annual KPI targets, including customer feedback and health service
+              provision.
+            </li>
+            <li>Managed locum pharmacist bookings and ensured an up-to-date business continuity plan.</li>
+            <li>
+              Handled HR responsibilities, including staff rotas, training, recruitment, performance management, and
+              grievances.
             </li>
             <li>
-              National projects, including developing a new training plan all new starters undertake on induction.
-            </li>
-            <li>
-              As a member of the Local Pharmaceutical Committee (LPC), I worked with other pharmacy contractor
-              representatives to support community pharmacies in Norfolk.
-            </li>
-            <li>
-              Creating and implementing plans to ensure we meet our KPI targets for the financial year (e.g., customer
-              service feedback, provision of health services).
-            </li>
-            <li>
-              Being the responsible pharmacist (RP), provision of services and all functions/responsibilities related to
-              being the RP.
-            </li>
-            <li>
-              Ensuring that we are operating in a safe, and legal way is fundamental to our day to day operations.
-            </li>
-            <li>Booking and managing locum pharmacists</li>
-            <li>
-              Ensuring there is a robust business continuity plan which is up to date and accessible in the event that
-              we are unable to operate as expected.
-            </li>
-            <li>Ensuring the pharmacy is remunerated in an accurate and timely fashion.</li>
-            <li>
-              HR roles including but not limited to staff rotas, training, recruitment, disciplinaries, performance
-              management, and grievances.
-            </li>
-            <li>
-              Collaboration with non-healthcare managers in store. Primarily the store manager, and other pharmacy
-              managers in my region, through Microsoft Teams, WhatsApp and conference calls.
+              Collaborated with store and regional pharmacy managers via Microsoft Teams, WhatsApp, and conference
+              calls.
             </li>
           </ul>
         </div>
@@ -455,20 +414,24 @@ export const experience: TimelineItem[] = [
     title: 'Duty Pharmacy Manager',
     grade: '',
     content: (
-      <p className="prose-base">
-        In August 2016 I started working at Tesco as a newly qualified pharmacist, after two months of working alongside
-        the Pharmacy Manager, as Duty (deputy) Pharmacy manager, I stepped up to be the acting Pharmacy Manager for the
-        store.
+      <>
+        <p className="prose-base">
+          Joined as a newly qualified pharmacist in August 2016 and, after two months, stepped up as Acting Pharmacy
+          Manager.
+        </p>
         <br />
-        <br />
-        Notable work in this role include working as joint lead for NMS and asthma referrals, focussing on providing
-        resources which can be used by stores to help facilitate the provision of services.
-        <br />
-        <br />
-        One solution related to quality payments, involving screening asthma patients was implemented been used
-        nationally, which saved Pharmacists ~30-60 minutes of work a day, with the potential of generating
-        <strong> ~£1 million</strong> in revenue from patient identification.
-      </p>
+        <h2 className="text-lg font-bold">Responsibilities & achievements</h2>
+        <Line></Line>
+        <div className="prose max-w-none">
+          <ul>
+            <li>Co-led initiatives for NMS and asthma referrals, developing resources to support service provision.</li>
+            <li>
+              Designed a quality payments solution for asthma patient screening, implemented nationally, saving
+              pharmacists 30–60 minutes daily and generating potential revenue of ~£1 million.
+            </li>
+          </ul>
+        </div>
+      </>
     ),
   },
   {
@@ -479,28 +442,20 @@ export const experience: TimelineItem[] = [
     content: (
       <>
         <p className="prose-base">
-          As a pre-registration pharmacist I took the decision to move to a busier, understaffed pharmacy – which
-          provided a much wider variety of services and gave me the opportunity to challenge myself. This provided me
-          with a great foundation to begin my professional career.
-          <br />
-          <br />
-          My responsibilities included those atypical to a pre-registration pharmacist, such as consulting patients on
-          new medications, highlighting and solving prescription interventions, and providing support to other pharmacy
-          staff.
-          <br />
-          <br />
-          Other areas where I have taken the opportunity to experience and learn from include:
+          Chose to train at a busy, understaffed pharmacy offering a wide range of services, providing a strong
+          foundation for my professional career.
         </p>
-        <div className="prose prose-ul:">
+        <div className="prose max-w-none">
           <ul>
-            <li>Clinically screening patient charts for a palliative care hospice</li>
-            <li>Understanding and undertaking wholesale procedure</li>
             <li>
-              Undertaking audits, including one which resulted in an increase in completed NMS, from less than 10% of
+              Took on advanced responsibilities, including patient consultations, resolving prescription interventions,
+              and supporting pharmacy staff.
+            </li>
+            <li>
+              Undertook audits, including one which resulted in an increase in completed NMS, from less than 10% of
               target to reaching 50-60% target
             </li>
-            <li>Instigating multiple PGDs, including NRT, EHC & Chlamydia screening/treatment</li>
-            <li>Two-week hospital-placement at the Queen Elizabeth The Queen Mother Hospital</li>
+            <li>Instigated multiple PGDs, including NRT, EHC & Chlamydia screening/treatment</li>
           </ul>
         </div>
       </>
@@ -513,7 +468,7 @@ export const education: TimelineItem[] = [
     date: 'April - October 2018',
     location: 'NHS Leadership Academy',
     title: 'Mary Seacole',
-    grade: '79%',
+    grade: '78%',
     content: (
       <p className="prose-base">
         I took the opportunity to undertake the Mary Seacole leadership programme offered by the NHS leadership academy
@@ -540,17 +495,28 @@ export const education: TimelineItem[] = [
     content: (
       <>
         <p className="prose-base">
-          During my time at UEA, I gained experience through a selection of societies and roles, gaining experience and
-          developing skills which would benefit my career. Academically I take most pride from my research project,
-          based on drug delivery, which allowed me to independently explore and research complex ideas of cocrystals.
-          Throughout my studies I grew to develop excellent consultation skills, shown in my 4th year OSCE result of
-          80%.
+          Developed strong academic and practical skills through research and extracurricular activities.
           <br />
-          <br />
-          My ability to work effectively, creatively, with strict time management, is shown with result of my final year
-          project which attained a grade of 75.1%
-          <br />
-          <br />
+          <div className="prose max-w-none">
+            <ul>
+              <li>
+                Conducted an independent
+                research project on drug delivery,
+                exploring complex ideas in
+                cocrystals, achieving a distinction-
+                level grade of 75.1%.
+              </li>
+              <li>
+                Demonstrated excellent
+                consultation skills, reflected in a
+                4th-year OSCE result of 80%
+              </li>
+              <li>Honed time management,
+                creativity, and problem-solving
+                skills while balancing academic
+                and extracurricular commitments.</li>
+            </ul>
+          </div>
           <b>Non-academic activities</b>
         </p>
         <Line></Line>
