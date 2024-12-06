@@ -500,21 +500,14 @@ export const education: TimelineItem[] = [
           <div className="prose max-w-none">
             <ul>
               <li>
-                Conducted an independent
-                research project on drug delivery,
-                exploring complex ideas in
-                cocrystals, achieving a distinction-
-                level grade of 75.1%.
+                Conducted an independent research project on drug delivery, exploring complex ideas in cocrystals,
+                achieving a distinction- level grade of 75.1%.
               </li>
+              <li>Demonstrated excellent consultation skills, reflected in a 4th-year OSCE result of 80%</li>
               <li>
-                Demonstrated excellent
-                consultation skills, reflected in a
-                4th-year OSCE result of 80%
+                Honed time management, creativity, and problem-solving skills while balancing academic and
+                extracurricular commitments.
               </li>
-              <li>Honed time management,
-                creativity, and problem-solving
-                skills while balancing academic
-                and extracurricular commitments.</li>
             </ul>
           </div>
           <b>Non-academic activities</b>
