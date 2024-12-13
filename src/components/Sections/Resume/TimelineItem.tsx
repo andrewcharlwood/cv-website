@@ -1,7 +1,7 @@
 import React, {FC, memo} from 'react';
 
 import {TimelineItem} from '../../../data/dataDef';
-import {ReadMoreToggler} from '../../../index';
+import ReadMore from '../../../learn';
 
 // eslint-disable-next-line react-memo/require-memo
 const Line = () => (
@@ -18,8 +18,10 @@ const TimelineItem: FC<{item: TimelineItem}> = memo(({item}) => {
   if (grade !== '') {
     return (
       <div className="flex flex-col pb-8 text-left last:pb-0 md:text-left">
+        <div className="bg-neutral-100">
+        <ReadMore>
         <div className="flex flex-col pb-4">
-          <ReadMoreToggler bottomGradient="black" desktopBreakLines="15" mobileBreakLines="8" topGradient="#D4D4D4">
+
             <h2 className="text-xl font-bold">{title}</h2>
             <Line />
             <div className="flex items-left text-left justify-left gap-x-2 md:justify-start">
@@ -30,7 +32,9 @@ const TimelineItem: FC<{item: TimelineItem}> = memo(({item}) => {
               <span className="flex-2 text-sm font-medium sm:flex-none">{date}</span>
             </div>
             {content}
-          </ReadMoreToggler>
+
+        </div>
+        </ReadMore>
         </div>
       </div>
     );
@@ -38,20 +42,22 @@ const TimelineItem: FC<{item: TimelineItem}> = memo(({item}) => {
   return (
     <div className="flex list-outside flex-col pb-8 text-left last:pb-0 md:text-left">
       <div className="flex flex-col pb-4">
-        <ReadMoreToggler bottomGradient="black" desktopBreakLines="15" mobileBreakLines="8" topGradient="#D4D4D4">
-          <h2 className="text-xl font-bold">{title}</h2>
-          <Line />
-          <div className="flex items-left text-left justify-left gap-x-2 md:justify-start">
-            <span className="flex-2 text-sm font-medium italic sm:flex-none">{location}</span>
-            <span className="flex-2 text-sm font-medium italic sm:flex-none">•</span>
-            <span className="flex-2 text-sm font-medium sm:flex-none">{date}</span>
-          </div>
-          <div>{content}</div>
-        </ReadMoreToggler>
+        <div className="bg-neutral-100">
+          <ReadMore>
+            <h2 className="text-xl font-bold">{title}</h2>
+            <Line />
+            <div className="flex items-left text-left justify-left gap-x-2 md:justify-start">
+              <span className="flex-2 text-sm font-medium italic sm:flex-none">{location}</span>
+              <span className="flex-2 text-sm font-medium italic sm:flex-none">•</span>
+              <span className="flex-2 text-sm font-medium sm:flex-none">{date}</span>
+            </div>
+            <div>{content}</div>
+          </ReadMore>
+        </div>
+        </div>
       </div>
-    </div>
-  );
-});
+      );
+      });
 
-TimelineItem.displayName = 'TimelineItem';
+      TimelineItem.displayName = 'TimelineItem';
 export default TimelineItem;

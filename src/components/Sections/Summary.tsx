@@ -1,16 +1,18 @@
 import React, {FC, memo} from 'react';
 
 import {SectionId,summaryData} from '../../data/data';
-import {ReadMoreToggler} from '../../index';
+import ReadMore from  '../../learn';
 import Section from '../Layout/Section';
 
 const Summary: FC = memo(() => {
   const {description} = summaryData;
   return (
     <Section className="bg-neutral-300" sectionId={SectionId.Summary}>
-      <ReadMoreToggler bottomGradient="black" desktopBreakLines="15" mobileBreakLines="8" topGradient="#D4D4D4">
-        <div className=" text-black justify-center start-centre gap-y-4">{description}</div>
-      </ReadMoreToggler>
+      <div className="bg-neutral-300 ">
+        <ReadMore>
+          {description}
+        </ReadMore>
+      </div>
     </Section>
   );
 });
