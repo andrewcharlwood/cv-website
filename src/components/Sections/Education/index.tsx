@@ -19,5 +19,5 @@ const Education: FC = memo(() => {
   );
 });
 
-Education.displayName = 'Education';
-export default Education;
+//Education.displayName = 'Education';
+//export default Education;

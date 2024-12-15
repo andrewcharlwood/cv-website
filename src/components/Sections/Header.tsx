@@ -17,7 +17,7 @@ const Header: FC = memo(() => {
       SectionId.Summary,
       SectionId.Resume,
       SectionId.Education,
-      SectionId.Portfolio,
+      SectionId.Carousel,
       SectionId.Contact,
     ],
     [],

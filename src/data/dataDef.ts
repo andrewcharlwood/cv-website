@@ -93,11 +93,11 @@ export interface PortfolioItem {
  * Resume section
  */
 export interface TimelineItem {
+  title: string;
   date: string;
   location: string;
-  title: string;
-  grade: string;
-  content: JSX.Element;
+  content: React.ReactNode;
+  grade?: string;
 }
 
 /**

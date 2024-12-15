@@ -9,6 +9,7 @@ import {PortfolioItem} from '../../data/dataDef';
 import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 import Section from '../Layout/Section';
 
+
 const Portfolio: FC = memo(() => {
   const [show, setShow] = useState(false);
   return (
@@ -33,6 +34,7 @@ const Portfolio: FC = memo(() => {
           })}
         </div>
       </div>
+
     </Section>
   );
 });

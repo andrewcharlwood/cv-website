@@ -5,7 +5,7 @@ import ReadMore from '../../../learn';
 
 // eslint-disable-next-line react-memo/require-memo
 const Line = () => (
-  <hr
+  <object
     style={{
       color: 'rgba(52, 52, 52, 0.8)',
       backgroundColor: 'rgba(52, 52, 52, 0.2)',

@@ -18,18 +18,24 @@
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
     "autoprefixer": "^10.4.20",
+    "class-variance-authority": "^0.7.1",
     "classnames": "^2.3.2",
+    "clsx": "^2.1.1",
     "cssnano": "^7.0.6",
     "lodash": "^4.17.21",
+    "lucide-react": "^0.468.0",
     "next": "^15.0.3",
     "postcss": "^8.4.49",
     "postcss-preset-env": "^10.1.1",
     "react": "18",
     "react-dom": "18",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.4.12",
+    "@shadcn/ui": "^0.0.4",
     "@tailwindcss/forms": "^0.5.4",
     "@tailwindcss/typography": "^0.5.9",
     "@types/lodash": "^4.17.13",
@@ -49,6 +55,7 @@
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "sass": "^1.64.2",
+    "shadcn-ui": "^0.9.4",
     "tailwindcss": "^3.3.3",
     "typescript": "5.1.6"
   },

@@ -33,7 +33,7 @@ import {
 
 // eslint-disable-next-line react-memo/require-memo
 const Line = () => (
-  <hr
+  <object
     style={{
       color: 'rgba(52, 52, 52, 0.1)',
       backgroundColor: 'rgba(52, 52, 52, 0.5)',
@@ -63,6 +63,7 @@ export const SectionId = {
   Skills: 'skills',
   Stats: 'stats',
   Testimonials: 'testimonials',
+  Carousel: 'projects',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -293,18 +294,15 @@ export const portfolioItems: PortfolioItem[] = [
   },
 ];
 
-/**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
- */
 
 export const experience: TimelineItem[] = [
   {
-    date: 'June 2024 - Present',
+    date: 'June 2024 - ',
     location: 'NHS Norfolk and Waveney Integrated Care Board',
     title: 'Deputy Head of Population Health & Data Analysis, Medicines Optimisation',
     grade: '',
     content: (
-      <>
+      <div>
         <p className="prose-base">
           I drive the strategic delivery of population health initiatives from the perspective of medicines
           optimisation. My role involves spearheading data-driven approaches to improve prescribing quality, address
@@ -317,22 +315,22 @@ export const experience: TimelineItem[] = [
           and population health management.
         </p>
         <br />
-        <h2 className="text-lg font-bold">Examples of completed/ongoing work include:</h2>
+        <h2 className="text-lg font-bold">Responsibilities & key achievements</h2>
         <Line></Line>
         <div className="prose max-w-none">
-          <ul>
-            <li>
-              Collaborating with the ICB data team to access, and create insights with patient-level data. Previously
-              the Medicine Optimisation team has been limited to practice-level.
-            </li>
-            <li>
-              Creating an Opioid dashboard to convert all opiates to oral morphine equivalent, to identify and
-              prioritise reviews of patients being over prescribed opiates
-            </li>
-            <li>Leveraging AI to audit repeat prescription adherence at a system-wide level.</li>
-          </ul>
+        <ul>
+          <li>
+            Collaborating with the ICB data team to access, and create insights with patient-level data. Previously the
+            Medicine Optimisation team has been limited to practice-level.
+          </li>
+          <li>
+            Creating an Opioid dashboard to convert all opiates to oral morphine equivalent, to identify and prioritise
+            reviews of patients being over prescribed opiates
+          </li>
+          <li>Leveraging AI to audit repeat prescription adherence at a system-wide level.</li>
+        </ul>
         </div>
-      </>
+      </div>
     ),
   },
   {
@@ -341,14 +339,14 @@ export const experience: TimelineItem[] = [
     title: 'Medicines Optimisation - High cost drugs & care homes',
     grade: '',
     content: (
-      <>
+      <div>
         <p className="prose-base">
           Collaborated with specialists to ensure patient access to medicines mandated by new NICE technology appraisals
           (TAs) while optimizing care pathways to align with national and local guidance and minimize waste.
         </p>
         <br />
         <h2 className="text-lg font-bold">Responsibilities & achievements</h2>
-        <Line></Line>
+        <Line />
         <div className="prose max-w-none">
           <ul>
             <li>
@@ -363,7 +361,7 @@ export const experience: TimelineItem[] = [
             <li>Completed high-cost drug pathways for rheumatology, ophthalmology, and gastroenterology.</li>
           </ul>
         </div>
-      </>
+      </div>
     ),
   },
   {
@@ -412,13 +410,13 @@ export const experience: TimelineItem[] = [
     title: 'Duty Pharmacy Manager',
     grade: '',
     content: (
-      <>
+      <div>
         <p className="prose-base">
           Joined as a newly qualified pharmacist in August 2016 and, after two months, stepped up as Acting Pharmacy
           Manager.
         </p>
         <br />
-        <h2 className="text-lg font-bold">Responsibilities & achievements</h2>
+        <h2 className="text-lg font-bold">Responsibilities & key achievements</h2>
         <Line></Line>
         <div className="prose max-w-none">
           <ul>
@@ -429,7 +427,7 @@ export const experience: TimelineItem[] = [
             </li>
           </ul>
         </div>
-      </>
+      </div>
     ),
   },
   {
@@ -443,6 +441,9 @@ export const experience: TimelineItem[] = [
           Chose to train at a busy, understaffed pharmacy offering a wide range of services, providing a strong
           foundation for my professional career.
         </p>
+        <br />
+        <h2 className="text-lg font-bold">Responsibilities & key achievements</h2>
+        <Line />
         <div className="prose max-w-none">
           <ul>
             <li>
@@ -462,29 +463,29 @@ export const experience: TimelineItem[] = [
 ];
 
 export const education: TimelineItem[] = [
-  {
-    date: 'April - October 2018',
-    location: 'NHS Leadership Academy',
-    title: 'Mary Seacole',
-    grade: '78%',
-    content: (
-      <p className="prose-base">
-        I took the opportunity to undertake the Mary Seacole leadership programme offered by the NHS leadership academy
-        when it was first made available to community pharmacists. Seacole provided me with the tools necessary to embed
-        the values of healthcare leadership in my regular practice and has been the single biggest influence on how I
-        manage and lead a team.
-        <br />
-        <br />
-        The course took ~6 months to complete, and concluded with a reflective, and reflexive essay for assessment.
-        <br />
-        <br />
-        One of the biggest shifts in perspective I had from the course was seeing leadership as a behaviour that we
-        employ, rather than being restricted to a person or a position. Practical skills such as providing effective
-        feedback, interviewing skills, and inspiring colleagues through techniques such as “line-of-sight” have been
-        extremely effective when managing colleagues.
-      </p>
-    ),
-  },
+  // {
+  //   date: 'April - October 2018',
+  //   location: 'NHS Leadership Academy',
+  //   title: 'Mary Seacole',
+  //   grade: '78%',
+  //   content: (
+  //     <p className="prose">
+  //       I took the opportunity to undertake the Mary Seacole leadership programme offered by the NHS leadership academy
+  //       when it was first made available to community pharmacists. Seacole provided me with the tools necessary to embed
+  //       the values of healthcare leadership in my regular practice and has been the single biggest influence on how I
+  //       manage and lead a team.
+  //       <br />
+  //       <br />
+  //       The course took ~6 months to complete, and concluded with a reflective, and reflexive essay for assessment.
+  //       <br />
+  //       <br />
+  //       One of the biggest shifts in perspective I had from the course was seeing leadership as a behaviour that we
+  //       employ, rather than being restricted to a person or a position. Practical skills such as providing effective
+  //       feedback, interviewing skills, and inspiring colleagues through techniques such as “line-of-sight” have been
+  //       extremely effective when managing colleagues.
+  //     </p>
+  //   ),
+  // },
   {
     date: '2011 - 2015',
     location: 'University of East Anglia',
@@ -494,23 +495,22 @@ export const education: TimelineItem[] = [
       <>
         <p className="prose-base">
           Developed strong academic and practical skills through research and extracurricular activities.
-          <br />
-          <div className="prose max-w-none">
-            <ul>
-              <li>
-                Conducted an independent research project on drug delivery, exploring complex ideas in cocrystals,
-                achieving a distinction- level grade of 75.1%.
-              </li>
-              <li>Demonstrated excellent consultation skills, reflected in a 4th-year OSCE result of 80%</li>
-              <li>
-                Honed time management, creativity, and problem-solving skills while balancing academic and
-                extracurricular commitments.
-              </li>
-            </ul>
-          </div>
-          <b>Non-academic activities</b>
         </p>
-        <Line></Line>
+        <div className="prose max-w-none">
+          <ul>
+            <li>
+              Conducted an independent research project on drug delivery, exploring complex ideas in cocrystals,
+              achieving a distinction- level grade of 75.1%.
+            </li>
+            <li>Demonstrated excellent consultation skills, reflected in a 4th-year OSCE result of 80%</li>
+            <li>
+              Honed time management, creativity, and problem-solving skills while balancing academic and extracurricular
+              commitments.
+            </li>
+          </ul>
+        </div>
+        <h2 className="text-lg font-bold">Non-academic activities</h2>
+        <Line />
         <div className="prose max-w-none">
           <ul>
             During my time at UEA I supported several clubs/societies as a committee member:
@@ -525,7 +525,7 @@ export const education: TimelineItem[] = [
   {
     date: '2009 - 2011',
     location: 'Highworth Grammar School',
-    title: 'A-Levels',
+    title: 'A-Levels: Maths, Chemistry, Politics',
     grade: 'Maths (A*), Chemistry (B), Politics (C)',
     content: <p></p>,
   },

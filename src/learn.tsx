@@ -44,9 +44,9 @@ const ReadMore = memo(({children}: ReadMoreProps) => {
         style={{
           maxHeight: isExpanded ? `${expandedHeight}px` : `${previewHeight || 'auto'}px`,
         }}>
-        <p className="text-black" ref={contentRef}>
+        <div className="text-black" ref={contentRef}>
           {children}
-        </p>
+        </div>
 
         {!isExpanded && isOverflowing && (
           <div
