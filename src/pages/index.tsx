@@ -6,7 +6,7 @@ import Carousel from '../components/Sections/Carousel';
 import Contact from '../components/Sections/Contact';
 import Footer from '../components/Sections/Footer';
 import Hero from '../components/Sections/Hero';
-import Resume from '../components/Sections/Resume';
+import Timeline from '../components/Sections/Resume';
 import Summary from '../components/Sections/Summary';
 import {homePageMeta} from '../data/data';
 
@@ -20,7 +20,7 @@ const Home: FC = memo(() => {
       <Header />
       <Hero />
       <Summary />
-      <Resume />
+      <Timeline />
       <Carousel />
       <Contact />
       <Footer />

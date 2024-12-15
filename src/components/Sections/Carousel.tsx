@@ -3,11 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, {memo, useState} from 'react';
 
-import Section from '@/components/Layout/Section';
-import {portfolioItems, SectionId} from '@/data/data';
-import {PortfolioItem} from '@/data/dataDef';
+import {portfolioItems, SectionId} from '../../data/data';
+import {PortfolioItem} from '../../data/dataDef';
+import Section from '../Layout/Section';
 
-const Carousel = memo(() => {
+const ProjectCarousel = memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const next = () => {
@@ -34,11 +34,11 @@ const Carousel = memo(() => {
   };
 
   return (
-    <Section className="bg-neutral-800" sectionId={SectionId.Carousel}>
-      <div className="relative w-full max-w-7xl mx-auto h-[48rem] perspective-1000">
-        <h2 className="text-center text-2xl font-bold text-white">Check out some of my work</h2>
+    <Section className="bg-neutral-800 overflow-hidden" sectionId={SectionId.Carousel}>
+      <div className="relative w-full max-w-7xl mx-auto h-[42rem] perspective-1000">
+        <h2 className="text-center text-xl font-bold text-white mb-8">Check out some of my work</h2>
 
-        <div className="relative h-[calc(100%-11rem)]">
+        <div className="relative h-[calc(100%-6rem)]">
           {portfolioItems.map((item: PortfolioItem, index: number) => (
             <div
               className="absolute w-full max-w-4xl left-1/2 top-8 transition-all duration-500"
@@ -50,14 +50,14 @@ const Carousel = memo(() => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <div className="overflow-hidden ">
+                <div className="overflow-hidden">
                   <div className="relative aspect-video w-full">
                     <Image
                       alt={item.title}
-                      className="object-contain shadow-2xl"
+                      className="object-contain"
                       fill
                       priority={index === currentIndex}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw "
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       src={item.image}
                     />
                   </div>
@@ -99,4 +99,4 @@ const Carousel = memo(() => {
   );
 });
 
-export default Carousel;
+export default ProjectCarousel;

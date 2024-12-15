@@ -90,7 +90,7 @@ export interface PortfolioItem {
 }
 
 /**
- * Resume section
+ * Timeline section
  */
 export interface TimelineItem {
   title: string;

@@ -2,12 +2,11 @@ import {Building2, Calendar, GraduationCap, MapPin} from 'lucide-react';
 import React, {FC, memo, useMemo, useState} from 'react';
 
 import Section from '@/components/Layout/Section';
+import ReadMore from '@/components/ReadMore';
 import {Badge} from '@/components/ui/badge';
 import {Card, CardContent} from '@/components/ui/card';
 import {education, experience, SectionId} from '@/data/data';
 import {TimelineItem as TimelineItemType} from '@/data/dataDef';
-
-import ReadMore from '../../../learn';
 
 const getEmployerColor = (location: string): string => {
   const colorMap: { [key: string]: string } = {
@@ -42,15 +41,18 @@ const TimelineItem: FC<TimelineItemProps> = memo(({item, year, highlightedPlace,
     <div className={`relative flex gap-4 transition-opacity duration-300 ${isDimmed ? 'opacity-30' : 'opacity-100'}`}>
       {/* Timeline marker */}
       <div className="relative flex flex-col items-center">
-        <div className={`absolute top-0 h-full w-px ${itemColor.replace('bg-', 'bg-opacity-30 bg-')}`} />
-        <div className={`z-10 flex h-8 w-8 items-center justify-center rounded-full ${itemColor} text-white
+
+        <div className={`absolute top-0 h-full w-1 ${itemColor.replace('bg-', 'bg-opacity-80 bg-')}`} />
+        <div
+          className={`z-10 flex h-9 w-9 items-center justify-center rounded-full ${itemColor} text-white
           ${isHighlighted ? 'ring-4 ring-offset-2 ring-offset-neutral-100' : ''}`}>
           <span className="text-xs font-semibold">{year}</span>
         </div>
       </div>
 
       {/* Card content */}
-      <Card className={`relative flex-1 mb-8 last:mb-0 w-full transition-transform duration-300
+      <Card
+        className={`relative flex-1 mb-8 last:mb-0 w-full transition-transform duration-300
         ${isHighlighted ? 'scale-102 shadow-lg' : ''}`}>
         <div className={`absolute left-0 top-0 h-full w-1 ${itemColor}`} />
         <CardContent className="pt-6">
@@ -64,13 +66,8 @@ const TimelineItem: FC<TimelineItemProps> = memo(({item, year, highlightedPlace,
                 onClick={() => onHighlight(isHighlighted ? null : location)}
                 onMouseEnter={() => onHighlight(location)}
                 onMouseLeave={() => onHighlight(null)}
-                variant="secondary"
-              >
-                {type === 'education' ? (
-                  <GraduationCap className="h-3 w-3" />
-                ) : (
-                  <Building2 className="h-3 w-3" />
-                )}
+                variant="secondary">
+                {type === 'education' ? <GraduationCap className="h-3 w-3" /> : <Building2 className="h-3 w-3" />}
                 {location}
               </Badge>
               <Badge className="flex items-center gap-1" variant="outline">
@@ -87,9 +84,7 @@ const TimelineItem: FC<TimelineItemProps> = memo(({item, year, highlightedPlace,
           </div>
 
           <div className="mt-4 w-full max-w-none">
-            <ReadMore>
-              {content}
-            </ReadMore>
+            <ReadMore>{content}</ReadMore>
           </div>
         </CardContent>
       </Card>
@@ -128,8 +123,8 @@ const Resume: FC = memo(() => {
 
       <div className="space-y-0">
         {/* Work Experience Header */}
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="text-3xl font-bold text-neutral-800">Work Experience</h2>
+        <div className="flex items-center gap-4 mb-8 bg-neutral-100">
+          <h2 className="px-16 text-3xl font-bold text-neutral-800">Work Experience</h2>
           <div className="h-px flex-1 bg-neutral-200" />
         </div>
 
@@ -141,7 +136,7 @@ const Resume: FC = memo(() => {
                 <Section noPadding={true} sectionId={SectionId.Education}>
                   <React.Fragment key={`section-${item.type}`}>
                     <div className="flex items-center gap-4 my-8">
-                      <h2 className="text-3xl font-bold text-neutral-800">Education</h2>
+                      <h2 className="px-16 text-3xl font-bold text-neutral-800">Education</h2>
                       <div className="h-px flex-1 bg-neutral-200" />
                     </div>
                     <TimelineItem

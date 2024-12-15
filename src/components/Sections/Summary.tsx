@@ -1,8 +1,8 @@
 import React, {FC, memo} from 'react';
 
 import {SectionId,summaryData} from '../../data/data';
-import ReadMore from  '../../learn';
 import Section from '../Layout/Section';
+import ReadMore from '../ReadMore';
 
 const Summary: FC = memo(() => {
   const {description} = summaryData;
