@@ -138,23 +138,23 @@ const Resume: FC = memo(() => {
             // Add section divider for Education
             if (index > 0 && allItems[index - 1].type !== item.type && item.type === 'education') {
               return (
-                <Section noPadding="True" sectionId={SectionId.Education}>
-                <React.Fragment key={`section-${item.type}`}>
-                  <div className="flex items-center gap-4 my-8">
-                    <h2 className="text-3xl font-bold text-neutral-800">Education</h2>
-                    <div className="h-px flex-1 bg-neutral-200" />
-                  </div>
-                  <TimelineItem
-                    highlightedPlace={highlightedPlace}
-                    item={item}
-                    key={`${item.title}-${index}`}
-                    onHighlight={setHighlightedPlace}
-                    type={item.type}
-                    year={item.year}
-                  />
-                </React.Fragment>
+                <Section noPadding={true} sectionId={SectionId.Education}>
+                  <React.Fragment key={`section-${item.type}`}>
+                    <div className="flex items-center gap-4 my-8">
+                      <h2 className="text-3xl font-bold text-neutral-800">Education</h2>
+                      <div className="h-px flex-1 bg-neutral-200" />
+                    </div>
+                    <TimelineItem
+                      highlightedPlace={highlightedPlace}
+                      item={item}
+                      key={`${item.title}-${index}`}
+                      onHighlight={setHighlightedPlace}
+                      type={item.type}
+                      year={item.year}
+                    />
+                  </React.Fragment>
                 </Section>
-                  );
+              );
             }
 
             return (
