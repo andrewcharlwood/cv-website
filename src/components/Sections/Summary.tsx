@@ -52,7 +52,7 @@ const Summary: FC = memo(() => {
         <a
           className="rounded-full bg-white"
           href={`/#${SectionId.Resume}`}>
-          <ArrowDown className="bg-transparent animate-bounce p-2 " size={48}/>
+          <ArrowDown className="bg-transparent animate-bounce p-2 [animation-duration:1.5s]" size={48}/>
         </a>
       </div>
     </Section>

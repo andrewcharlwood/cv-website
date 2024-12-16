@@ -72,7 +72,7 @@ const Hero: FC = memo(() => {
               <a
                 className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
                 href={`/#${SectionId.Summary}`}>
-                <ArrowDown className="bg-transparent h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 animate-bounce " />
+                <ArrowDown className="bg-transparent h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 animate-bounce [animation-duration:2s]" />
               </a>
             </div>
           </div>
