@@ -41,7 +41,7 @@ const Header: FC = memo(() => {
 const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}> = memo(
   ({navSections, currentSection}) => {
     const baseClass =
-      'm-1.5 p-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none ' +
+      'm-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none ' +
       'focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100';
     const activeClass = classNames(baseClass, 'text-orange-500');
     const inactiveClass = classNames(baseClass, 'text-neutral-100');

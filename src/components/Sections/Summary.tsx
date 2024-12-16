@@ -19,10 +19,10 @@ const Summary: FC = memo(() => {
         <div className="max-w-full mx-auto ">
           {/* Animated Welcome */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold mb-4 animate-fade-in">
+            <h1 className="text-4xl font-bold mb-4 animate-fade-in pt-0">
               Summary
             </h1>
-            
+
           </div>
 
 
@@ -47,8 +47,14 @@ const Summary: FC = memo(() => {
         </div>
 
       </div>
-      <br/>
-      <ArrowDown className="mx-auto animate-bounce " size={24} />
+      <br />
+      <div className="flex justify-center">
+        <a
+          className="rounded-full bg-white"
+          href={`/#${SectionId.Resume}`}>
+          <ArrowDown className="bg-transparent animate-bounce p-2 " size={48}/>
+        </a>
+      </div>
     </Section>
   );
 });

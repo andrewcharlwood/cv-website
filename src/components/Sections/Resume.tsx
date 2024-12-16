@@ -63,7 +63,6 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
   const itemColor = getEmployerColor(location);
   const isHighlighted = highlightedPlace === location;
   const isDimmed = highlightedPlace !== null && !isHighlighted;
-  const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -97,26 +96,23 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
   }, []);
 
   const handleCardClick = useCallback((e: React.MouseEvent) => {
+    // If the click is on a read-more button, don't handle the highlighting
     if (!(e.target as HTMLElement).closest('.read-more-button')) {
-      setIsExpanded(prev => !prev);
+      // If clicking the currently highlighted card, remove highlight
+      if (isHighlighted) {
+        onHighlight(null);
+      } else {
+        // Otherwise, highlight this card's location
+        onHighlight(location);
+      }
     }
-  }, []);
-
-  const handleMouseEnter = useCallback(() => {
-    onHighlight(location);
-  }, [onHighlight, location]);
-
-  const handleMouseLeave = useCallback(() => {
-    onHighlight(null);
-  }, [onHighlight]);
+  }, [onHighlight, location, isHighlighted]);
 
   return (
     <div
       className={`relative flex gap-4 transition-all duration-700 transform
         ${isDimmed ? 'opacity-30' : 'opacity-100'}
         ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       ref={cardRef}
     >
       {/* Timeline marker - Hidden on mobile */}
@@ -127,7 +123,7 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
         />
         <div
           className={`z-10 flex h-12 min-w-24 items-center justify-center rounded-full ${itemColor} text-white
-          hover:scale-110 transition-transform duration-300 px-4
+          transition-transform duration-300 px-4
           ${isHighlighted ? 'ring-4 ring-offset-2 ring-offset-neutral-100' : ''}`}>
           <div className="flex flex-col items-center justify-center text-xs font-semibold">
             <span className="uppercase">{dateInfo.month}</span>
@@ -139,7 +135,7 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
       {/* Card content */}
       <Card
         className={`group relative flex-1 mb-8 last:mb-0 w-full transition-all duration-300
-        hover:shadow-lg hover:scale-[1.02] min-w-0 cursor-pointer
+        hover:shadow-lg cursor-pointer
         ${isHighlighted ? 'scale-102 shadow-lg' : ''}`}
         onClick={handleCardClick}>
         <div className={`absolute left-0 top-0 h-full w-1 ${itemColor}`} />
@@ -180,10 +176,10 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
             </div>
           </div>
 
-          <div className="mt-4 w-full max-w-none">
+          <div className="mt-4 w-full max-w-none ">
             <ReadMore
-              externalExpanded={isExpanded}
-              onExpandChange={setIsExpanded}
+              externalExpanded={isHighlighted}
+              onExpandChange={() => {}}
               parentBackgroundColor="rgb(255, 255, 255)"
             >
               {content}
@@ -232,8 +228,8 @@ const Resume: FC = memo(() => {
       <div className="space-y-0">
         {/* Work Experience Section */}
         <div className="flex items-center gap-4 mb-8 bg-neutral-100">
-          <h2 className="pl-32 text-3xl font-bold text-neutral-800">Work Experience</h2>
-          <div className="h-px flex-1 bg-neutral-200" />
+          <h2 className=" text-3xl font-bold text-neutral-800 ">Work Experience</h2>
+          <div className="invisible md:visible h-px flex-1 bg-neutral-200 " />
         </div>
 
         <div className="relative pl-4 w-full">
@@ -252,9 +248,9 @@ const Resume: FC = memo(() => {
 
         {/* Education Section */}
         <Section noPadding={true} sectionId={SectionId.Education}>
-          <div className="flex items-center gap-4 my-8">
+          <div className="flex items-center gap-4 my-8 pt-8 ">
             <h2 className="pl-32 text-3xl font-bold text-neutral-800">Education</h2>
-            <div className="h-px flex-1 bg-neutral-200 justify-center" />
+            <div className="invisible md:visible h-px flex-1 bg-neutral-200 justify-center" />
           </div>
           <div className="relative pl-4 w-full">
             {educationItems.map((item, index) => (

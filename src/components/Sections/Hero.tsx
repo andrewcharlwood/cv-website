@@ -1,5 +1,5 @@
-import {ChevronDownIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
+import {ArrowDown} from 'lucide-react';
 import Image from 'next/image';
 import React, {FC, memo} from 'react';
 
@@ -57,7 +57,7 @@ const Hero: FC = memo(() => {
                   <a
                     className={classNames(
                       'flex gap-x-2 rounded-full border-2 bg-none px-4 py-2 text-sm font-medium text-white ring-offset-gray-700/80 hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-base',
-                      primary ? 'border-orange-500 ring-orange-500' : 'border-white ring-white',
+                        primary ? 'border-orange-500 ring-orange-500' : 'border-white ring-white',
                     )}
                     href={href}
                     key={text}>
@@ -72,7 +72,7 @@ const Hero: FC = memo(() => {
               <a
                 className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
                 href={`/#${SectionId.Summary}`}>
-                <ChevronDownIcon className="bg-transparent h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10" />
+                <ArrowDown className="bg-transparent h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 animate-bounce " />
               </a>
             </div>
           </div>
