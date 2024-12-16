@@ -487,7 +487,7 @@ export const education: TimelineItem[] = [
   //   ),
   // },
   {
-    date: '2011 - 2015',
+    date: 'September 2011 - June 2015',
     location: 'University of East Anglia',
     title: 'Master of Pharmacy (MPharm)',
     grade: '2.1',
@@ -523,7 +523,7 @@ export const education: TimelineItem[] = [
     ),
   },
   {
-    date: '2009 - 2011',
+    date: 'September 2009 - June 2011',
     location: 'Highworth Grammar School',
     title: 'A-Levels: Maths, Chemistry, Politics',
     grade: 'Maths (A*), Chemistry (B), Politics (C)',
@@ -554,7 +554,7 @@ export const contact: ContactSection = {
     {
       type: ContactType.Location,
       text: 'Norwich, Norfolk',
-      href: 'https://maps.app.goo.gl/AXTQR6nBwLC44FVA8',
+      href: 'https://maps.app.goo.gl/ux5cpA2ZiV2KeVEp7',
     },
     {
       type: ContactType.Phone,

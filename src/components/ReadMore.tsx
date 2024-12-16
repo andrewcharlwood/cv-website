@@ -2,67 +2,87 @@ import {memo, ReactNode, useEffect, useRef, useState} from 'react';
 
 interface ReadMoreProps {
   children: ReactNode;
+  parentBackgroundColor?: string;
+  externalExpanded?: boolean;
+  onExpandChange?: (isExpanded: boolean) => void;
 }
 
-const ReadMore = memo(({children}: ReadMoreProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const ReadMore = memo(({
+                         children,
+                         parentBackgroundColor = 'rgb(245, 245, 245)',
+                         externalExpanded,
+                         onExpandChange
+                       }: ReadMoreProps) => {
+  const [isExpandedInternal, setIsExpandedInternal] = useState(false);
   const [isOverflowing, setIsOverflowing] = useState(false);
   const [previewHeight, setPreviewHeight] = useState<number | null>(null);
   const [expandedHeight, setExpandedHeight] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLParagraphElement>(null);
-  const [parentBgColor, setParentBgColor] = useState('transparent');
+
+  const isExpanded = externalExpanded ?? isExpandedInternal;
+
+  const checkOverflow = () => {
+    if (contentRef.current) {
+      const lineHeight = parseFloat(window.getComputedStyle(contentRef.current).lineHeight || '20');
+      const maxVisibleHeight = lineHeight * 8;
+      const fullHeight = contentRef.current.scrollHeight;
+
+      setPreviewHeight(maxVisibleHeight);
+      setExpandedHeight(fullHeight + 40);
+      setIsOverflowing(fullHeight > maxVisibleHeight);
+    }
+  };
+
+  const handleToggle = () => {
+    const newState = !isExpanded;
+    setIsExpandedInternal(newState);
+    onExpandChange?.(newState);
+  };
 
   useEffect(() => {
-    if (containerRef.current) {
-      const bgColor = window.getComputedStyle(containerRef.current.parentElement!).getPropertyValue('background-color');
-      setParentBgColor(bgColor);
-    }
+    checkOverflow();
 
-    if (contentRef.current) {
-      const lineHeight = parseFloat(window.getComputedStyle(contentRef.current).lineHeight || '0');
+    const handleResize = () => {
+      checkOverflow();
+    };
 
-      // Calculate preview height (8 lines)
-      const maxVisibleHeight = lineHeight * 8;
-      setPreviewHeight(maxVisibleHeight);
-
-      // Calculate full height
-      const fullHeight = contentRef.current.scrollHeight + 50;
-      setExpandedHeight(fullHeight);
-
-      // Check if content is overflowing
-      if (fullHeight > maxVisibleHeight) {
-        setIsOverflowing(true);
-      }
-    }
-  }, []);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [children]);
 
   return (
-    <div className="relative" ref={containerRef} style={{backgroundColor: parentBgColor}}>
+    <div className="relative">
       <div
-        className="relative overflow-hidden transition-all duration-1000 ease-in-out"
+        className={`relative transition-all duration-1000 ease-in-out ${!isExpanded && isOverflowing ? 'overflow-hidden' : ''}`}
         style={{
           maxHeight: isExpanded ? `${expandedHeight}px` : `${previewHeight || 'auto'}px`,
         }}>
-        <div className="text-black" ref={contentRef}>
+        <div
+          className="prose-neutral max-w-none break-words"
+          ref={contentRef}
+        >
           {children}
         </div>
 
         {!isExpanded && isOverflowing && (
           <div
-            className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t"
+            className="absolute bottom-0 left-0 right-0 h-24"
             style={{
-              backgroundImage: `linear-gradient(to top, ${parentBgColor}, transparent)`,
+              background: `linear-gradient(to top, ${parentBackgroundColor}, transparent)`,
             }}
           />
         )}
       </div>
 
       {isOverflowing && (
-        <button aria-expanded={isExpanded} className="read-more-button" onClick={() => setIsExpanded(!isExpanded)}>
+        <button
+          aria-expanded={isExpanded}
+          className="read-more-button"
+          onClick={handleToggle}
+        >
           {isExpanded ? 'Read Less' : 'Read More'}
           <svg
-            className={`ml-2 h-4 w-4 transform transition-transform duration-500 ${isExpanded ? 'rotate-180' : ''}`}
+            className={`ml-1 h-4 w-4 transform transition-transform duration-1000 ${isExpanded ? 'rotate-180' : ''}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -75,4 +95,5 @@ const ReadMore = memo(({children}: ReadMoreProps) => {
   );
 });
 
+ReadMore.displayName = 'ReadMore';
 export default ReadMore;

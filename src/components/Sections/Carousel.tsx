@@ -34,39 +34,56 @@ const ProjectCarousel = memo(() => {
   };
 
   return (
-    <Section className="bg-neutral-800 overflow-hidden" sectionId={SectionId.Carousel}>
+    <Section className="bg-neutral-800 overflow-hidden px-4 py-4 md:py-8 sm:pb-0 md:pb-16 lg:px-8 lg:pb-24 pt" noPadding={true} sectionId={SectionId.Carousel}>
       <div className="relative w-full max-w-7xl mx-auto h-[42rem] perspective-1000">
-        <h2 className="text-center text-xl font-bold text-white mb-8">Check out some of my work</h2>
+        <h2 className="text-center text-xl font-bold text-white">Check out some of my work</h2>
 
         <div className="relative h-[calc(100%-6rem)]">
           {portfolioItems.map((item: PortfolioItem, index: number) => (
             <div
-              className="absolute w-full max-w-4xl left-1/2 top-8 transition-all duration-500"
+              className="absolute w-full max-w-4xl left-1/2 top-2 transition-all duration-500"
               key={index}
               style={getItemStyle(index)}>
-              <Link
-                className="block transition-transform bg-white rounded-lg"
-                href={item.url}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <div className="overflow-hidden">
-                  <div className="relative aspect-video w-full">
-                    <Image
-                      alt={item.title}
-                      className="object-contain"
-                      fill
-                      priority={index === currentIndex}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      src={item.image}
-                    />
+              <div className="relative">
+                <Link
+                  className="block transition-transform bg-white rounded-lg"
+                  href={item.url}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <div className="overflow-hidden">
+                    <div className="relative aspect-video w-full">
+                      <Image
+                        alt={item.title}
+                        className="object-contain"
+                        fill
+                        priority={index === currentIndex}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        src={item.image}
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                      <p className="text-gray-600">{item.description}</p>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-gray-600">{item.description}</p>
+                </Link>
+
+                {/* Position indicators relative to each slide, but only show for active slide */}
+                {index === currentIndex && (
+                  <div className="absolute -bottom-8 left-0 right-0 flex justify-center gap-2">
+                    {portfolioItems.map((_, dotIndex) => (
+                      <button
+                        className={`h-2 w-2 rounded-full transition-colors ${
+                          currentIndex === dotIndex ? 'bg-blue-600' : 'bg-gray-300'
+                        }`}
+                        key={dotIndex}
+                        onClick={() => setCurrentIndex(dotIndex)}
+                      />
+                    ))}
                   </div>
-                </div>
-              </Link>
+                )}
+              </div>
             </div>
           ))}
 
@@ -81,18 +98,6 @@ const ProjectCarousel = memo(() => {
             onClick={next}>
             <ChevronRight className="h-6 w-6" />
           </button>
-
-          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-50">
-            {portfolioItems.map((_, index) => (
-              <button
-                className={`h-2 w-2 rounded-full transition-colors ${
-                  currentIndex === index ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </Section>
