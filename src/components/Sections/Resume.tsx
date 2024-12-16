@@ -73,7 +73,7 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
       <div className="hidden md:flex relative flex-col items-center">
         <div
           className={`absolute top-0 h-full w-1 ${itemColor.replace('bg-', 'bg-opacity-80 bg-')}
-          ${isLastInSection ? 'h-[calc(200%+2rem)]' : ''}`}
+          ${isLastInSection ? 'h-[calc(130%+2px)]' : ''}`}
         />
         <div
           className={`z-10 flex h-12 min-w-24 items-center justify-center rounded-full ${itemColor} text-white
