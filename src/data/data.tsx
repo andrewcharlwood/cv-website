@@ -185,6 +185,18 @@ export const summaryData: Summary = {
         massively since 2016. I realise I don't need to be patient facing to achieve that goal. Pivoting from community
         pharmacy to local health commissioning was driven by a desire to positively impact patient outcomes at a
         regional level.
+        <br />
+        <br />I am always looking for new opportunities to learn and grow, and this website is a testament to that.
+        Originally forked from
+        {' '}
+        <a
+          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          href="https://github.com/tbakerx/react-resume-template"
+          target="_blank">
+           this repo
+        </a>
+        {' '}
+        I have been using it as a way to learn Typescript/React.
       </p>
     </>
   ),
@@ -294,7 +306,6 @@ export const portfolioItems: PortfolioItem[] = [
   },
 ];
 
-
 export const experience: TimelineItem[] = [
   {
     date: 'June 2024 - ',
@@ -318,17 +329,17 @@ export const experience: TimelineItem[] = [
         <h2 className="text-lg font-bold">Responsibilities & key achievements</h2>
         <Line></Line>
         <div className="prose max-w-none">
-        <ul>
-          <li>
-            Collaborating with the ICB data team to access, and create insights with patient-level data. Previously the
-            Medicine Optimisation team has been limited to practice-level.
-          </li>
-          <li>
-            Creating an Opioid dashboard to convert all opiates to oral morphine equivalent, to identify and prioritise
-            reviews of patients being over prescribed opiates
-          </li>
-          <li>Leveraging AI to audit repeat prescription adherence at a system-wide level.</li>
-        </ul>
+          <ul>
+            <li>
+              Collaborating with the ICB data team to access, and create insights with patient-level data. Previously
+              the Medicine Optimisation team has been limited to practice-level.
+            </li>
+            <li>
+              Creating an Opioid dashboard to convert all opiates to oral morphine equivalent, to identify and
+              prioritise reviews of patients being over prescribed opiates
+            </li>
+            <li>Leveraging AI to audit repeat prescription adherence at a system-wide level.</li>
+          </ul>
         </div>
       </div>
     ),

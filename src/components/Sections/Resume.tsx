@@ -1,5 +1,5 @@
 import {Award, Building2, Calendar, GraduationCap} from 'lucide-react';
-import React, {FC, memo, useMemo, useState} from 'react';
+import React, {FC, memo, useCallback,useEffect, useMemo, useRef, useState} from 'react';
 
 import Section from '@/components/Layout/Section';
 import ReadMore from '@/components/ReadMore';
@@ -7,6 +7,7 @@ import {Badge} from '@/components/ui/badge';
 import {Card, CardContent} from '@/components/ui/card';
 import {education, experience, SectionId} from '@/data/data';
 import {TimelineItem as TimelineItemType} from '@/data/dataDef';
+
 
 const getEmployerColor = (location: string): string => {
   const colorMap: { [key: string]: string } = {
@@ -40,6 +41,16 @@ interface TimelineItemProps {
   isFirstItem?: boolean;
 }
 
+
+interface TimelineItemProps {
+  item: TimelineItemType;
+  highlightedPlace: string | null;
+  onHighlight: (place: string | null) => void;
+  type: 'education' | 'work';
+  isLastInSection?: boolean;
+  isFirstItem?: boolean;
+}
+
 const TimelineItem: FC<TimelineItemProps> = memo(({
                                                     item,
                                                     highlightedPlace,
@@ -53,21 +64,60 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
   const isHighlighted = highlightedPlace === location;
   const isDimmed = highlightedPlace !== null && !isHighlighted;
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const dateInfo = isFirstItem ? {month: "Current", year: ""} : formatDate(date);
 
-  const handleCardClick = (e: React.MouseEvent) => {
-    // Don't trigger if clicking the actual ReadMore button
-    if (!(e.target as HTMLElement).closest('.read-more-button')) {
-      setIsExpanded(!isExpanded);
+  useEffect(() => {
+    const card = cardRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      }
+    );
+
+    if (card) {
+      observer.observe(card);
     }
-  };
+
+    return () => {
+      if (card) {
+        observer.unobserve(card);
+      }
+    };
+  }, []);
+
+  const handleCardClick = useCallback((e: React.MouseEvent) => {
+    if (!(e.target as HTMLElement).closest('.read-more-button')) {
+      setIsExpanded(prev => !prev);
+    }
+  }, []);
+
+  const handleMouseEnter = useCallback(() => {
+    onHighlight(location);
+  }, [onHighlight, location]);
+
+  const handleMouseLeave = useCallback(() => {
+    onHighlight(null);
+  }, [onHighlight]);
 
   return (
     <div
-      className={`relative flex gap-4 transition-opacity duration-300 ${isDimmed ? 'opacity-30' : 'opacity-100'}`}
-      onMouseEnter={() => onHighlight(location)}
-      onMouseLeave={() => onHighlight(null)}
+      className={`relative flex gap-4 transition-all duration-700 transform
+        ${isDimmed ? 'opacity-30' : 'opacity-100'}
+        ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      ref={cardRef}
     >
       {/* Timeline marker - Hidden on mobile */}
       <div className="hidden md:flex relative flex-col items-center">
@@ -150,6 +200,10 @@ TimelineItem.displayName = 'TimelineItem';
 const Resume: FC = memo(() => {
   const [highlightedPlace, setHighlightedPlace] = useState<string | null>(null);
 
+  const handleHighlight = useCallback((place: string | null) => {
+    setHighlightedPlace(place);
+  }, []);
+
   const {workItems, educationItems} = useMemo(() => {
     const educationWithYears = education.map(item => ({
       ...item,
@@ -190,7 +244,7 @@ const Resume: FC = memo(() => {
               isLastInSection={index === workItems.length - 1}
               item={item}
               key={`${item.title}-${index}`}
-              onHighlight={setHighlightedPlace}
+              onHighlight={handleHighlight}
               type={item.type}
             />
           ))}
@@ -209,7 +263,7 @@ const Resume: FC = memo(() => {
                 isFirstItem={false}
                 item={item}
                 key={`${item.title}-${index}`}
-                onHighlight={setHighlightedPlace}
+                onHighlight={handleHighlight}
                 type={item.type}
               />
             ))}
