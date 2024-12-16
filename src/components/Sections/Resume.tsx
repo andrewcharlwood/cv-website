@@ -119,7 +119,7 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
       <div className="hidden md:flex relative flex-col items-center">
         <div
           className={`absolute top-0 h-full w-1 ${itemColor.replace('bg-', 'bg-opacity-80 bg-')}
-          ${isLastInSection ? 'h-[calc(130%+2px)]' : ''}`}
+          ${isLastInSection ? 'h-[calc(131%+2px)]' : ''}`}
         />
         <div
           className={`z-10 flex h-12 min-w-24 items-center justify-center rounded-full ${itemColor} text-white
@@ -227,7 +227,7 @@ const Resume: FC = memo(() => {
 
       <div className="space-y-0">
         {/* Work Experience Section */}
-        <div className="flex items-center gap-4 mb-8 bg-neutral-100">
+        <div className="flex items-center gap-4 mb-8 bg-neutral-100 pl-32">
           <h2 className=" text-3xl font-bold text-neutral-800 ">Work Experience</h2>
           <div className="invisible md:visible h-px flex-1 bg-neutral-200 " />
         </div>
@@ -248,8 +248,8 @@ const Resume: FC = memo(() => {
 
         {/* Education Section */}
         <Section noPadding={true} sectionId={SectionId.Education}>
-          <div className="flex items-center gap-4 my-8 pt-8 ">
-            <h2 className="pl-32 text-3xl font-bold text-neutral-800">Education</h2>
+          <div className="flex items-center gap-4 mb-8 bg-neutral-100 pt-8 pl-32">
+            <h2 className=" text-3xl font-bold z-50 text-neutral-800 ">Education</h2>
             <div className="invisible md:visible h-px flex-1 bg-neutral-200 justify-center" />
           </div>
           <div className="relative pl-4 w-full">
