@@ -13,6 +13,39 @@ const nextConfig = {
       rule.include = undefined;
     });
 
+    // Add rule for video files
+    if (oneOfRule && oneOfRule.oneOf) {
+      oneOfRule.oneOf.unshift({ 
+        test: /\.(mp4|webm|ogg|swf|ogv)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '/_next/static/media/',
+              outputPath: 'static/media/',
+              name: '[name].[hash].[ext]',
+              esModule: false,
+            },
+          },
+        ],
+      });
+    } else {
+      config.module.rules.push({
+        test: /\.(mp4|webm|ogg|swf|ogv)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '/_next/static/media/',
+              outputPath: 'static/media/',
+              name: '[name].[hash].[ext]',
+              esModule: false,
+            },
+          },
+        ],
+      });
+    }
+
     return config;
   },
   compress: true,

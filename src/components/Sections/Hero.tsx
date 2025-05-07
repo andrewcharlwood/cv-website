@@ -12,16 +12,17 @@ const Hero: FC = memo(() => {
   return (
     <Section noPadding sectionId={SectionId.Hero}>
       <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
-        <Image
-          alt={`${name}-image`}
+        <video
+          autoPlay
           className="absolute z-0 h-full w-full object-cover"
-          placeholder="blur"
-          priority
+          loop
+          muted
+          playsInline
           src={imageSrc}
         />
         <div className="z-10 pt-4 sm:pt-14 max-w-screen-xl px-4 lg:px-0">
           <div
-            className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 justify-center text-center shadow-lg backdrop-blur-sm  z-10">
+            className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/60 p-6 justify-center text-center shadow-lg backdrop-blur-sm  z-10">
             <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl pb-2">{name}</h1>
             <div
               className={classNames('grid grid-cols-1 gap-y-4 gap-x-4 justify-center items-center', {
