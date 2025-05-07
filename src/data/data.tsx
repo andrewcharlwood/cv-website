@@ -12,9 +12,10 @@ import {
 import React from 'react';
 
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import heroImage from '../images/hero.jpg';
+import heroImage from '../images/hero.webm';
 import porfolioImage3 from '../images/portfolio/blueteq.jpg';
 import porfolioImage2 from '../images/portfolio/nms.jpg';
+import porfolioImage4 from '../images/portfolio/pharmetrics.jpg';
 import porfolioImage1 from '../images/portfolio/ppa2.jpg';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
@@ -174,7 +175,7 @@ export const summaryData: Summary = {
         Population Health & Data Analysis within the Medicines Optimisation team.
         <br />
         <br />
-        I’ve initiated and completed projects which have improved efficiencies for my colleagues and clinicians in the
+        I've initiated and completed projects which have improved efficiencies for my colleagues and clinicians in the
         wider integrated care system. To see some of these examples, please see the{' '}
         <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="#projects">
           projects part of this page.
@@ -185,18 +186,6 @@ export const summaryData: Summary = {
         massively since 2016. I realise I don't need to be patient facing to achieve that goal. Pivoting from community
         pharmacy to local health commissioning was driven by a desire to positively impact patient outcomes at a
         regional level.
-        <br />
-        <br />I am always looking for new opportunities to learn and grow, and this website is a testament to that.
-        Originally forked from
-        {' '}
-        <a
-          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          href="https://github.com/tbakerx/react-resume-template"
-          target="_blank">
-           this repo
-        </a>
-        {' '}
-        I have been using it as a way to learn Typescript/React.
       </p>
     </>
   ),
@@ -303,6 +292,12 @@ export const portfolioItems: PortfolioItem[] = [
       'support with the NMS service.',
     url: 'https://www.youtube.com/watch?v=Rm1wcX92XlQ',
     image: porfolioImage2,
+  },
+  {
+    title: 'PharMetrics',
+    description: 'PharMetrics is an interactive platform for exploring key aspects of health economics and drug development. Discover how healthcare systems evaluate whether new drugs offer value for money. See how research study design can influence outcomes, and step into the role of big pharma navigating the complex testing and approval process in the Trials Tycoon strategy game.',
+    url: 'https://medicines.charlwood.xyz/',
+    image: porfolioImage4,
   },
 ];
 
