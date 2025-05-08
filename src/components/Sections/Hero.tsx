@@ -127,6 +127,11 @@ const Hero: FC = memo(() => {
             </motion.div>
           </motion.div>
         </div>
+        {/* New Overlay Div for Fade Effect */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[#048cdc] to-transparent z-1 pointer-events-none"
+          aria-hidden="true"
+        />
       </div>
     </Section>
   );
