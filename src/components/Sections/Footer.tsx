@@ -26,7 +26,7 @@ const itemVariants = {
 };
 
 // listItemVariants can be the same as itemVariants if no specific difference
-const listItemVariants = itemVariants;
+
 
 const Footer: FC = memo(() => (
   <div className="relative bg-neutral-900 px-4 pb-6 pt-12 sm:px-8 sm:pb-8 sm:pt-16">
