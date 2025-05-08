@@ -72,23 +72,84 @@ const ProjectCarousel = memo(() => {
   };
 
   const getItemStyle = (index: number): CSSProperties => {
-    const position = (currentIndex - index + portfolioItems.length) % portfolioItems.length;
-    let translateX = position === 0 ? -50 : position < portfolioItems.length / 2 ? -100 : 0;
+    const N = portfolioItems.length;
 
-    if (isDragging) {
-      const dragOffset = (dragCurrentX.current - dragStartX.current) * -0.5;
-      translateX += dragOffset;
+    if (N === 0) {
+      return {opacity: 0, pointerEvents: 'none'};
     }
 
-    const translateZ = position === 0 ? 0 : -200;
-    const translateY = position === 0 ? 0 : 20;
-    const scale = position === 0 ? 1 : 0.8;
+    const prevVisibleIndex = (currentIndex - 1 + N) % N;
+    const nextVisibleIndex = (currentIndex + 1) % N;
+
+    let translateXValue = '0%';
+    let opacityValue = 0;
+    let scaleValue = 0.7;
+    let zIndexValue = 0;
+    let blurValue = 3;
+    let translateYValue = 30;
+    let translateZValue = -400;
+    let pointerEventsValue: 'auto' | 'none' = 'none';
+
+    if (index === currentIndex) {
+      // Current item
+      translateXValue = '-50%';
+      opacityValue = 1;
+      scaleValue = 1;
+      zIndexValue = N + 2;
+      blurValue = 0;
+      translateYValue = 0;
+      translateZValue = 0;
+      pointerEventsValue = 'auto';
+    } else if (index === prevVisibleIndex && N > 1) {
+      // Left visible item
+      translateXValue = '-100%';
+      opacityValue = 0.6;
+      scaleValue = 0.8;
+      zIndexValue = N + 1;
+      blurValue = 1;
+      translateYValue = 20;
+      translateZValue = -200;
+      pointerEventsValue = 'auto';
+    } else if (index === nextVisibleIndex && N > 1 && index !== prevVisibleIndex) {
+      // Right visible item
+      // (index !== prevVisibleIndex handles N=2 case where prev and next are the same non-current index)
+      translateXValue = '0%';
+      opacityValue = 0.6;
+      scaleValue = 0.8;
+      zIndexValue = N + 1;
+      blurValue = 1;
+      translateYValue = 20;
+      translateZValue = -200;
+      pointerEventsValue = 'auto';
+    } else {
+      // Hidden items
+      opacityValue = 0;
+      scaleValue = 0.5; // Smaller scale for hidden items
+      zIndexValue = 0;
+      blurValue = 3;
+      translateYValue = 30;
+      translateZValue = -400;
+      pointerEventsValue = 'none';
+
+      // Position hidden items behind the center item
+      translateXValue = '-50%'; 
+    }
+
+    if (isDragging) {
+      const dragOffsetPercentage = (dragCurrentX.current - dragStartX.current) * -0.5;
+      let currentTranslateXNum = 0;
+      if (translateXValue.endsWith('%')) {
+        currentTranslateXNum = parseFloat(translateXValue.substring(0, translateXValue.length - 1));
+      }
+      translateXValue = `${currentTranslateXNum + dragOffsetPercentage}%`;
+    }
 
     return {
-      transform: `translateX(${translateX}%) translateY(${translateY}px) translateZ(${translateZ}px) scale(${scale})`,
-      opacity: position === 0 ? 1 : 0.6,
-      filter: `blur(${position === 0 ? 0 : 1}px)`,
-      zIndex: portfolioItems.length - position,
+      transform: `translateX(${translateXValue}) translateY(${translateYValue}px) translateZ(${translateZValue}px) scale(${scaleValue})`,
+      opacity: opacityValue,
+      filter: `blur(${blurValue}px)`,
+      zIndex: zIndexValue,
+      pointerEvents: pointerEventsValue,
     };
   };
 
@@ -111,7 +172,7 @@ const ProjectCarousel = memo(() => {
   };
 
   return (
-    <Section className="bg-[linear-gradient(to_bottom,theme('colors.neutral.100')_0%,theme('colors.neutral.800')_7%)] overflow-hidden px-4 py-4 md:py-8 sm:pb-0 md:pb-16 lg:px-8 lg:pb-56" noPadding={false} sectionId={SectionId.Carousel}>
+    <Section className="bg-[linear-gradient(to_bottom,theme('colors.neutral.100')_0%,theme('colors.neutral.800')_7%)] overflow-hidden px-4 py-4 md:py-8 sm:pb-32 md:pb-64 lg:px-8 lg:pb-64 pb-24" noPadding={false} sectionId={SectionId.Carousel}>
       <motion.div
         className="relative w-full max-w-7xl mx-auto h-[42rem] perspective-1000 pt-8"
         variants={containerVariants}
@@ -120,7 +181,7 @@ const ProjectCarousel = memo(() => {
         viewport={{once: true, amount: 0.2}}
       >
         <motion.h2
-          className="text-center text-xl font-bold text-white"
+          className="text-center text-3xl font-bold text-white pb-6 pt-4"
           variants={itemVariants}
         >
           Check out some of my work
