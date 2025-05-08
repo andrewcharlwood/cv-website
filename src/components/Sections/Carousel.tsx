@@ -2,6 +2,7 @@ import {ChevronLeft, ChevronRight, ExternalLink} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, {CSSProperties,memo, useRef, useState} from 'react';
+import {motion} from 'framer-motion';
 
 import {portfolioItems, SectionId} from '../../data/data';
 import {PortfolioItem} from '../../data/dataDef';
@@ -91,12 +92,44 @@ const ProjectCarousel = memo(() => {
     };
   };
 
-  return (
-    <Section className="bg-neutral-800 overflow-hidden px-4 py-4 md:py-8 sm:pb-0 md:pb-16 lg:px-8 lg:pb-36 pt" noPadding={true} sectionId={SectionId.Carousel}>
-      <div className="relative w-full max-w-7xl mx-auto h-[42rem] perspective-1000">
-        <h2 className="text-center text-xl font-bold text-white">Check out some of my work</h2>
+  const containerVariants = {
+    hidden: {opacity: 0},
+    visible: {
+      opacity: 1,
+      transition: {staggerChildren: 0.2},
+    },
+  };
 
-        <div className="relative h-[calc(100%-6rem)]">
+  const itemVariants = {
+    hidden: {opacity: 0, scale: 0.95, y: 20},
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {duration: 0.5, ease: 'easeOut'},
+    },
+  };
+
+  return (
+    <Section className="bg-[linear-gradient(to_bottom,theme('colors.neutral.100')_0%,theme('colors.neutral.800')_7%)] overflow-hidden px-4 py-4 md:py-8 sm:pb-0 md:pb-16 lg:px-8 lg:pb-56" noPadding={false} sectionId={SectionId.Carousel}>
+      <motion.div
+        className="relative w-full max-w-7xl mx-auto h-[42rem] perspective-1000 pt-8"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{once: true, amount: 0.2}}
+      >
+        <motion.h2
+          className="text-center text-xl font-bold text-white"
+          variants={itemVariants}
+        >
+          Check out some of my work
+        </motion.h2>
+
+        <motion.div
+          className="relative h-[calc(100%-6rem)]"
+          variants={itemVariants}
+        >
           {/* Carousel items container */}
           <div className="relative h-full mb-12">
             {portfolioItems.map((item: PortfolioItem, index: number) => (
@@ -149,7 +182,7 @@ const ProjectCarousel = memo(() => {
           </div>
 
           {/* Navigation dots */}
-          <div className="absolute -bottom-52 left-0 right-0 flex justify-center gap-2 z-50">
+          <div className="absolute -bottom-60 left-0 right-0 flex justify-center gap-2">
             {portfolioItems.map((_, index) => (
               <button
                 className={`h-2 w-2 rounded-full transition-colors ${
@@ -188,10 +221,11 @@ const ProjectCarousel = memo(() => {
               }`}
             />
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </Section>
   );
 });
 
+ProjectCarousel.displayName = 'ProjectCarousel';
 export default ProjectCarousel;

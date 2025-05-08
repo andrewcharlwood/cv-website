@@ -3,7 +3,6 @@ import React, {FC, memo} from 'react';
 
 import Page from '../components/Layout/Page';
 import Carousel from '../components/Sections/Carousel';
-import Contact from '../components/Sections/Contact';
 import Footer from '../components/Sections/Footer';
 import Hero from '../components/Sections/Hero';
 import Timeline from '../components/Sections/Resume';
@@ -22,7 +21,6 @@ const Home: FC = memo(() => {
       <Summary />
       <Timeline />
       <Carousel />
-      <Contact />
       <Footer />
     </Page>
   );

@@ -15,10 +15,7 @@ const getEmployerColor = (location: string): string => {
     'Tesco Pharmacy': 'bg-red-500',
     'Paydens Pharmacy': 'bg-green-500',
     'University of East Anglia': 'bg-indigo-500',
-    'Apple': 'bg-red-500',
-    'Netflix': 'bg-rose-500',
     'Highworth Grammar School': 'bg-cyan-500',
-    'SpaceX': 'bg-purple-500',
   };
 
   return colorMap[location] || 'bg-slate-500';
@@ -80,7 +77,7 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1
+        threshold: 0.4
       }
     );
 
@@ -110,9 +107,9 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
 
   return (
     <div
-      className={`relative flex gap-4 transition-all duration-700 transform
-        ${isDimmed ? 'opacity-30' : 'opacity-100'}
-        ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+       className={`relative flex gap-4 transition duration-700 transform
+        ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}
+        ${isDimmed ? 'opacity-30' : ''}`}
       ref={cardRef}
     >
       {/* Timeline marker - Hidden on mobile */}
@@ -193,6 +190,58 @@ const TimelineItem: FC<TimelineItemProps> = memo(({
 
 TimelineItem.displayName = 'TimelineItem';
 
+interface AnimatedSectionHeaderProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const AnimatedSectionHeader: FC<AnimatedSectionHeaderProps> = memo(({children, className}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const headerRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const currentHeaderRef = headerRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (currentHeaderRef) {
+            observer.unobserve(currentHeaderRef);
+          }
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.4,
+      },
+    );
+
+    if (currentHeaderRef) {
+      observer.observe(currentHeaderRef);
+    }
+
+    return () => {
+      if (currentHeaderRef) {
+        observer.unobserve(currentHeaderRef);
+      }
+    };
+  }, []);
+
+  return (
+    <h2
+      ref={headerRef}
+      className={`transition duration-700 transform ${className || ''} ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+      }`}
+    >
+      {children}
+    </h2>
+  );
+});
+
+AnimatedSectionHeader.displayName = 'AnimatedSectionHeader';
+
 const Resume: FC = memo(() => {
   const [highlightedPlace, setHighlightedPlace] = useState<string | null>(null);
 
@@ -220,15 +269,15 @@ const Resume: FC = memo(() => {
   }, []);
 
   return (
-    <Section className="bg-neutral-100 relative" sectionId={SectionId.Resume}>
+    <Section className="bg-[linear-gradient(to_bottom,theme('colors.gray.300')_0%,theme('colors.neutral.100')_20%)] relative" sectionId={SectionId.Resume}>
       {highlightedPlace && (
         <div className="absolute inset-0 bg-neutral-900 opacity-5 pointer-events-none transition-opacity duration-300" />
       )}
 
       <div className="space-y-0">
         {/* Work Experience Section */}
-        <div className="flex items-center gap-4 mb-8 bg-neutral-100 md:pl-32">
-          <h2 className=" text-3xl font-bold text-neutral-800 ">Work Experience</h2>
+        <div className="flex items-center gap-4 mb-8 md:pl-32">
+          <AnimatedSectionHeader className="text-3xl font-bold text-neutral-800">Work Experience</AnimatedSectionHeader>
           <div className="invisible md:visible h-px flex-1 bg-neutral-200 " />
         </div>
 
@@ -249,7 +298,7 @@ const Resume: FC = memo(() => {
         {/* Education Section */}
         <Section noPadding={true} sectionId={SectionId.Education}>
           <div className="flex items-center gap-4 mb-8 bg-neutral-100 pt-8 md:pl-32">
-            <h2 className=" text-3xl font-bold z-50 text-neutral-800 ">Education</h2>
+            <AnimatedSectionHeader className="text-3xl font-bold z-50 text-neutral-800">Education</AnimatedSectionHeader>
             <div className="invisible md:visible h-px flex-1 bg-neutral-200 justify-center" />
           </div>
           <div className="relative pl-4 w-full">

@@ -4,9 +4,11 @@ import {
   ArrowDownTrayIcon,
   BuildingOffice2Icon,
   CalendarIcon,
+  DevicePhoneMobileIcon,
   EnvelopeIcon,
   FingerPrintIcon,
   MapIcon,
+  MapPinIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline';
 import React from 'react';
@@ -30,9 +32,10 @@ import {
   Summary,
   TestimonialSection,
   TimelineItem,
+  FooterContactLinkItem,
 } from './dataDef';
 
-// eslint-disable-next-line react-memo/require-memo4
+// eslint-disable-next-line react-memo/require-memo
 const Line = () => (
   <object
     style={{
@@ -56,7 +59,6 @@ export const homePageMeta: HomepageMeta = {
  */
 export const SectionId = {
   Hero: 'about',
-  Contact: 'contact',
   Portfolio: 'projects',
   Summary: 'summary',
   Resume: 'experience',
@@ -487,7 +489,7 @@ export const education: TimelineItem[] = [
   //       <br />
   //       One of the biggest shifts in perspective I had from the course was seeing leadership as a behaviour that we
   //       employ, rather than being restricted to a person or a position. Practical skills such as providing effective
-  //       feedback, interviewing skills, and inspiring colleagues through techniques such as “line-of-sight” have been
+  //       feedback, interviewing skills, and inspiring colleagues through techniques such as "line-of-sight" have been
   //       extremely effective when managing colleagues.
   //     </p>
   //   ),
@@ -550,7 +552,7 @@ export const testimonial: TestimonialSection = {
  */
 
 export const contact: ContactSection = {
-  headerText: 'Get in touch.',
+  headerText: 'Get in touch',
   items: [
     {
       type: ContactType.Email,
@@ -584,5 +586,35 @@ export const socialLinks: Social[] = [
     label: 'Phone',
     Icon: PhoneIcon,
     href: 'tel:07795553088',
+  },
+];
+
+/**
+ * Footer Contact Links
+ */
+export const footerContactLinks: FooterContactLinkItem[] = [
+  {
+    label: 'Email',
+    text: 'andy@charlwood.xyz',
+    href: 'mailto:andy@charlwood.xyz',
+    Icon: EnvelopeIcon,
+  },
+  {
+    label: 'Location',
+    text: 'Norwich, Norfolk',
+    href: 'https://maps.app.goo.gl/ux5cpA2ZiV2KeVEp7',
+    Icon: MapPinIcon,
+  },
+  {
+    label: 'Phone',
+    text: '07795553088',
+    href: 'tel:07795553088',
+    Icon: DevicePhoneMobileIcon,
+  },
+  {
+    label: 'LinkedIn',
+    text: '@andrewcharlwood',
+    href: 'https://www.linkedin.com/in/andrewcharlwood/',
+    Icon: LinkedInIcon,
   },
 ];

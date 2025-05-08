@@ -150,3 +150,7 @@ export interface Social {
   Icon: FC<IconProps>;
   href: string;
 }
+
+export interface FooterContactLinkItem extends Social {
+  text?: string;
+}

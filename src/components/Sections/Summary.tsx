@@ -1,5 +1,6 @@
 import {ArrowDown} from 'lucide-react';
-import React, {FC, memo, useEffect,useState} from 'react';
+import React, {FC, memo} from 'react';
+import {motion} from 'framer-motion';
 
 import {SectionId, summaryData} from '@/data/data';
 
@@ -7,31 +8,55 @@ import Section from '../Layout/Section';
 
 const Summary: FC = memo(() => {
   const {description} = summaryData;
-  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const containerVariants = {
+    hidden: {opacity: 0},
+    visible: {
+      opacity: 1,
+      transition: {staggerChildren: 0.2},
+    },
+  };
+
+  const itemVariants = {
+    hidden: {opacity: 0, scale: 0.95, y: 20},
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {duration: 0.5, ease: 'easeOut'},
+    },
+  };
 
   return (
-    <Section className="bg-gray-300 " sectionId={SectionId.Summary}>
-      <div className={`transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <Section className="bg-[linear-gradient(to_bottom,#048cdc_0%,theme('colors.gray.300')_20%)] " sectionId={SectionId.Summary}>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{once: true, amount: 0.2}}
+      >
         <div className="max-w-full mx-auto ">
           {/* Animated Welcome */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold mb-4 animate-fade-in pt-0">
+            <motion.h1
+              className="text-4xl font-bold text-white mb-4 animate-fade-in pt-0"
+              variants={itemVariants}
+            >
               Summary
-            </h1>
+            </motion.h1>
 
           </div>
 
 
           {/* Content Area */}
-          <div className="bg-white rounded-lg p-6 shadow-lg w-full">
+          <motion.div
+            className="bg-white rounded-lg p-6 shadow-lg w-full"
+            variants={itemVariants}
+          >
             <div className="prose max-w-none">
               {description}
             </div>
-          </div>
+          </motion.div>
 
           {/* Skills Pills */}
           {/*<div className="mt-6 flex flex-wrap justify-center gap-2">*/}
@@ -46,15 +71,18 @@ const Summary: FC = memo(() => {
           {/*</div>*/}
         </div>
 
-      </div>
+      </motion.div>
       <br />
-      <div className="flex justify-center">
+      <motion.div
+        className="flex justify-center"
+        variants={itemVariants}
+      >
         <a
           className="rounded-full bg-white"
           href={`/#${SectionId.Resume}`}>
           <ArrowDown className="bg-transparent animate-bounce p-2 [animation-duration:1.5s]" size={48}/>
         </a>
-      </div>
+      </motion.div>
     </Section>
   );
 });
