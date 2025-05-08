@@ -32,7 +32,7 @@ import {
   TimelineItem,
 } from './dataDef';
 
-// eslint-disable-next-line react-memo/require-memo
+// eslint-disable-next-line react-memo/require-memo4
 const Line = () => (
   <object
     style={{

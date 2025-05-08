@@ -22,6 +22,7 @@
     "classnames": "^2.3.2",
     "clsx": "^2.1.1",
     "cssnano": "^7.0.6",
+    "framer-motion": "^12.10.4",
     "lodash": "^4.17.21",
     "lucide-react": "^0.468.0",
     "next": "^15.0.3",

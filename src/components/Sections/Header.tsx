@@ -2,7 +2,7 @@ import {Dialog, Transition} from '@headlessui/react';
 import {Bars3BottomRightIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import Link from 'next/link';
-import React, {FC, Fragment, memo, useCallback, useMemo, useState} from 'react';
+import React, {FC, Fragment, memo, useCallback, useMemo, useState, useEffect} from 'react';
 
 import {SectionId} from '../../data/data';
 import {useNavObserver} from '../../hooks/useNavObserver';
@@ -40,13 +40,41 @@ const Header: FC = memo(() => {
 
 const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}> = memo(
   ({navSections, currentSection}) => {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
     const baseClass =
       'm-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none ' +
       'focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100';
     const activeClass = classNames(baseClass, 'text-orange-500');
     const inactiveClass = classNames(baseClass, 'text-neutral-100');
     return (
-      <header className="fixed top-0 z-50 hidden w-full bg-neutral-900/50 p-0 backdrop-blur sm:block" id={headerID}>
+      <header
+        className={classNames(
+          'fixed top-0 z-50 hidden w-full bg-neutral-900/50 p-0 backdrop-blur sm:block',
+          'transition-all duration-300 ease-in-out',
+          {
+            'opacity-100 translate-y-0': isScrolled,
+            'opacity-0 -translate-y-full': !isScrolled,
+          },
+        )}
+        id={headerID}>
         <nav className="flex justify-center gap-x-8">
           {navSections.map(section => (
             <NavItem
