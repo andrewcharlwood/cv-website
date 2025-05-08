@@ -28,7 +28,7 @@ const Summary: FC = memo(() => {
   };
 
   return (
-    <Section className="bg-[linear-gradient(to_bottom,#048cdc_0%,theme('colors.gray.300')_20%)] " sectionId={SectionId.Summary}>
+    <Section className="bg-[#048cdc]" sectionId={SectionId.Summary}>
       <motion.div
         variants={containerVariants}
         initial="hidden"

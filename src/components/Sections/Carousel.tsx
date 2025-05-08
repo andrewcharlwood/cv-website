@@ -172,7 +172,7 @@ const ProjectCarousel = memo(() => {
   };
 
   return (
-    <Section className="bg-[linear-gradient(to_bottom,theme('colors.neutral.100')_0%,theme('colors.neutral.800')_7%)] overflow-hidden px-4 py-4 md:py-8 sm:pb-32 md:pb-64 lg:px-8 lg:pb-64 pb-24" noPadding={false} sectionId={SectionId.Carousel}>
+    <Section className="bg-[linear-gradient(to_bottom,#005EB8_0%,#003087_7%)] overflow-hidden px-4 py-4 md:py-8 sm:pb-32 md:pb-64 lg:px-8 lg:pb-64 pb-24" noPadding={false} sectionId={SectionId.Carousel}>
       <motion.div
         className="relative w-full max-w-7xl mx-auto h-[42rem] perspective-1000 pt-8"
         variants={containerVariants}

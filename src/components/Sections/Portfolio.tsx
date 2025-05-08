@@ -13,7 +13,7 @@ import Section from '../Layout/Section';
 const Portfolio: FC = memo(() => {
   const [show, setShow] = useState(false);
   return (
-    <Section className="bg-neutral-800" sectionId={SectionId.Portfolio}>
+    <Section className="bg-[linear-gradient(to_bottom,#005EB8_0%,theme('colors.neutral.800')_7%)]" sectionId={SectionId.Portfolio}>
       <div className="flex flex-col gap-y-8">
         <h2 className="self-center text-xl font-bold text-white">Check out some of my work</h2>
         <div className=" w-full md:columns-2 sm:columns-1 lg:columns-2">

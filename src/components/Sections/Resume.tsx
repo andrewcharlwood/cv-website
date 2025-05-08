@@ -11,11 +11,11 @@ import {TimelineItem as TimelineItemType} from '@/data/dataDef';
 
 const getEmployerColor = (location: string): string => {
   const colorMap: { [key: string]: string } = {
-    'NHS Norfolk and Waveney Integrated Care Board': 'bg-blue-500',
-    'Tesco Pharmacy': 'bg-red-500',
-    'Paydens Pharmacy': 'bg-green-500',
-    'University of East Anglia': 'bg-indigo-500',
-    'Highworth Grammar School': 'bg-cyan-500',
+    'NHS Norfolk and Waveney Integrated Care Board': 'bg-[#003087]',
+    'Tesco Pharmacy': 'bg-[#41B6E6]',
+    'Paydens Pharmacy': 'bg-[#006747]',
+    'University of East Anglia': 'bg-[#330072]',
+    'Highworth Grammar School': 'bg-[#00A499]',
   };
 
   return colorMap[location] || 'bg-slate-500';
@@ -231,7 +231,7 @@ const AnimatedSectionHeader: FC<AnimatedSectionHeaderProps> = memo(({children, c
   return (
     <h2
       ref={headerRef}
-      className={`transition duration-700 transform ${className || ''} ${
+      className={`items-center justify-center text-center transition duration-700 transform ${className || ''} ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
       }`}
     >
@@ -269,16 +269,15 @@ const Resume: FC = memo(() => {
   }, []);
 
   return (
-    <Section className="bg-[linear-gradient(to_bottom,theme('colors.gray.300')_0%,theme('colors.neutral.100')_20%)] relative" sectionId={SectionId.Resume}>
+    <Section className="bg-[linear-gradient(to_bottom,#048cdc_0%,#005EB8_20%)] relative" sectionId={SectionId.Resume}>
       {highlightedPlace && (
-        <div className="absolute inset-0 bg-neutral-900 opacity-5 pointer-events-none transition-opacity duration-300" />
+        <div className="absolute inset-0 opacity-5 pointer-events-none transition-opacity duration-300" />
       )}
 
       <div className="space-y-0">
         {/* Work Experience Section */}
-        <div className="flex items-center gap-4 mb-8 md:pl-32">
-          <AnimatedSectionHeader className="text-3xl font-bold text-neutral-800">Work Experience</AnimatedSectionHeader>
-          <div className="invisible md:visible h-px flex-1 bg-neutral-200 " />
+        <div className="flex justify-center mb-8">
+          <AnimatedSectionHeader className="text-3xl font-bold text-white">Work Experience</AnimatedSectionHeader>
         </div>
 
         <div className="relative pl-4 w-full">
@@ -297,9 +296,8 @@ const Resume: FC = memo(() => {
 
         {/* Education Section */}
         <Section noPadding={true} sectionId={SectionId.Education}>
-          <div className="flex items-center gap-4 mb-8 bg-neutral-100 pt-8 md:pl-32">
-            <AnimatedSectionHeader className="text-3xl font-bold z-50 text-neutral-800">Education</AnimatedSectionHeader>
-            <div className="invisible md:visible h-px flex-1 bg-neutral-200 justify-center" />
+          <div className="flex justify-center mb-8 pt-4 ">
+            <AnimatedSectionHeader className="text-3xl font-bold text-white">Education</AnimatedSectionHeader>
           </div>
           <div className="relative pl-4 w-full">
             {educationItems.map((item, index) => (

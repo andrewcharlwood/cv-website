@@ -9,6 +9,43 @@ import {useNavObserver} from '../../hooks/useNavObserver';
 
 export const headerID = 'headerNav';
 
+// Define AnimatedHamburgerIcon component here
+const AnimatedHamburgerIcon: FC<{
+  isOpen: boolean;
+  onClick: () => void;
+  className?: string;
+}> = memo(({isOpen, onClick, className}) => {
+  return (
+    <button
+      aria-label="Menu Button"
+      className={classNames(
+        'relative z-50 flex h-8 w-8 items-center justify-center rounded-md focus:outline-none sm:hidden',
+        className,
+      )}
+      onClick={onClick}>
+      <div
+        className={classNames(
+          'absolute h-1 w-8 rounded-full bg-white transition-all duration-300 ease-in-out',
+          isOpen ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-[calc(50%-0.5rem)] -translate-y-1/2',
+        )}
+      />
+      <div
+        className={classNames(
+          'absolute h-1 w-8 rounded-full bg-white transition-all duration-300 ease-in-out',
+          isOpen ? 'opacity-0' : 'top-1/2 -translate-y-1/2 opacity-100',
+        )}
+      />
+      <div
+        className={classNames(
+          'absolute h-1 w-8 rounded-full bg-white transition-all duration-300 ease-in-out',
+          isOpen ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'top-[calc(50%+0.5rem)] -translate-y-1/2',
+        )}
+      />
+    </button>
+  );
+});
+AnimatedHamburgerIcon.displayName = 'AnimatedHamburgerIcon';
+
 const Header: FC = memo(() => {
   const [currentSection, setCurrentSection] = useState<SectionId | null>(null);
   const navSections = useMemo(
@@ -60,7 +97,7 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
 
     const baseClass =
       'm-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none ' +
-      'focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100';
+      'focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100 text-center';
     const activeClass = classNames(baseClass, 'text-orange-500');
     const inactiveClass = classNames(baseClass, 'text-neutral-100');
     return (
@@ -93,26 +130,52 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
 const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}> = memo(
   ({navSections, currentSection}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
 
     const toggleOpen = useCallback(() => {
       setIsOpen(!isOpen);
     }, [isOpen]);
 
     const baseClass =
-      'p-2 rounded-md first-letter:uppercase transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500';
-    const activeClass = classNames(baseClass, 'bg-neutral-900 text-white font-bold');
-    const inactiveClass = classNames(baseClass, 'text-neutral-200 font-medium');
+      'block w-full p-3 text-lg rounded-lg first-letter:uppercase transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 text-center border border-white';
+    const activeClass = classNames(baseClass, 'bg-white/25 text-white font-semibold');
+    const inactiveClass = classNames(baseClass, 'text-blue-100 hover:bg-white/15 hover:text-white font-medium');
     return (
       <>
-        <button
-          aria-label="Menu Button"
-          className="fixed right-2 top-2 z-40 rounded-md bg-orange-500 p-2 ring-offset-gray-800/60 hover:bg-orange-400 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 sm:hidden"
-          onClick={toggleOpen}>
-          <Bars3BottomRightIcon className="h-8 w-8 text-white" />
-          <span className="sr-only">Open sidebar</span>
-        </button>
+        <div
+          className={classNames(
+            'fixed top-4 right-4 z-50 sm:hidden',
+            'p-3 bg-[#005EB8B3] hover:bg-[#048CDAB3] rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#005EB8]',
+            'transition-all duration-300 ease-in-out',
+            {
+              'opacity-100 translate-y-0': isScrolled,
+              'opacity-0 -translate-y-full': !isScrolled,
+            },
+          )}>
+          <AnimatedHamburgerIcon
+            isOpen={isOpen}
+            onClick={toggleOpen}
+          />
+        </div>
         <Transition.Root as={Fragment} show={isOpen}>
-          <Dialog as="div" className="fixed inset-0 z-40 flex sm:hidden" onClose={toggleOpen}>
+          <Dialog as="div" className="fixed inset-0 z-40 flex items-center justify-center p-4 sm:hidden" onClose={toggleOpen}>
             <Transition.Child
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
@@ -125,14 +188,14 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
             </Transition.Child>
             <Transition.Child
               as={Fragment}
-              enter="transition ease-in-out duration-300 transform"
-              enterFrom="-translate-x-full"
-              enterTo="translate-x-0"
-              leave="transition ease-in-out duration-300 transform"
-              leaveFrom="translate-x-0"
-              leaveTo="-translate-x-full">
-              <div className="relative w-4/5 bg-stone-800">
-                <nav className="mt-5 flex flex-col gap-y-2 px-2">
+              enter="transition-all ease-out duration-300"
+              enterFrom="opacity-0 scale-95 transform"
+              enterTo="opacity-100 scale-100 transform"
+              leave="transition-all ease-in duration-200"
+              leaveFrom="opacity-100 scale-100 transform"
+              leaveTo="opacity-0 scale-95 transform">
+              <div className="relative w-11/12 max-w-xs rounded-xl shadow-2xl bg-gradient-to-br from-[#048CDA] to-[#005EB8] p-6 flex flex-col">
+                <nav className="flex flex-col gap-y-3 mt-4">
                   {navSections.map(section => (
                     <NavItem
                       activeClass={activeClass}
