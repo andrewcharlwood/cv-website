@@ -272,6 +272,12 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
+    title: 'PharMetrics',
+    description: 'PharMetrics is an interactive platform for exploring key aspects of health economics and drug development. Discover how healthcare systems evaluate whether new drugs offer value for money. See how research study design can influence outcomes, and step into the role of big pharma navigating the complex testing and approval process in the Trials Tycoon strategy game.',
+    url: 'https://medicines.charlwood.xyz/',
+    image: porfolioImage4,
+  },
+  {
     title: 'Patient pathway analysis',
     description:
       'An interactive chart displaying patient care pathways for high-cost drugs (example provided has randomised cost/patient numbers). This graph enables an intuitive way to explore patient journeys by trust/directorate, and provides a detailed breakdown of figures such as total patients, cost, frequency of dosing, average cost per patient. Data can be filtered by date/directorate to identify trends of medicine used easily. ',
@@ -294,12 +300,6 @@ export const portfolioItems: PortfolioItem[] = [
       'support with the NMS service.',
     url: 'https://www.youtube.com/watch?v=Rm1wcX92XlQ',
     image: porfolioImage2,
-  },
-  {
-    title: 'PharMetrics',
-    description: 'PharMetrics is an interactive platform for exploring key aspects of health economics and drug development. Discover how healthcare systems evaluate whether new drugs offer value for money. See how research study design can influence outcomes, and step into the role of big pharma navigating the complex testing and approval process in the Trials Tycoon strategy game.',
-    url: 'https://medicines.charlwood.xyz/',
-    image: porfolioImage4,
   },
 ];
 
