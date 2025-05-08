@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Bold.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Bold.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Bold.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Bold.svg#LuxoraGrotesk-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-BoldItalic.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-BoldItalic.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-BoldItalic.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-BoldItalic.svg#LuxoraGrotesk-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk Book';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Book.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Book.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Book.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Book.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Book.svg#LuxoraGrotesk-Book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Heavy.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Heavy.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Heavy.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Heavy.svg#LuxoraGrotesk-Heavy') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk Book';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-BookItalic.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-BookItalic.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-BookItalic.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-BookItalic.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-BookItalic.svg#LuxoraGrotesk-BookItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Italic.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Italic.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Italic.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Italic.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Italic.svg#LuxoraGrotesk-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-HeavyItalic.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-HeavyItalic.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-HeavyItalic.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-HeavyItalic.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-HeavyItalic.svg#LuxoraGrotesk-HeavyItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Medium.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Medium.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Medium.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Medium.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Medium.svg#LuxoraGrotesk-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Light.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Light.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Light.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Light.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Light.svg#LuxoraGrotesk-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-LightItalic.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-LightItalic.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-LightItalic.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-LightItalic.svg#LuxoraGrotesk-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-MediumItalic.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-MediumItalic.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-MediumItalic.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-MediumItalic.svg#LuxoraGrotesk-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Thin.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Thin.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Thin.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Thin.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Thin.svg#LuxoraGrotesk-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Regular.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Regular.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Regular.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-Regular.svg#LuxoraGrotesk-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Luxora Grotesk';
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-ThinItalic.eot');
+    src: url('./fonts/LuxoraGrotesk/LuxoraGrotesk-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-ThinItalic.woff2') format('woff2'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-ThinItalic.woff') format('woff'),
+        url('./fonts/LuxoraGrotesk/LuxoraGrotesk-ThinItalic.svg#LuxoraGrotesk-ThinItalic') format('svg');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+

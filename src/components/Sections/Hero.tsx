@@ -54,7 +54,7 @@ const Hero: FC = memo(() => {
             initial="hidden"
             animate="visible">
             <motion.h1
-              className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl pb-2"
+              className="text-4xl font-extrabold text-white sm:text-5xl lg:text-7xl pb-2"
               variants={itemVariants}>
               {name}
             </motion.h1>

@@ -195,7 +195,7 @@ const ProjectCarousel = memo(() => {
           <div className="relative h-full mb-12">
             {portfolioItems.map((item: PortfolioItem, index: number) => (
               <div
-                className="absolute w-full max-w-4xl left-1/2 top-2 transition-all duration-500 select-none touch-none"
+                className="absolute w-full max-w-4xl left-1/2 top-2 transition-all duration-500 select-none"
                 key={index}
                 onClick={handleClick}
                 onMouseDown={handleDragStart}

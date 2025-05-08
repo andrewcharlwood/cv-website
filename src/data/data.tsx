@@ -373,7 +373,7 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: 'November 2017 - May 2022',
+    date: 'Nov 2017 - May 2022',
     location: 'Tesco Pharmacy',
     title: 'Pharmacy Manager',
     grade: '',

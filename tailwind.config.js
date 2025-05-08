@@ -1,10 +1,12 @@
- 
 module.exports = {
     darkMode: ['class'],
     content: ['./src/**/*.{js,ts,jsx,tsx,css,scss}'],
   // darkMode: 'media', // or 'media' or 'class'
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['Clofie', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Ubuntu', '"Helvetica Neue"', 'sans-serif'],
+  		},
   		colors: {
   			yellow: '#efc603',
   			background: 'hsl(var(--background))',
