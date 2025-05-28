@@ -1,0 +1,2063 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NHS Weight Loss Medicine Eligibility Checker</title>
+    <style>
+        @font-face {
+            font-family: 'Avenir LT Std';
+            src: url('fonts/Avenir LT 55 Roman.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Avenir LT Std';
+            src: url('fonts/avenir-lt-std-95-black.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Avenir LT Std', Arial, sans-serif;
+            line-height: 1.6;
+            color: #231f20;
+            background-color: #f8fafc;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 4px solid #0E0661;
+            background: white;
+            margin-bottom: 16px;
+        }
+
+        .header {
+            background: #0E0661;
+            color: white;
+            padding: 16px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .header-title {
+            font-size: 18px;
+            line-height: 1;
+            letter-spacing: -0.025em;
+            font-weight: normal;
+        }
+
+        .content {
+            padding: 0 32px 32px;
+        }
+
+        .step-content {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .step-content.hidden {
+            display: none;
+        }
+
+        .prose {
+            max-width: none;
+        }
+
+        .prose p {
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-family: 'Avenir LT Std', Arial, sans-serif;
+            color: #231f20;
+        }
+
+        .important-box {
+            margin: 0px 0;
+            padding: 0px 24px 0;
+            background: #fefce8;
+            color: #374151;
+            border: 1px solid #FFC240;
+            position: relative;
+        }
+
+        .important-header {
+            display: inline-block;
+            position: relative;
+            margin-left: -24px;
+            margin-bottom: 8px;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .important-label {
+            font-weight: bold;
+            background: #FFC240;
+            display: inline-block;
+            padding: 8px 32px;
+            position: relative;
+            top: -16px;
+        }
+
+        .important-content {
+            font-size: 16px;
+            padding-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 0px;
+            font-family: 'Avenir LT Std', Arial, sans-serif;
+            color: #202755;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            font-family: 'Avenir LT Std', Arial, sans-serif;
+            color: #202755;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .radio-option:hover {
+            background-color: #f9fafb;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 4px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .checkbox-option:hover {
+            background-color: #f9fafb;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 4px;
+        }
+
+        .condition-description {
+            font-size: 14px;
+            color: #4b5563;
+            margin-top: 4px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .bmi-methods {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .method-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .method-btn.active {
+            background: #0E0661;
+            color: white;
+        }
+
+        .method-btn.inactive {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .method-btn.inactive:hover {
+            background: #d1d5db;
+        }
+
+        .bmi-result {
+            padding: 16px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            margin-top: 16px;
+        }
+
+        .info-box {
+            padding: 16px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .info-box.blue {
+            background: #dbeafe;
+            border: 1px solid #1FB8DB;
+        }
+
+        .info-box.green {
+            background: #dcfce7;
+            border: 1px solid #2EB67D;
+        }
+
+        .info-box.yellow {
+            background: #fefce8;
+            border: 1px solid #FFC240;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            padding: 8px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #0E0661;
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #1058A5;
+        }
+
+        .btn-primary:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+
+        .btn-large {
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: 600;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-box {
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .result-box.success {
+            background: #dcfce7;
+            border: 1px solid #2EB67D;
+        }
+
+        .result-box.warning {
+            background: #fefce8;
+            border: 1px solid #FFC240;
+        }
+
+        .result-box.orange {
+            background: #fed7aa;
+            border: 1px solid #EE710C;
+        }
+
+        .cohort-info {
+            background: white;
+            padding: 16px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            margin-top: 16px;
+        }
+
+        .timeline-box {
+            background: #dbeafe;
+            border: 1px solid #1FB8DB;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .timeline-item {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 12px 16px;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-title {
+                font-size: 16px;
+            }
+            
+            .content {
+                padding: 0 16px 16px;
+            }
+            
+            .important-box {
+                margin: 20px 0;
+                padding: 16px 16px 0;
+            }
+            
+            .important-header {
+                margin-left: -16px;
+                font-size: 18px;
+            }
+            
+            .important-label {
+                padding: 6px 24px;
+            }
+
+            /* Mobile responsive for inline unit toggle */
+            .input-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .input-col[style*="flex: 0 0 120px"] {
+                flex: none !important;
+                align-self: center;
+            }
+
+            .inline-unit-toggle {
+                min-width: 80px;
+                padding: 6px 8px;
+                margin-top: 12px;
+            }
+
+            .compact-toggle-switch {
+                width: 40px;
+                height: 20px;
+            }
+
+            .compact-toggle-slider {
+                width: 16px;
+                height: 16px;
+            }
+
+            .compact-toggle-switch.active .compact-toggle-slider {
+                transform: translateX(20px);
+            }
+        }
+
+        /* Unit toggle styles */
+        .unit-toggle {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .unit-btn {
+            padding: 6px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            font-size: 14px;
+            background: white;
+            color: #374151;
+        }
+
+        .unit-btn.active {
+            background: #0E0661;
+            color: white;
+            border-color: #0E0661;
+        }
+
+        .unit-btn:hover:not(.active) {
+            background: #f3f4f6;
+            border-color: #9ca3af;
+        }
+
+        /* Animation and transition styles */
+        .radio-option, .checkbox-option {
+            transition: all 0.2s ease-out;
+        }
+
+        .radio-option:hover, .checkbox-option:hover {
+            background-color: #f9fafb;
+            border-color: #0E0661;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn {
+            transition: all 0.2s ease-out;
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #1058A5;
+            box-shadow: 0 4px 12px rgba(14, 6, 97, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: #d1d5db;
+            transform: translateY(-1px);
+        }
+
+        .input-group input {
+            transition: all 0.15s ease-in-out;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #0E0661;
+            box-shadow: 0 0 0 3px rgba(14, 6, 97, 0.1);
+        }
+
+        .input-group input:hover {
+            border-color: #9ca3af;
+        }
+
+        .method-btn {
+            transition: all 0.2s ease-out;
+        }
+
+        .method-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .bmi-result {
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+        .bmi-result.hidden {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .step-content {
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        /* Imperial input styling */
+        .height-imperial {
+            display: flex;
+            gap: 8px;
+            align-items: end;
+        }
+
+        .height-imperial .input-group {
+            flex: 1;
+        }
+
+        .height-imperial .input-group:first-child {
+            flex: 0 0 80px;
+        }
+
+        /* Accessibility - reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Enhanced focus indicators */
+        .radio-option:focus-within, .checkbox-option:focus-within {
+            border-color: #0E0661;
+            box-shadow: 0 0 0 3px rgba(14, 6, 97, 0.1);
+        }
+
+        /* Smooth counter animation */
+        #condition-count {
+            transition: all 0.2s ease-out;
+        }
+
+        /* Form validation feedback */
+        .input-error {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+        }
+
+        .input-success {
+            border-color: #2EB67D !important;
+        }
+
+        /* Modern BMI Section Styles */
+        .bmi-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 24px;
+        }
+
+        .bmi-tabs {
+            display: flex;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 4px;
+            margin-bottom: 24px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .bmi-tab {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease-out;
+            color: #6b7280;
+        }
+
+        .bmi-tab.active {
+            background: #0E0661;
+            color: white;
+            box-shadow: 0 2px 4px rgba(14, 6, 97, 0.2);
+        }
+
+        .bmi-tab:hover:not(.active) {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .bmi-content {
+            min-height: 200px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .unit-switch {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .unit-switch-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 28px;
+            background: #d1d5db;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active {
+            background: #0E0661;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(32px);
+        }
+
+        .unit-labels {
+            display: flex;
+            gap: 8px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .unit-label.active {
+            color: #0E0661;
+            font-weight: 600;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .input-col {
+            flex: 1;
+        }
+
+        .input-col.small {
+            flex: 0 0 100px;
+        }
+
+        .modern-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.2s ease-out;
+            background: white;
+        }
+
+        .modern-input:focus {
+            outline: none;
+            border-color: #0E0661;
+            box-shadow: 0 0 0 3px rgba(14, 6, 97, 0.1);
+        }
+
+        .modern-input:hover {
+            border-color: #9ca3af;
+        }
+
+        .modern-input.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+        .modern-input.success {
+            border-color: #2EB67D;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .bmi-result-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease-out;
+        }
+
+        .bmi-result-card.show {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .bmi-result-card.normal {
+            background: linear-gradient(135deg, #dcfce7 0%, #2EB67D 100%);
+            border-color: #2EB67D;
+        }
+
+        .bmi-result-card.overweight {
+            background: linear-gradient(135deg, #fefce8 0%, #1FB8DB 100%);
+            border-color: #FFC240;
+        }
+
+        .bmi-result-card.obese {
+            background: linear-gradient(135deg, #fee2e2 0%, #FFC240 100%);
+            border-color: #ef4444;
+        }
+
+        .bmi-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #0E0661;
+            margin-bottom: 8px;
+        }
+
+        .bmi-category {
+            font-size: 16px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+
+        .bmi-description {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .manual-bmi-input {
+            text-align: center;
+        }
+
+        .manual-bmi-input .modern-input {
+            font-size: 24px;
+            text-align: center;
+            font-weight: 600;
+            color: #0E0661;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Progress Bar Styles */
+        .progress-container {
+            position: relative;
+            background: #f8fafc;
+            border-top: 1px solid #e5e7eb;
+            padding: 16px 32px;
+            margin-top: auto;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .progress-percentage {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0E0661;
+        }
+
+        .progress-bar-track {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: #2EB67D;
+            border-radius: 4px;
+            transition: width 0.4s ease-out;
+            width: 0%;
+            position: relative;
+        }
+
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Mobile responsive for progress bar */
+        @media (max-width: 640px) {
+            .progress-container {
+                padding: 12px 16px;
+            }
+            
+            .progress-text, .progress-percentage {
+                font-size: 12px;
+            }
+            
+            .progress-bar-track {
+                height: 6px;
+            }
+        }
+
+        /* Inline unit toggle styles */
+        .inline-unit-toggle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 8px 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            min-width: 100px;
+            margin-top: 20px;
+        }
+
+        .inline-unit-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+
+        .compact-toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            background: #d1d5db;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .compact-toggle-switch.active {
+            background: #0E0661;
+        }
+
+        .compact-toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .compact-toggle-switch.active .compact-toggle-slider {
+            transform: translateX(26px);
+        }
+
+        .compact-unit-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 4px;
+            font-size: 10px;
+            color: #6b7280;
+        }
+
+        .compact-unit-label.active {
+            color: #0E0661;
+            font-weight: 600;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Progress Bar Styles */
+        .progress-container {
+            position: relative;
+            background: #f8fafc;
+            border-top: 1px solid #e5e7eb;
+            padding: 16px 32px;
+            margin-top: auto;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .progress-percentage {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0E0661;
+        }
+
+        .progress-bar-track {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: #2EB67D;
+            border-radius: 4px;
+            transition: width 0.4s ease-out;
+            width: 0%;
+            position: relative;
+        }
+
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Mobile responsive for progress bar */
+        @media (max-width: 640px) {
+            .progress-container {
+                padding: 12px 16px;
+            }
+            
+            .progress-text, .progress-percentage {
+                font-size: 12px;
+            }
+            
+            .progress-bar-track {
+                height: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="header">
+            <div class="header-title">
+                NHS Norfolk & Waveney ICB Weight Loss Medicine Eligibility Checker
+            </div>
+        </div>
+        <div class="content">
+            <!-- Start Step -->
+            <div id="step-start" class="step-content">
+                <div class="prose">
+                    <p>
+                        The NHS is implementing a phased rollout of tirzepatide (Mounjaro) for weight management 
+                        from June 2025. 
+                    </p>
+                    <p>
+                        This checker will help you understand if you might be eligible for these 
+                        treatments for weight loss based on the latest NHS interim guidance, 
+                        not for the treatment of other conditions such as type 2 diabetes.
+                    </p>
+                </div>
+                
+                <div class="important-box">
+                    <h3 class="important-header">
+                        <span class="important-label">
+                            Important
+                        </span>
+                    </h3>
+                    <div class="important-content">
+                        <p>
+                            Meeting the eligibility criteria shown here does not guarantee access to these 
+                            medicines. This tool is for informational purposes only and does not 
+                            replace professional medical advice. You will need to discuss your 
+                            options with healthcare professionals who will consider your full 
+                            medical history and circumstances. Access is subject to phased implementation 
+                            and local capacity.
+                        </p>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary btn-large" onclick="startAssessment()">
+                    Start Check
+                </button>
+            </div>
+
+            <!-- Age Step -->
+            <div id="step-age" class="step-content hidden">
+                <h2>What is your age?</h2>
+                
+                <div class="radio-group">                   
+                    <label class="radio-option">
+                        <input type="radio" name="age" value="18" onchange="handleAgeChange()">
+                        <span>18 years or older</span>
+                    </label>
+                                        <label class="radio-option">
+                        <input type="radio" name="age" value="under18" onchange="handleAgeChange()">
+                        <span>Under 18 years</span>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="goToPrevStep()">Back</button>
+                </div>
+            </div>
+
+            <!-- Ethnicity Step -->
+            <div id="step-ethnicity" class="step-content hidden">
+                <h2>Ethnicity</h2>
+                
+                <p>
+                    NHS guidance uses lower BMI thresholds for certain ethnicity groups. 
+                    Please select your ethnicity:
+                </p>
+                
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="ethnicity" value="white_british" onchange="handleEthnicityChange()">
+                        <span>White British/European/Other White</span>
+                    </label>
+                    
+                    <label class="radio-option">
+                        <input type="radio" name="ethnicity" value="south_asian" onchange="handleEthnicityChange()">
+                        <span>South Asian (Indian, Pakistani, Bangladeshi, Sri Lankan)</span>
+                    </label>
+
+                    <label class="radio-option">
+                        <input type="radio" name="ethnicity" value="chinese" onchange="handleEthnicityChange()">
+                        <span>Chinese</span>
+                    </label>
+
+                    <label class="radio-option">
+                        <input type="radio" name="ethnicity" value="other_asian" onchange="handleEthnicityChange()">
+                        <span>Other Asian</span>
+                    </label>
+
+                    <label class="radio-option">
+                        <input type="radio" name="ethnicity" value="middle_eastern" onchange="handleEthnicityChange()">
+                        <span>Middle Eastern</span>
+                    </label>
+
+                    <label class="radio-option">
+                        <input type="radio" name="ethnicity" value="black_african" onchange="handleEthnicityChange()">
+                        <span>Black African</span>
+                    </label>
+
+                    <label class="radio-option">
+                        <input type="radio" name="ethnicity" value="african_caribbean" onchange="handleEthnicityChange()">
+                        <span>African-Caribbean</span>
+                    </label>
+
+                    <label class="radio-option">
+                        <input type="radio" name="ethnicity" value="mixed_other" onchange="handleEthnicityChange()">
+                        <span>Mixed/Other</span>
+                    </label>
+                </div>
+
+                <div id="ethnicity-note" class="info-box blue hidden">
+                    <p>
+                        <strong>Note:</strong> NHS guidance uses BMI thresholds that are 2.5 kg/m² lower 
+                        for people from South Asian, Chinese, other Asian, Middle Eastern, Black African 
+                        or African-Caribbean ethnic backgrounds.
+                    </p>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="goToPrevStep()">Back</button>
+                    <button id="ethnicity-next-btn" class="btn btn-primary" disabled onclick="goToNextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- BMI Step -->
+            <div id="step-bmi" class="step-content hidden">
+                <h2>Body Mass Index (BMI)</h2>
+                
+                <div class="bmi-card">
+                    <!-- Method Selection Tabs -->
+                    <div class="bmi-tabs">
+                        <button id="calculate-tab" class="bmi-tab active" onclick="switchBmiMethod('calculate')">
+                        Calculate my BMI
+                    </button>
+                        <button id="manual-tab" class="bmi-tab" onclick="switchBmiMethod('manual')">
+                        Enter my BMI
+                    </button>
+                </div>
+                
+                    <!-- BMI Content Area -->
+                    <div id="bmi-content" class="bmi-content">
+                        
+                        <!-- Calculator Mode -->
+                        <div id="calculator-mode" class="fade-in">
+                            <!-- Input Fields -->
+                            <div id="metric-inputs">
+                                <div class="input-row">
+                                    <div class="input-col">
+                                        <label class="input-label" for="weight-input">Weight (kg)</label>
+                                        <input 
+                                            type="text" 
+                                            id="weight-input" 
+                                            class="modern-input" 
+                                            placeholder="70"
+                                            oninput="handleBmiInput()"
+                                        >
+                                    </div>
+                                    <div class="input-col">
+                                        <label class="input-label" for="height-input">Height (cm)</label>
+                                        <input 
+                                            type="text" 
+                                            id="height-input" 
+                                            class="modern-input" 
+                                            placeholder="175"
+                                            oninput="handleBmiInput()"
+                                        >
+                                    </div>
+                                    <div class="input-col" style="flex: 0 0 120px;">
+                                        <div class="inline-unit-toggle">
+                                            <div class="compact-toggle-switch" id="unit-toggle" onclick="toggleUnits()">
+                                                <div class="compact-toggle-slider"></div>
+                                            </div>
+                                            <div class="compact-unit-labels">
+                                                <span id="metric-label" class="compact-unit-label active">Metric</span>
+                                                <span id="imperial-label" class="compact-unit-label">Imperial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div id="imperial-inputs" style="display: none;">
+                                <div class="input-row">
+                                    <div class="input-col">
+                                        <label class="input-label" for="weight-lbs-input">Weight (lbs)</label>
+                                        <input 
+                                            type="text" 
+                                            id="weight-lbs-input" 
+                                            class="modern-input" 
+                                            placeholder="154"
+                                            oninput="handleBmiInput()"
+                                        >
+                                    </div>
+                                    <div class="input-col small">
+                                        <label class="input-label" for="height-ft-input">Feet</label>
+                                        <input 
+                                            type="text" 
+                                            id="height-ft-input" 
+                                            class="modern-input" 
+                                            placeholder="5"
+                                            oninput="handleBmiInput()"
+                                        >
+                                    </div>
+                                    <div class="input-col small">
+                                        <label class="input-label" for="height-in-input">Inches</label>
+                                        <input 
+                                            type="text" 
+                                            id="height-in-input" 
+                                            class="modern-input" 
+                                            placeholder="9"
+                                            oninput="handleBmiInput()"
+                                        >
+                                    </div>
+                                    <div class="input-col" style="flex: 0 0 120px;">
+                                        <div class="inline-unit-toggle">
+                                            <div class="compact-toggle-switch" id="unit-toggle-imperial" onclick="toggleUnits()">
+                                                <div class="compact-toggle-slider"></div>
+                                            </div>
+                                            <div class="compact-unit-labels">
+                                                <span class="compact-unit-label">Metric</span>
+                                                <span class="compact-unit-label active">Imperial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Manual Mode -->
+                        <div id="manual-mode" style="display: none;">
+                            <div class="manual-bmi-input">
+                                <label class="input-label" for="manual-bmi-input">Your BMI</label>
+                        <input
+                            type="text"
+                                    id="manual-bmi-input" 
+                                    class="modern-input" 
+                                    placeholder="25.0"
+                                    oninput="handleManualBmiInput()"
+                                >
+                                <p style="margin-top: 8px; font-size: 14px; color: #6b7280;">
+                                    Enter your BMI if you already know it
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- BMI Result Display -->
+                        <div id="bmi-result" class="bmi-result-card" style="display: none;">
+                            <div class="bmi-value" id="bmi-display">--</div>
+                            <div class="bmi-category" id="bmi-category">BMI Category</div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="goToPrevStep()">Back</button>
+                    <button id="bmi-next-btn" class="btn btn-primary" disabled onclick="handleBmiSubmit()">Next</button>
+                </div>
+            </div>
+
+            <!-- Comorbidities Step -->
+            <div id="step-comorbidities" class="step-content hidden">
+                <h2>Qualifying Health Conditions</h2>
+                
+                <p>
+                    Please select any of the following qualifying health conditions that apply to you. 
+                    These are specific conditions defined in NHS guidance:
+                </p>
+                
+                <div class="checkbox-group">
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="comorbidities" value="ascvd" onchange="handleComorbidityChange()">
+                        <div>
+                            <span style="font-weight: 500;">Heart disease</span>
+                            <p class="condition-description">
+                                Established heart disease, peripheral vascular disease, or heart failure
+                            </p>
+                        </div>
+                    </label>
+                    
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="comorbidities" value="hypertension" onchange="handleComorbidityChange()">
+                        <div>
+                            <span style="font-weight: 500;">High blood pressure</span>
+                            <p class="condition-description">
+                                Established diagnosis of high blood pressure requiring medication
+                            </p>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="comorbidities" value="dyslipidaemia" onchange="handleComorbidityChange()">
+                        <div>
+                            <span style="font-weight: 500;">High cholesterol</span>
+                            <p class="condition-description">
+                                Treated with cholesterol-lowering therapy, or abnormal cholesterol levels 
+                                (LDL ≥4.1 mmol/L, HDL <1.0 mmol/L for men or <1.3 mmol/L for women, 
+                                or triglycerides ≥1.7 mmol/L)
+                            </p>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="comorbidities" value="osa" onchange="handleComorbidityChange()">
+                        <div>
+                            <span style="font-weight: 500;">Sleep apnoea (sleep breathing problems)</span>
+                            <p class="condition-description">
+                                Established diagnosis confirmed by sleep study and requiring treatment 
+                                (e.g., CPAP machine)
+                            </p>
+                        </div>
+                    </label>
+
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="comorbidities" value="diabetes" onchange="handleComorbidityChange()">
+                        <div>
+                            <span style="font-weight: 500;">Type 2 diabetes</span>
+                            <p class="condition-description">
+                                Established type 2 diabetes diagnosis
+                            </p>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="info-box blue">
+                    <p>
+                        <strong>Selected conditions:</strong> <span id="condition-count">0</span> of 5
+                    </p>
+                    <p style="margin-top: 4px;">
+                        The number of qualifying conditions affects which treatment cohort you may be eligible for.
+                    </p>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="goToPrevStep()">Back</button>
+                    <button class="btn btn-primary" onclick="goToNextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Previous Attempts Step -->
+            <div id="step-previousAttempts" class="step-content hidden">
+                <h2>Previous Weight Loss Attempts</h2>
+                
+                <p>
+                    Have you made serious attempts to lose weight through diet, exercise, 
+                    and/or behavior changes for at least 6 months without achieving or 
+                    maintaining significant weight loss?
+                </p>
+                
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="previousAttempts" value="true" onchange="handlePreviousAttemptsChange()">
+                        <span>Yes</span>
+                    </label>
+                    
+                    <label class="radio-option">
+                        <input type="radio" name="previousAttempts" value="false" onchange="handlePreviousAttemptsChange()">
+                        <span>No</span>
+                    </label>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="goToPrevStep()">Back</button>
+                    <button id="attempts-next-btn" class="btn btn-primary" disabled onclick="goToNextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Result Step -->
+            <div id="step-result" class="step-content hidden">
+                <h2>Your Result</h2>
+                
+                <div id="result-content">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+
+                <div class="timeline-box">
+                    <h3>Phased Implementation Timeline</h3>
+                    <div style="font-size: 14px; margin-top: 8px;">
+                        <div class="timeline-item"><strong>Year 1 (2025/26):</strong> ≥4 qualifying conditions + BMI ≥<span id="timeline-bmi-1">40</span></div>
+                        <div class="timeline-item"><strong>Year 2 (2026/27):</strong> ≥4 qualifying conditions + BMI <span id="timeline-bmi-2a">35</span>-<span id="timeline-bmi-2b">39.9</span></div>
+                        <div class="timeline-item"><strong>Year 2/3 (2027-2028):</strong> ≥3 qualifying conditions + BMI ≥<span id="timeline-bmi-3">40</span></div>
+                    </div>
+                </div>
+                
+                <div class="info-box blue">
+                    <h3>Remember</h3>
+                    <p>
+                        This tool is based on NHS interim guidance and is for informational purposes only. 
+                        It does not replace professional medical advice. The NHS offers various weight 
+                        management options, and medication is just one possibility. Final decisions depend 
+                        on clinical assessment and local service capacity.
+                    </p>
+                </div>
+                
+                <button class="btn btn-primary btn-large" onclick="resetForm()">
+                    Start Again
+                </button>
+            </div>
+        </div>
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-text">Step <span id="current-step">1</span> of 7</span>
+                <span class="progress-percentage" id="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar-track">
+                <div class="progress-bar-fill" id="progress-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Application state
+        let currentStep = 'start';
+        let answers = {
+            ethnicity: null,
+            bmi: null,
+            comorbidities: {
+                ascvd: false,
+                hypertension: false,
+                dyslipidaemia: false,
+                osa: false,
+                diabetes: false
+            },
+            previousAttempts: null
+        };
+        let bmiMethod = 'calculate';
+        let unitSystem = 'metric';
+        let ageBasedIneligible = false; // Track if user is ineligible due to age
+
+        const steps = ['start', 'age', 'ethnicity', 'bmi', 'comorbidities', 'previousAttempts', 'result'];
+
+        // Utility functions
+        function getAdjustedBmiThreshold(threshold) {
+            const lowerThresholdEthnicities = ['south_asian', 'chinese', 'other_asian', 'middle_eastern', 'black_african', 'african_caribbean'];
+            if (answers.ethnicity && lowerThresholdEthnicities.includes(answers.ethnicity)) {
+                return threshold - 2.5;
+            }
+            return threshold;
+        }
+
+        function countQualifyingComorbidities() {
+            return Object.values(answers.comorbidities).filter(Boolean).length;
+        }
+
+        // Imperial to metric conversion functions
+        function lbsToKg(lbs) {
+            return lbs * 0.453592;
+        }
+
+        function feetInchesToCm(feet, inches) {
+            const totalInches = (feet * 12) + inches;
+            return totalInches * 2.54;
+        }
+
+        // Modern BMI Interface Functions
+        function switchBmiMethod(method) {
+            bmiMethod = method;
+            
+            const calculateTab = document.getElementById('calculate-tab');
+            const manualTab = document.getElementById('manual-tab');
+            const calculatorMode = document.getElementById('calculator-mode');
+            const manualMode = document.getElementById('manual-mode');
+
+            if (method === 'calculate') {
+                calculateTab.className = 'bmi-tab active';
+                manualTab.className = 'bmi-tab';
+                calculatorMode.style.display = 'block';
+                manualMode.style.display = 'none';
+                calculatorMode.className = 'fade-in';
+            } else {
+                calculateTab.className = 'bmi-tab';
+                manualTab.className = 'bmi-tab active';
+                calculatorMode.style.display = 'none';
+                manualMode.style.display = 'block';
+                manualMode.className = 'fade-in';
+            }
+
+            updateBmiDisplay();
+            updateUI();
+        }
+
+        function toggleUnits() {
+            unitSystem = unitSystem === 'metric' ? 'imperial' : 'metric';
+            
+            const toggle = document.getElementById('unit-toggle');
+            const toggleImperial = document.getElementById('unit-toggle-imperial');
+            const metricInputs = document.getElementById('metric-inputs');
+            const imperialInputs = document.getElementById('imperial-inputs');
+
+            if (unitSystem === 'imperial') {
+                // Update both toggle switches
+                toggle.classList.add('active');
+                if (toggleImperial) toggleImperial.classList.add('active');
+                
+                // Update label states in metric view
+                const metricLabels = document.querySelectorAll('#metric-inputs .compact-unit-label');
+                metricLabels[0].classList.remove('active'); // Metric
+                metricLabels[1].classList.add('active'); // Imperial
+                
+                // Show imperial inputs
+                metricInputs.style.display = 'none';
+                imperialInputs.style.display = 'block';
+                
+                // Clear metric inputs
+                document.getElementById('weight-input').value = '';
+                document.getElementById('height-input').value = '';
+            } else {
+                // Update both toggle switches
+                toggle.classList.remove('active');
+                if (toggleImperial) toggleImperial.classList.remove('active');
+                
+                // Update label states in imperial view
+                const imperialLabels = document.querySelectorAll('#imperial-inputs .compact-unit-label');
+                imperialLabels[0].classList.add('active'); // Metric
+                imperialLabels[1].classList.remove('active'); // Imperial
+                
+                // Show metric inputs
+                metricInputs.style.display = 'block';
+                imperialInputs.style.display = 'none';
+                
+                // Clear imperial inputs
+                document.getElementById('weight-lbs-input').value = '';
+                document.getElementById('height-ft-input').value = '';
+                document.getElementById('height-in-input').value = '';
+            }
+
+            updateBmiDisplay();
+            updateUI();
+        }
+
+        function handleBmiInput() {
+            // Validate numeric input
+            const inputs = document.querySelectorAll('#calculator-mode .modern-input');
+            inputs.forEach(input => {
+                const value = input.value;
+                if (value && !/^\d*\.?\d*$/.test(value)) {
+                    input.value = value.replace(/[^\d.]/g, '');
+                }
+                
+                // Add visual feedback
+                input.classList.remove('error', 'success');
+                if (value && parseFloat(value) > 0) {
+                    input.classList.add('success');
+                } else if (value && parseFloat(value) <= 0) {
+                    input.classList.add('error');
+                }
+            });
+
+            updateBmiDisplay();
+            updateUI();
+        }
+
+        function handleManualBmiInput() {
+            const input = document.getElementById('manual-bmi-input');
+            const value = input.value;
+            
+            if (value && !/^\d*\.?\d*$/.test(value)) {
+                input.value = value.replace(/[^\d.]/g, '');
+                return;
+            }
+            
+            input.classList.remove('error', 'success');
+            if (value && parseFloat(value) > 0) {
+                input.classList.add('success');
+                answers.bmi = parseFloat(value);
+            } else if (value && parseFloat(value) <= 0) {
+                input.classList.add('error');
+                answers.bmi = null;
+            } else {
+                answers.bmi = null;
+            }
+
+            updateBmiDisplay();
+            updateUI();
+        }
+
+        function calculateBmiFromInputs() {
+            let weight, height;
+
+            if (unitSystem === 'metric') {
+                weight = parseFloat(document.getElementById('weight-input').value) || 0;
+                height = parseFloat(document.getElementById('height-input').value) || 0;
+            } else {
+                const weightLbs = parseFloat(document.getElementById('weight-lbs-input').value) || 0;
+                const feet = parseFloat(document.getElementById('height-ft-input').value) || 0;
+                const inches = parseFloat(document.getElementById('height-in-input').value) || 0;
+                
+                weight = lbsToKg(weightLbs);
+                height = feetInchesToCm(feet, inches);
+            }
+
+            if (weight > 0 && height > 0) {
+                const heightInMeters = height / 100;
+                const bmi = weight / (heightInMeters * heightInMeters);
+                return parseFloat(bmi.toFixed(1));
+            }
+            
+            return null;
+        }
+
+        function getBmiCategory(bmi) {
+            if (bmi < 18.5) return { category: 'Underweight', class: 'underweight', description: 'Below normal weight range' };
+            if (bmi < 25) return { category: 'Normal weight', class: 'normal', description: 'Within healthy weight range' };
+            if (bmi < 30) return { category: 'Overweight', class: 'overweight', description: 'Above normal weight range' };
+            if (bmi < 35) return { category: 'Obese', class: 'obese', description: 'Significantly above normal weight range' };
+            return { category: 'Severely obese', class: 'Severely obese', description: 'Significant obesity' };
+        }
+
+        function updateBmiDisplay() {
+            const resultCard = document.getElementById('bmi-result');
+            const bmiDisplay = document.getElementById('bmi-display');
+            const categoryDisplay = document.getElementById('bmi-category');
+            const descriptionDisplay = document.getElementById('bmi-description');
+
+            let bmi = null;
+
+            if (bmiMethod === 'calculate') {
+                bmi = calculateBmiFromInputs();
+                if (bmi) {
+                    answers.bmi = bmi;
+                    document.getElementById('manual-bmi-input').value = bmi;
+                } else {
+                    answers.bmi = null;
+                }
+            } else {
+                bmi = answers.bmi;
+            }
+
+            if (bmi && bmi > 0) {
+                const categoryInfo = getBmiCategory(bmi);
+                
+                bmiDisplay.textContent = bmi;
+                categoryDisplay.textContent = categoryInfo.category;
+                
+                
+                resultCard.className = `bmi-result-card show ${categoryInfo.class}`;
+                resultCard.style.display = 'block';
+            } else {
+                resultCard.style.display = 'none';
+                if (bmiMethod === 'calculate') {
+                    answers.bmi = null;
+                }
+            }
+        }
+
+        // Navigation functions
+        function showStep(stepName) {
+            steps.forEach(step => {
+                const element = document.getElementById(`step-${step}`);
+                if (element) {
+                    element.classList.add('hidden');
+                }
+            });
+
+            const currentElement = document.getElementById(`step-${stepName}`);
+            if (currentElement) {
+                currentElement.classList.remove('hidden');
+            }
+
+            currentStep = stepName;
+            
+            if (stepName === 'result') {
+                updateResult();
+            }
+
+            updateProgressBar();
+        }
+
+        function startAssessment() {
+            showStep('age');
+        }
+
+        function goToNextStep() {
+            const currentIndex = steps.indexOf(currentStep);
+            if (currentIndex < steps.length - 1) {
+                showStep(steps[currentIndex + 1]);
+            }
+        }
+
+        function goToPrevStep() {
+            const currentIndex = steps.indexOf(currentStep);
+            if (currentIndex > 0) {
+                showStep(steps[currentIndex - 1]);
+            }
+        }
+
+        function resetForm() {
+            answers = {
+                ethnicity: null,
+                bmi: null,
+                comorbidities: {
+                    ascvd: false,
+                    hypertension: false,
+                    dyslipidaemia: false,
+                    osa: false,
+                    diabetes: false
+                },
+                previousAttempts: null
+            };
+            bmiMethod = 'calculate';
+            unitSystem = 'metric';
+            ageBasedIneligible = false;
+            
+            document.querySelectorAll('input').forEach(input => {
+                if (input.type === 'radio' || input.type === 'checkbox') {
+                    input.checked = false;
+                } else {
+                    input.value = '';
+                    input.classList.remove('error', 'success');
+                }
+            });
+
+            switchBmiMethod('calculate');
+            if (unitSystem === 'imperial') {
+                toggleUnits();
+            }
+            
+            document.getElementById('bmi-result').style.display = 'none';
+
+            updateUI();
+            showStep('start');
+            updateProgressBar();
+        }
+
+        // Event handlers
+        function handleAgeChange() {
+            const selected = document.querySelector('input[name="age"]:checked');
+            if (selected) {
+                if (selected.value === 'under18') {
+                    ageBasedIneligible = true;
+                    showStep('result');
+                    updateUI();
+                } else {
+                    ageBasedIneligible = false;
+                    showStep('ethnicity');
+                    updateUI();
+                }
+            }
+        }
+
+        function handleEthnicityChange() {
+            const selected = document.querySelector('input[name="ethnicity"]:checked');
+            if (selected) {
+                answers.ethnicity = selected.value;
+                updateUI();
+            }
+        }
+        
+        function handleComorbidityChange() {
+            const checkboxes = document.querySelectorAll('input[name="comorbidities"]:checked');
+            
+            Object.keys(answers.comorbidities).forEach(key => {
+                answers.comorbidities[key] = false;
+            });
+
+            checkboxes.forEach((checkbox, index) => {
+                answers.comorbidities[checkbox.value] = true;
+            });
+
+            updateUI();
+        }
+
+        function handlePreviousAttemptsChange() {
+            const selected = document.querySelector('input[name="previousAttempts"]:checked');
+            
+            if (selected) {
+                answers.previousAttempts = selected.value === 'true';
+                updateUI();
+            }
+        }
+
+        function handleBmiSubmit() {
+            let bmiValue = null;
+            
+            if (bmiMethod === 'calculate') {
+                bmiValue = calculateBmiFromInputs();
+                if (bmiValue) {
+                    answers.bmi = bmiValue;
+                    document.getElementById('manual-bmi-input').value = bmiValue;
+                }
+            } else if (bmiMethod === 'manual') {
+                const manualInput = document.getElementById('manual-bmi-input');
+                const inputValue = parseFloat(manualInput.value);
+                if (inputValue && inputValue > 0) {
+                    bmiValue = inputValue;
+                    answers.bmi = bmiValue;
+                }
+            }
+            
+            updateBmiDisplay();
+            
+            if (answers.bmi && answers.bmi > 0) {
+                goToNextStep();
+            } else {
+                alert('Please enter a valid BMI value before continuing.');
+            }
+        }
+
+        function updateUI() {
+            const ethnicityNote = document.getElementById('ethnicity-note');
+            const ethnicityNextBtn = document.getElementById('ethnicity-next-btn');
+            
+            if (ethnicityNote && ethnicityNextBtn) {
+                const lowerThresholdEthnicities = ['south_asian', 'chinese', 'other_asian', 'middle_eastern', 'black_african', 'african_caribbean'];
+                
+                if (answers.ethnicity && lowerThresholdEthnicities.includes(answers.ethnicity)) {
+                    ethnicityNote.classList.remove('hidden');
+                } else {
+                    ethnicityNote.classList.add('hidden');
+                }
+                
+                ethnicityNextBtn.disabled = answers.ethnicity === null;
+            }
+
+            const bmiNextBtn = document.getElementById('bmi-next-btn');
+            if (bmiNextBtn) {
+                let canProceed = false;
+                
+                if (bmiMethod === 'calculate') {
+                    canProceed = calculateBmiFromInputs() !== null;
+                } else {
+                    canProceed = answers.bmi && answers.bmi > 0;
+                }
+                
+                bmiNextBtn.disabled = !canProceed;
+            }
+
+            const conditionCount = document.getElementById('condition-count');
+            if (conditionCount) {
+                const newCount = countQualifyingComorbidities();
+                if (conditionCount.textContent !== newCount.toString()) {
+                    conditionCount.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        conditionCount.textContent = newCount;
+                        conditionCount.style.transform = 'scale(1)';
+                    }, 100);
+                }
+            }
+
+            const attemptsNextBtn = document.getElementById('attempts-next-btn');
+            if (attemptsNextBtn) {
+                attemptsNextBtn.disabled = answers.previousAttempts === null;
+            }
+
+            updateTimelineBMI();
+
+            if (currentStep === 'result') {
+                updateResult();
+            }
+        }
+
+        function updateTimelineBMI() {
+            document.getElementById('timeline-bmi-1').textContent = getAdjustedBmiThreshold(40);
+            document.getElementById('timeline-bmi-2a').textContent = getAdjustedBmiThreshold(35);
+            document.getElementById('timeline-bmi-2b').textContent = getAdjustedBmiThreshold(39.9);
+            document.getElementById('timeline-bmi-3').textContent = getAdjustedBmiThreshold(40);
+        }
+
+        function updateResult() {
+            const resultContent = document.getElementById('result-content');
+
+            if (ageBasedIneligible) {
+                let html = '<div class="result-box warning">';
+                html += '<h3>You are not eligible for tirzepatide (Mounjaro)</h3>';
+                html += '<div style="margin-top: 16px;">';
+                html += '<p><strong>Age:</strong> You must be over the age of 18 to be eligible for NHS weight loss medications.</p>';
+                html += '<p style="margin-top: 12px;">Please speak with your GP or healthcare provider about appropriate weight management support for your age group.</p>';
+                html += '</div>';
+                html += '</div>';
+                resultContent.innerHTML = html;
+                return;
+            }
+
+            const eligibilityResult = determineEligibilityAndCohort();
+            const comorbidityCount = countQualifyingComorbidities();
+
+            let resultClass = 'warning';
+            if (eligibilityResult.eligible) {
+                if (eligibilityResult.cohort === '1') {
+                    resultClass = 'success';
+                } else if (eligibilityResult.cohort === '2' || eligibilityResult.cohort === '3') {
+                    resultClass = 'orange';
+                }
+            }
+
+            let html = '<div class="result-box ' + resultClass + '">';
+            html += '<h3>';
+            if (eligibilityResult.eligible) {
+                html += 'You may be eligible for tirzepatide (Mounjaro)';
+                if (eligibilityResult.cohort > 1) {
+                    html += ' in the future';
+                }
+                html += ' - Cohort ' + eligibilityResult.cohort;
+            } else {
+                html += 'You may not currently be eligible for tirzepatide (Mounjaro)';
+            }
+            html += '</h3>';
+            html += '<div style="margin-top: 16px;">';
+
+            if (!answers.previousAttempts) {
+                html += '<p><strong>Previous Weight Loss Attempts:</strong> NHS guidelines require that you have made serious attempts to lose weight through lifestyle changes before being prescribed weight loss medication.</p>';
+            }
+
+            html += '<p><strong>Qualifying conditions:</strong> You have ' + comorbidityCount + ' out of 5 qualifying conditions.</p>';
+            html += '<p><strong>BMI:</strong> ' + (answers.bmi || 'Not provided');
+
+            if (answers.ethnicity && ['south_asian', 'chinese', 'other_asian', 'middle_eastern', 'black_african', 'african_caribbean'].includes(answers.ethnicity)) {
+                html += ' (adjusted thresholds apply for your ethnic background)';
+            }
+            html += '</p>';
+
+            if (eligibilityResult.eligible) {
+                html += '<div class="cohort-info">';
+                html += '<p><strong>Cohort ' + eligibilityResult.cohort + ' - ' + eligibilityResult.year + '</strong></p>';
+                html += '<p style="margin-top: 8px;">';
+                html += 'You meet the criteria for ' + eligibilityResult.year + ' with ' + comorbidityCount + ' qualifying ';
+                html += 'conditions and a BMI of ' + answers.bmi + '.';
+                html += '</p>';
+                html += '<p style="margin-top: 8px;">';
+                
+                // Cohort-specific next steps
+                if (eligibilityResult.cohort === '1') {
+                    html += '<strong>Next steps:</strong> Speak with your GP about your weight management ';
+                    html += 'options. Access to tirzepatide is subject to the phased implementation timeline ';
+                    html += 'and local service capacity.';
+                } else if (eligibilityResult.cohort === '2') {
+                    html += '<strong>Next steps:</strong> Wait until June 2026 before approaching your GP ';
+                    html += 'about tirzepatide. Access will be subject to the phased implementation timeline ';
+                    html += 'and local service capacity.';
+                } else if (eligibilityResult.cohort === '3') {
+                    html += '<strong>Next steps:</strong> Wait until April 2027 before approaching your GP ';
+                    html += 'about tirzepatide. Access will be subject to the phased implementation timeline ';
+                    html += 'and local service capacity.';
+                }
+                
+                html += '</p>';
+                html += '</div>';
+            }
+
+            if (!eligibilityResult.eligible && comorbidityCount > 0) {
+                html += '<div class="cohort-info">';
+                html += '<p style="font-weight: 500;">Potential future eligibility:</p>';
+                
+                if (comorbidityCount >= 3) {
+                    html += '<p style="margin-top: 4px;">';
+                    html += '• With ' + comorbidityCount + ' qualifying conditions, you may be eligible in Year 2/3 ';
+                    html += '(2027-2028) if your BMI is ≥' + getAdjustedBmiThreshold(40);
+                    html += '</p>';
+                }
+                
+                if (comorbidityCount >= 4 && answers.bmi >= getAdjustedBmiThreshold(35) && answers.bmi < getAdjustedBmiThreshold(40)) {
+                    html += '<p style="margin-top: 4px;">';
+                    html += '• With ' + comorbidityCount + ' qualifying conditions and BMI ' + answers.bmi + ', ';
+                    html += 'you may be eligible in Year 2 (2026/27)';
+                    html += '</p>';
+                }
+                
+                html += '</div>';
+            }
+
+            html += '</div>';
+            html += '</div>';
+
+            resultContent.innerHTML = html;
+        }
+
+        function determineEligibilityAndCohort() {
+            const hasMadePreviousAttempts = answers.previousAttempts;
+            const comorbidityCount = countQualifyingComorbidities();
+            
+            if (!hasMadePreviousAttempts) {
+                return { eligible: false, cohort: null, year: null };
+            }
+
+            const year1BmiThreshold = getAdjustedBmiThreshold(40);
+            if (comorbidityCount >= 4 && answers.bmi >= year1BmiThreshold) {
+                return { eligible: true, cohort: "1", year: "Year 1 (2025/26)", bmiThreshold: year1BmiThreshold };
+            }
+
+            const year2LowerBmi = getAdjustedBmiThreshold(35);
+            const year2UpperBmi = getAdjustedBmiThreshold(39.9);
+            if (comorbidityCount >= 4 && answers.bmi >= year2LowerBmi && answers.bmi <= year2UpperBmi) {
+                return { eligible: true, cohort: "2", year: "Year 2 (2026/27)", bmiThreshold: `${year2LowerBmi}-${year2UpperBmi}` };
+            }
+
+            const year3BmiThreshold = getAdjustedBmiThreshold(40);
+            if (comorbidityCount >= 3 && answers.bmi >= year3BmiThreshold) {
+                return { eligible: true, cohort: "3", year: "Year 2/3 (2027-2028)", bmiThreshold: year3BmiThreshold };
+            }
+
+            return { eligible: false, cohort: null, year: null };
+        }
+
+        function testComorbidityFunction() {
+            try {
+                handleComorbidityChange();
+            } catch (error) {
+                console.error('Error calling handleComorbidityChange:', error);
+            }
+        }
+
+        function debugCurrentState() {
+        }
+
+        function updateProgressBar() {
+            const currentStepIndex = steps.indexOf(currentStep);
+            const totalSteps = steps.length - 2; // Exclude 'start' and 'result'
+            const progressPercentage = ((currentStepIndex - 1) / totalSteps) * 100;
+            const progressBarFill = document.getElementById('progress-bar-fill');
+            const currentStepElement = document.getElementById('current-step');
+            const progressPercentageElement = document.getElementById('progress-percentage');
+
+            progressBarFill.style.width = `${progressPercentage}%`;
+            currentStepElement.textContent = currentStepIndex;
+            progressPercentageElement.textContent = `${Math.round(progressPercentage)}%`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const comorbidityCheckboxes = document.querySelectorAll('input[name="comorbidities"]');
+            
+            comorbidityCheckboxes.forEach((checkbox, index) => {
+                checkbox.addEventListener('change', function() {
+                    handleComorbidityChange();
+                });
+            });
+            
+            updateUI();
+            updateProgressBar();
+        });
+    </script>
+</body>
+</html>
