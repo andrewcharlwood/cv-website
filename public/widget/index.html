@@ -1430,7 +1430,7 @@
         </div>
         <div class="progress-container">
             <div class="progress-header">
-                <span class="progress-text">Step <span id="current-step">1</span> of 7</span>
+                <span class="progress-text">Step <span id="current-step">1</span> of 5</span>
                 <span class="progress-percentage" id="progress-percentage">0%</span>
             </div>
             <div class="progress-bar-track">
@@ -2042,8 +2042,8 @@
             const progressPercentageElement = document.getElementById('progress-percentage');
 
             progressBarFill.style.width = `${progressPercentage}%`;
-            currentStepElement.textContent = currentStepIndex;
-            progressPercentageElement.textContent = `${Math.round(progressPercentage)}%`;
+            currentStepElement.textContent = currentStepIndex > 5 ? 5 : currentStepIndex;
+            progressPercentageElement.textContent = `${Math.round(Math.max(0, Math.min(100, progressPercentage)))}%`;
         }
 
         document.addEventListener('DOMContentLoaded', function() {
