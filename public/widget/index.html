@@ -41,9 +41,10 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(14, 6, 97, 0.1);
-            height: 1100px;
+            height: 100%;
             display: flex;
             flex-direction: column;
+            overflow-y: auto;
         }
 
         .header {
@@ -184,8 +185,8 @@
         .checkbox-option {
             display: flex;
             align-items: flex-start;
-            gap: 4px;
-            padding: 16px;
+            gap: 12px;
+            padding: 9px;
             border: 1px solid #d1d5db;
             border-radius: 6px;
             cursor: pointer;
@@ -338,7 +339,7 @@
         }
 
         .result-box {
-            padding: 24px;
+            padding: 12px;
             border-radius: 8px;
             margin-bottom: 8px;
         }
@@ -413,7 +414,7 @@
             
             .step-content {
                 padding: 24px 20px;
-                gap: 24px;
+                gap: 4px;
                 height: 450px;
             }
 
@@ -1046,13 +1047,13 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 16px;
-            margin: 16px 0;
+            margin: 6px 0;
         }
 
         .selected-conditions h4 {
             color: var(--primary-color);
             font-size: 16px;
-            margin-bottom: 12px;
+            margin-bottom: 4px;
             font-weight: bold;
         }
 
@@ -1076,7 +1077,7 @@
         }
 
         .print-section {
-            margin-top: 24px;
+            margin-top: 12px;
             display: flex;
             gap: 16px;
             justify-content: center;
@@ -1085,7 +1086,7 @@
         .btn-print {
             background: var(--secondary-color);
             color: var(--brand-white);
-            border: 2px solid var(--primary-color);
+            border: 1px solid #0E0661;
             padding: 12px 24px;
             font-size: 16px;
             border-radius: 8px;
@@ -1274,7 +1275,50 @@
         #step-result {
             height: auto;
             min-height: 550px;
-            gap: 20px;
+            gap: 6px;
+        }
+
+        /* Styles for the new modern select dropdown */
+        .modern-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb; /* Match .modern-input */
+            border-radius: 8px; /* Match .modern-input */
+            font-size: 16px; /* Match .modern-input */
+            background-color: white;
+            appearance: none; /* Remove default OS styling */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            /* Custom arrow using inline SVG */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 1.2em; /* Adjust size of the arrow */
+            cursor: pointer;
+            transition: all 0.2s ease-out; /* Match .modern-input */
+            line-height: 1.5; /* Ensure text is vertically centered */
+        }
+
+        .modern-select:focus {
+            outline: none;
+            border-color: #0E0661; /* Match .modern-input focus */
+            box-shadow: 0 0 0 3px rgba(14, 6, 97, 0.1); /* Match .modern-input focus */
+        }
+
+        .modern-select:hover:not(:disabled) { /* Add :not(:disabled) for consistency */
+            border-color: #9ca3af; /* Match .modern-input hover */
+        }
+
+        .modern-select:disabled {
+            background-color: #f3f4f6; /* Standard disabled style */
+            color: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .modern-select option {
+            padding: 8px 12px; /* Note: Styling options is limited and browser-dependent */
+            background-color: white;
+            color: #231f20;
         }
     </style>
 </head>
@@ -1354,46 +1398,19 @@
                     Please select your ethnicity:
                 </p>
                 
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="ethnicity" value="white_british" onchange="handleEthnicityChange()">
-                        <span>White British/European/Other White</span>
-                    </label>
-                    
-                    <label class="radio-option">
-                        <input type="radio" name="ethnicity" value="south_asian" onchange="handleEthnicityChange()">
-                        <span>South Asian (Indian, Pakistani, Bangladeshi, Sri Lankan)</span>
-                    </label>
-
-                    <label class="radio-option">
-                        <input type="radio" name="ethnicity" value="chinese" onchange="handleEthnicityChange()">
-                        <span>Chinese</span>
-                    </label>
-
-                    <label class="radio-option">
-                        <input type="radio" name="ethnicity" value="other_asian" onchange="handleEthnicityChange()">
-                        <span>Other Asian</span>
-                    </label>
-
-                    <label class="radio-option">
-                        <input type="radio" name="ethnicity" value="middle_eastern" onchange="handleEthnicityChange()">
-                        <span>Middle Eastern</span>
-                    </label>
-
-                    <label class="radio-option">
-                        <input type="radio" name="ethnicity" value="black_african" onchange="handleEthnicityChange()">
-                        <span>Black African</span>
-                    </label>
-
-                    <label class="radio-option">
-                        <input type="radio" name="ethnicity" value="african_caribbean" onchange="handleEthnicityChange()">
-                        <span>African-Caribbean</span>
-                    </label>
-
-                    <label class="radio-option">
-                        <input type="radio" name="ethnicity" value="mixed_other" onchange="handleEthnicityChange()">
-                        <span>Mixed/Other</span>
-                    </label>
+                <div class="form-group">
+                    <label class="input-label" for="ethnicity-select">Select your ethnicity:</label>
+                    <select id="ethnicity-select" name="ethnicity" class="modern-select" onchange="handleEthnicityChange()">
+                        <option value="" disabled selected>Please select...</option>
+                        <option value="white_british">White British/European/Other White</option>
+                        <option value="south_asian">South Asian (Indian, Pakistani, Bangladeshi, Sri Lankan)</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="other_asian">Other Asian</option>
+                        <option value="middle_eastern">Middle Eastern</option>
+                        <option value="black_african">Black African</option>
+                        <option value="african_caribbean">African-Caribbean</option>
+                        <option value="mixed_other">Mixed/Other</option>
+                    </select>
                 </div>
 
                 <div id="ethnicity-note" class="info-box blue hidden">
@@ -2027,6 +2044,7 @@
             if (currentStepElement) currentStepElement.textContent = '1';
             if (progressPercentageElement) progressPercentageElement.textContent = '0%';
 
+            document.getElementById('ethnicity-select').value = "";
             updateUI();
             showStep('start');
             updateProgressBar();
@@ -2049,11 +2067,14 @@
         }
 
         function handleEthnicityChange() {
-            const selected = document.querySelector('input[name="ethnicity"]:checked');
-            if (selected) {
-                answers.ethnicity = selected.value;
-                updateUI();
+            const selectElement = document.getElementById('ethnicity-select');
+            const selectedValue = selectElement.value;
+            if (selectedValue) { 
+                answers.ethnicity = selectedValue;
+            } else {
+                answers.ethnicity = null; 
             }
+            updateUI();
         }
         
         function handleComorbidityChange() {
