@@ -35,36 +35,54 @@
         .calculator-container {
             max-width: 800px;
             margin: 0 auto;
-            border: 4px solid #0E0661;
-            background: white;
+            border: 4px solid var(--primary-color);
+            background: var(--brand-white);
             margin-bottom: 16px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(14, 6, 97, 0.1);
+            height: 1100px;
+            display: flex;
+            flex-direction: column;
         }
 
         .header {
             background: #0E0661;
             color: white;
-            padding: 16px 32px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 32px;
+            gap: 0px;
+            margin-bottom: 0px;
         }
 
         .header-title {
             font-size: 18px;
             line-height: 1;
             letter-spacing: -0.025em;
+            padding: 16px 32px;
             font-weight: normal;
         }
 
         .content {
-            padding: 0 32px 32px;
+            padding: 0 8px 8px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .step-content {
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 8px;
+            background: var(--brand-white);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            height: 100%;
+            justify-content: flex-start;
+            overflow-y: auto;
         }
 
         .step-content.hidden {
@@ -139,8 +157,8 @@
         .radio-option {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            padding: 16px;
+            gap: 6px;
+            padding: 12px;
             border: 1px solid #d1d5db;
             border-radius: 6px;
             cursor: pointer;
@@ -160,13 +178,13 @@
         .checkbox-group {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 8px;
         }
 
         .checkbox-option {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 4px;
             padding: 16px;
             border: 1px solid #d1d5db;
             border-radius: 6px;
@@ -250,7 +268,10 @@
         }
 
         .info-box {
-            padding: 16px;
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-top: 8px;
+            padding-bottom: 8px;
             border-radius: 6px;
             font-size: 14px;
         }
@@ -319,7 +340,7 @@
         .result-box {
             padding: 24px;
             border-radius: 8px;
-            margin-bottom: 24px;
+            margin-bottom: 8px;
         }
 
         .result-box.success {
@@ -350,7 +371,7 @@
             border: 1px solid #1FB8DB;
             padding: 24px;
             border-radius: 8px;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
 
         .timeline-item {
@@ -360,35 +381,84 @@
 
         @media (max-width: 640px) {
             body {
-                padding: 10px;
+                padding: 16px;
+            }
+            
+            .calculator-container {
+                border-width: 2px;
+                height: 600px;
             }
             
             .header {
-                padding: 12px 16px;
+                padding: 16px 20px;
                 flex-direction: column;
                 text-align: center;
+                gap: 12px;
             }
             
             .header-title {
-                font-size: 16px;
+                font-size: 18px;
+                order: 2;
+            }
+            
+            .header-logo {
+                max-height: 35px;
+                max-width: 150px;
+                order: 1;
             }
             
             .content {
-                padding: 0 16px 16px;
+                padding: 0 20px 20px;
+            }
+            
+            .step-content {
+                padding: 24px 20px;
+                gap: 24px;
+                height: 450px;
+            }
+
+            #step-result {
+                height: auto;
+                min-height: 450px;
             }
             
             .important-box {
                 margin: 20px 0;
-                padding: 16px 16px 0;
-            }
-            
-            .important-header {
-                margin-left: -16px;
-                font-size: 18px;
+                padding: 20px;
             }
             
             .important-label {
-                padding: 6px 24px;
+                padding: 6px 16px;
+                font-size: 14px;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .print-section {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn {
+                width: 100%;
+                min-height: 48px;
+                font-size: 16px;
+            }
+
+            .radio-option, .checkbox-option {
+                padding: 16px;
+                min-height: 48px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 20px;
             }
 
             /* Mobile responsive for inline unit toggle */
@@ -420,6 +490,19 @@
 
             .compact-toggle-switch.active .compact-toggle-slider {
                 transform: translateX(20px);
+            }
+
+            /* Mobile responsive for progress bar */
+            .progress-container {
+                padding: 16px 20px;
+            }
+            
+            .progress-text, .progress-percentage {
+                font-size: 13px;
+            }
+            
+            .progress-bar-track {
+                height: 6px;
             }
         }
 
@@ -573,6 +656,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             border: 1px solid #e5e7eb;
             margin-bottom: 24px;
+            height: 400px;
         }
 
         .bmi-tabs {
@@ -875,6 +959,17 @@
             }
         }
 
+        .header-logo {
+            flex-shrink: 0;
+            max-height: 500px;
+            height: auto;
+            width: auto;
+            max-width: 300px;
+            padding: 0px 0px 0px 0px;
+            object-fit: contain;
+            margin-left: auto;
+        }
+
         /* Inline unit toggle styles */
         .inline-unit-toggle {
             display: flex;
@@ -946,94 +1041,256 @@
             margin-bottom: 20px;
         }
 
-        /* Progress Bar Styles */
-        .progress-container {
-            position: relative;
+        .selected-conditions {
             background: #f8fafc;
-            border-top: 1px solid #e5e7eb;
-            padding: 16px 32px;
-            margin-top: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
         }
 
-        .progress-header {
+        .selected-conditions h4 {
+            color: var(--primary-color);
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .condition-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .condition-list li {
+            padding: 4px 0;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .condition-list li:before {
+            content: "✓ ";
+            color: var(--success-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .print-section {
+            margin-top: 24px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
+            gap: 16px;
+            justify-content: center;
         }
 
-        .progress-text {
-            font-size: 14px;
+        .btn-print {
+            background: var(--secondary-color);
+            color: var(--brand-white);
+            border: 2px solid var(--primary-color);
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Avenir LT Std', Arial, sans-serif;
             font-weight: 500;
-            color: #374151;
+            flex: 1;
         }
 
-        .progress-percentage {
-            font-size: 14px;
-            font-weight: 600;
-            color: #0E0661;
+        .btn-print:hover {
+            background: #1a9bc7;
+            border-color: #1a9bc7;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(31, 184, 219, 0.3);
         }
 
-        .progress-bar-track {
-            width: 100%;
-            height: 8px;
-            background: #e5e7eb;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background: #2EB67D;
-            border-radius: 4px;
-            transition: width 0.4s ease-out;
-            width: 0%;
-            position: relative;
-        }
-
-        .progress-bar-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        /* Mobile responsive for progress bar */
-        @media (max-width: 640px) {
-            .progress-container {
-                padding: 12px 16px;
+        /* Print-specific styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
             }
-            
-            .progress-text, .progress-percentage {
-                font-size: 12px;
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
             }
-            
-            .progress-bar-track {
-                height: 6px;
+
+            body {
+                background: white !important;
+                font-size: 10pt !important;
+                line-height: 1.3 !important;
+                color: black !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
+
+            .calculator-container {
+                box-shadow: none !important;
+                border: 1px solid #000 !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                height: auto !important;
+                min-height: auto !important;
+            }
+
+            .header {
+                display: none;
+            }
+
+            .header-title {
+                display: none;
+                
+            }
+
+            .header-logo {
+                max-height: 25pt !important;
+            }
+
+            .content {
+                padding: 10pt !important;
+            }
+
+            .step-content {
+                padding: 0 !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+                background: white !important;
+                min-height: auto !important;
+                gap: 8pt !important;
+            }
+
+            .step-content:not(#step-result) {
+                display: none !important;
+            }
+
+            .progress-container, .btn, .print-section {
+                display: none !important;
+            }
+
+            h2 {
+                font-size: 12pt !important;
+                margin: 8pt 0 6pt 0 !important;
+                color: black !important;
+                page-break-after: avoid;
+            }
+
+            h3 {
+                font-size: 11pt !important;
+                margin: 6pt 0 4pt 0 !important;
+                color: black !important;
+                page-break-after: avoid;
+            }
+
+            h4 {
+                font-size: 10pt !important;
+                margin: 4pt 0 2pt 0 !important;
+                color: black !important;
+            }
+
+            .result-box, .timeline-box, .info-box, .cohort-info, .selected-conditions {
+                background: white !important;
+                border: 1px solid #333 !important;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+                margin: 6pt 0 !important;
+                padding: 8pt !important;
+                border-radius: 0 !important;
+            }
+
+            .timeline-item, .condition-list li {
+                margin-bottom: 3pt !important;
+                font-size: 9pt !important;
+                line-height: 1.2 !important;
+            }
+
+            .condition-list li {
+                padding: 1pt 0 !important;
+            }
+
+            .print-header {
+                display: block !important;
+                text-align: center;
+                margin: 0 0 10pt 0 !important;
+                font-size: 8pt !important;
+                color: #666 !important;
+                border-bottom: 1px solid #ccc !important;
+                padding-bottom: 6pt !important;
+            }
+
+            .print-header p {
+                margin: 2pt 0 !important;
+            }
+
+            p {
+                margin: 3pt 0 !important;
+                font-size: 9pt !important;
+                line-height: 1.2 !important;
+            }
+
+            /* Ensure no page breaks in critical sections */
+            .result-box h3,
+            .timeline-box h3,
+            .cohort-info p:first-child {
+                page-break-after: avoid !important;
+            }
+
+            /* Compress spacing in results */
+            #step-result .result-box {
+                margin-bottom: 4pt !important;
+            }
+
+            #step-result .timeline-box {
+                margin-bottom: 4pt !important;
+            }
+
+            #step-result .info-box {
+                margin: 3pt 0 !important;
+            }
+
+            #step-result .selected-conditions {
+                margin: 3pt 0 !important;
+            }
+
+            #step-result .cohort-info {
+                margin-top: 3pt !important;
+                margin-bottom: 3pt !important;
+            }
+
+            #step-result {
+                height: auto !important;
+                min-height: auto !important;
+                gap: 8pt !important;
+            }
+        }
+
+        .print-header {
+            display: none;
+        }
+
+        /* Specific styling for results page to reduce spacing */
+        #step-result {
+            height: auto;
+            min-height: 550px;
+            gap: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <div class="calculator-container" role="main">
         <div class="header">
-            <div class="header-title">
-                NHS Norfolk & Waveney ICB Weight Loss Medicine Eligibility Checker
+            <div class="header-content">
+                <h1 class="header-title">
+                    Weight Loss Medicine Eligibility Checker
+                </h1>
             </div>
+            <img src="ICS_logo_white.png" alt="Norfolk and Waveney Integrated Care System logo" class="header-logo" role="img">
         </div>
         <div class="content">
             <!-- Start Step -->
-            <div id="step-start" class="step-content">
+            <div id="step-start" class="step-content" role="region" aria-labelledby="start-heading">
                 <div class="prose">
                     <p>
                         The NHS is implementing a phased rollout of tirzepatide (Mounjaro) for weight management 
@@ -1046,8 +1303,8 @@
                     </p>
                 </div>
                 
-                <div class="important-box">
-                    <h3 class="important-header">
+                <div class="important-box" role="note" aria-labelledby="important-heading">
+                    <h3 class="important-header" id="important-heading">
                         <span class="important-label">
                             Important
                         </span>
@@ -1058,13 +1315,13 @@
                             medicines. This tool is for informational purposes only and does not 
                             replace professional medical advice. You will need to discuss your 
                             options with healthcare professionals who will consider your full 
-                            medical history and circumstances. Access is subject to phased implementation 
+                            medical history and circumstances. Access is subject to phased rollout 
                             and local capacity.
                         </p>
                     </div>
                 </div>
                 
-                <button class="btn btn-primary btn-large" onclick="startAssessment()">
+                <button class="btn btn-primary btn-large" onclick="startAssessment()" aria-describedby="important-heading">
                     Start Check
                 </button>
             </div>
@@ -1332,7 +1589,7 @@
                     <label class="checkbox-option">
                         <input type="checkbox" name="comorbidities" value="osa" onchange="handleComorbidityChange()">
                         <div>
-                            <span style="font-weight: 500;">Sleep apnoea (sleep breathing problems)</span>
+                            <span style="font-weight: 500;">Obstructive sleep apnoea (breathing problems during sleep)</span>
                             <p class="condition-description">
                                 Established diagnosis confirmed by sleep study and requiring treatment 
                                 (e.g., CPAP machine)
@@ -1376,6 +1633,13 @@
                     maintaining significant weight loss?
                 </p>
                 
+                <div class="info-box blue">
+                    <p>
+                        <strong>Why do we ask this?</strong> NHS guidance requires that people have tried 
+                        other weight loss methods first before being prescribed weight loss medication.
+                    </p>
+                </div>
+                
                 <div class="radio-group">
                     <label class="radio-option">
                         <input type="radio" name="previousAttempts" value="true" onchange="handlePreviousAttemptsChange()">
@@ -1396,18 +1660,21 @@
 
             <!-- Result Step -->
             <div id="step-result" class="step-content hidden">
-                <h2>Your Result</h2>
-                
+                <div class="print-header">
+                    <p><strong>NHS Norfolk & Waveney ICB Weight Loss Medicine Eligibility Checker</strong></p>
+                    <p>Generated on: <span id="print-date"></span></p>
+                    <p>Please take this summary to your GP for discussion</p>
+                </div>
+                            
                 <div id="result-content">
-                    <!-- Content will be populated by JavaScript -->
                 </div>
 
                 <div class="timeline-box">
-                    <h3>Phased Implementation Timeline</h3>
+                    <h3>Phased rollout details</h3>
                     <div style="font-size: 14px; margin-top: 8px;">
-                        <div class="timeline-item"><strong>Year 1 (2025/26):</strong> ≥4 qualifying conditions + BMI ≥<span id="timeline-bmi-1">40</span></div>
-                        <div class="timeline-item"><strong>Year 2 (2026/27):</strong> ≥4 qualifying conditions + BMI <span id="timeline-bmi-2a">35</span>-<span id="timeline-bmi-2b">39.9</span></div>
-                        <div class="timeline-item"><strong>Year 2/3 (2027-2028):</strong> ≥3 qualifying conditions + BMI ≥<span id="timeline-bmi-3">40</span></div>
+                        <div class="timeline-item"><strong>Year 1 (2025/26):</strong> 4 or more qualifying conditions and BMI greater or equal to <span id="timeline-bmi-1">40</span></div>
+                        <div class="timeline-item"><strong>Year 2 (2026/27):</strong> 4 or more qualifying conditions and BMI between <span id="timeline-bmi-2a">35</span> and <span id="timeline-bmi-2b">39.9</span></div>
+                        <div class="timeline-item"><strong>Year 3 (2027/28):</strong> 3 or more qualifying conditions and BMI greater or equal to <span id="timeline-bmi-3">40</span></div>
                     </div>
                 </div>
                 
@@ -1420,15 +1687,20 @@
                         on clinical assessment and local service capacity.
                     </p>
                 </div>
-                
-                <button class="btn btn-primary btn-large" onclick="resetForm()">
-                    Start Again
-                </button>
+
+                <div class="print-section">
+                    <button class="btn-print" onclick="printResults()">
+                        🖨️ Print Results for GP
+                    </button>
+                    <button class="btn btn-primary" style="flex: 1; padding: 12px 24px; font-size: 16px; font-weight: 500;" onclick="resetForm()">
+                        Start Again
+                    </button>
+                </div>
             </div>
         </div>
         <div class="progress-container">
             <div class="progress-header">
-                <span class="progress-text">Step <span id="current-step">1</span> of 5</span>
+                <span class="progress-text"><span id="current-step">1</span> of 5</span>
                 <span class="progress-percentage" id="progress-percentage">0%</span>
             </div>
             <div class="progress-bar-track">
@@ -1746,6 +2018,15 @@
             
             document.getElementById('bmi-result').style.display = 'none';
 
+            // Explicitly reset progress bar
+            const progressBarFill = document.getElementById('progress-bar-fill');
+            const currentStepElement = document.getElementById('current-step');
+            const progressPercentageElement = document.getElementById('progress-percentage');
+            
+            if (progressBarFill) progressBarFill.style.width = '0%';
+            if (currentStepElement) currentStepElement.textContent = '1';
+            if (progressPercentageElement) progressPercentageElement.textContent = '0%';
+
             updateUI();
             showStep('start');
             updateProgressBar();
@@ -1887,6 +2168,12 @@
 
         function updateResult() {
             const resultContent = document.getElementById('result-content');
+            const printDate = document.getElementById('print-date');
+            
+            // Set current date for printing
+            if (printDate) {
+                printDate.textContent = new Date().toLocaleDateString('en-GB');
+            }
 
             if (ageBasedIneligible) {
                 let html = '<div class="result-box warning">';
@@ -1902,6 +2189,17 @@
 
             const eligibilityResult = determineEligibilityAndCohort();
             const comorbidityCount = countQualifyingComorbidities();
+            const selectedConditions = getSelectedConditions();
+
+            // Hide timeline-box if patient is eligible
+            const timelineBox = document.querySelector('.timeline-box');
+            if (timelineBox) {
+                if (eligibilityResult.eligible) {
+                    timelineBox.style.display = 'none';
+                } else {
+                    timelineBox.style.display = 'block';
+                }
+            }
 
             let resultClass = 'warning';
             if (eligibilityResult.eligible) {
@@ -1934,9 +2232,24 @@
             html += '<p><strong>BMI:</strong> ' + (answers.bmi || 'Not provided');
 
             if (answers.ethnicity && ['south_asian', 'chinese', 'other_asian', 'middle_eastern', 'black_african', 'african_caribbean'].includes(answers.ethnicity)) {
-                html += ' (adjusted thresholds apply for your ethnic background)';
+                html += ' (adjusted thresholds apply for your ethnic background).';
+            } else {
+                html += '.';
             }
+            html += '<p><strong>Previous Weight Loss Attempts:</strong> You have made serious attempts to lose weight through lifestyle changes.</p>';
             html += '</p>';
+
+            // Show selected conditions for eligible patients
+            if (eligibilityResult.eligible && selectedConditions.length > 0) {
+                html += '<div class="selected-conditions">';
+                html += '<h4>Your Selected Qualifying Conditions:</h4>';
+                html += '<ul class="condition-list">';
+                selectedConditions.forEach(condition => {
+                    html += '<li>' + condition + '</li>';
+                });
+                html += '</ul>';
+                html += '</div>';
+            }
 
             if (eligibilityResult.eligible) {
                 html += '<div class="cohort-info">';
@@ -1950,15 +2263,15 @@
                 // Cohort-specific next steps
                 if (eligibilityResult.cohort === '1') {
                     html += '<strong>Next steps:</strong> Speak with your GP about your weight management ';
-                    html += 'options. Access to tirzepatide is subject to the phased implementation timeline ';
+                    html += 'options. Access to tirzepatide is subject to the phased rollout ';
                     html += 'and local service capacity.';
                 } else if (eligibilityResult.cohort === '2') {
                     html += '<strong>Next steps:</strong> Wait until June 2026 before approaching your GP ';
-                    html += 'about tirzepatide. Access will be subject to the phased implementation timeline ';
+                    html += 'about tirzepatide. Access will be subject to the phased rollout ';
                     html += 'and local service capacity.';
                 } else if (eligibilityResult.cohort === '3') {
                     html += '<strong>Next steps:</strong> Wait until April 2027 before approaching your GP ';
-                    html += 'about tirzepatide. Access will be subject to the phased implementation timeline ';
+                    html += 'about tirzepatide. Access will be subject to the phased rollout ';
                     html += 'and local service capacity.';
                 }
                 
@@ -1966,14 +2279,14 @@
                 html += '</div>';
             }
 
-            if (!eligibilityResult.eligible && comorbidityCount > 0) {
+            if (!eligibilityResult.eligible && comorbidityCount >= 3) {
                 html += '<div class="cohort-info">';
                 html += '<p style="font-weight: 500;">Potential future eligibility:</p>';
                 
                 if (comorbidityCount >= 3) {
                     html += '<p style="margin-top: 4px;">';
-                    html += '• With ' + comorbidityCount + ' qualifying conditions, you may be eligible in Year 2/3 ';
-                    html += '(2027-2028) if your BMI is ≥' + getAdjustedBmiThreshold(40);
+                    html += '• With ' + comorbidityCount + ' qualifying conditions, you may be eligible in Year 3 ';
+                    html += '(2027/28) if your BMI is ≥' + getAdjustedBmiThreshold(40);
                     html += '</p>';
                 }
                 
@@ -2014,7 +2327,7 @@
 
             const year3BmiThreshold = getAdjustedBmiThreshold(40);
             if (comorbidityCount >= 3 && answers.bmi >= year3BmiThreshold) {
-                return { eligible: true, cohort: "3", year: "Year 2/3 (2027-2028)", bmiThreshold: year3BmiThreshold };
+                return { eligible: true, cohort: "3", year: "Year 3 (2027/28)", bmiThreshold: year3BmiThreshold };
             }
 
             return { eligible: false, cohort: null, year: null };
@@ -2034,14 +2347,58 @@
         function updateProgressBar() {
             const currentStepIndex = steps.indexOf(currentStep);
             const totalSteps = steps.length - 2; // Exclude 'start' and 'result'
-            const progressPercentage = ((currentStepIndex - 1) / totalSteps) * 100;
+            
+            let progressPercentage = 0;
+            let displayStep = 1;
+            
+            // Handle 'start' step explicitly
+            if (currentStep === 'start') {
+                progressPercentage = 0;
+                displayStep = 1;
+            } else if (currentStep === 'result') {
+                progressPercentage = 100;
+                displayStep = 5;
+            } else {
+                // For steps between start and result
+                progressPercentage = ((currentStepIndex - 1) / totalSteps) * 100;
+                displayStep = currentStepIndex;
+            }
+            
             const progressBarFill = document.getElementById('progress-bar-fill');
             const currentStepElement = document.getElementById('current-step');
             const progressPercentageElement = document.getElementById('progress-percentage');
 
-            progressBarFill.style.width = `${progressPercentage}%`;
-            currentStepElement.textContent = currentStepIndex > 5 ? 5 : currentStepIndex;
-            progressPercentageElement.textContent = `${Math.round(Math.max(0, Math.min(100, progressPercentage)))}%`;
+            if (progressBarFill) {
+                progressBarFill.style.width = `${Math.max(0, Math.min(100, progressPercentage))}%`;
+            }
+            if (currentStepElement) {
+                currentStepElement.textContent = Math.min(5, Math.max(1, displayStep));
+            }
+            if (progressPercentageElement) {
+                progressPercentageElement.textContent = `${Math.round(Math.max(0, Math.min(100, progressPercentage)))}%`;
+            }
+        }
+
+        function getSelectedConditions() {
+            const conditionMap = {
+                'ascvd': 'Heart disease',
+                'hypertension': 'High blood pressure',
+                'dyslipidaemia': 'High cholesterol',
+                'osa': 'Obstructive sleep apnoea (breathing problems during sleep)',
+                'diabetes': 'Type 2 diabetes'
+            };
+
+            const selectedConditions = [];
+            for (const [key, value] of Object.entries(answers.comorbidities)) {
+                if (value) {
+                    selectedConditions.push(conditionMap[key]);
+                }
+            }
+            return selectedConditions;
+        }
+
+        function printResults() {
+            window.print();
         }
 
         document.addEventListener('DOMContentLoaded', function() {
