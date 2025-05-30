@@ -37,7 +37,7 @@
             margin: 0 auto;
             border: 4px solid var(--primary-color);
             background: var(--brand-white);
-            margin-bottom: 16px;
+            margin-bottom: 0px;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(14, 6, 97, 0.1);
@@ -153,7 +153,7 @@
         h2 {
             font-size: 24px;
             font-weight: bold;
-            margin-bottom: 0px; /* Base style often sets this */
+            margin-bottom: 0px;
             font-family: 'Avenir LT Std', Arial, sans-serif;
             color: #202755;
         }
@@ -311,12 +311,12 @@
 
         .button-group {
             display: flex;
-            gap: 10px; /* Adjust gap */
-            margin-top: 12px; /* Adjust margin */
+            gap: 10px;
+            margin-top: 12px;
         }
 
         .button-group .btn {
-            flex: 1; /* Make buttons take equal width */
+            flex: 1;
         }
 
         .btn {
@@ -401,7 +401,6 @@
             margin-bottom: 8px;
         }
 
-        /* Header logo base styles - must come before mobile media query */
         .header-logo {
             flex-shrink: 0;
             max-height: 500px;
@@ -415,318 +414,302 @@
 
         @media (max-width: 640px) {
             body {
-                padding: 10px; /* Slightly reduce body padding */
+                padding: 10px;
             }
             
             .calculator-container {
                 border-width: 2px;
-                height: calc(100vh - 20px); /* Occupy most of viewport height */
-                max-height: 100%; /* Cap max height if needed */
+                height: calc(100vh - 20px);
+                max-height: 100%;
                 margin-bottom: 10px;
             }
             
             .header {
-                padding: 12px 15px; /* Reduce padding */
-                gap: 10px; /* Reduce gap */
-            }
-            
-            .header-content {
-                /* order: 2; */ /* Removed to maintain horizontal layout on mobile */
-            }
-            
-            .header-logo-container {
-                /* order: 1; */ /* Removed to maintain horizontal layout on mobile */
+                padding: 12px 15px;
+                gap: 10px;
             }
             
             .header-title {
-                font-size: 17px; /* Slightly smaller */
-                padding: 10; /* Remove padding as gap handles spacing */
+                font-size: 17px;
+                padding: 10;
             }
             
             .header-logo {
-                max-height: 100px; /* Adjust logo size */
+                max-height: 100px;
                 max-width: 200px;
             }
             
             .content {
-                padding: 0 15px 15px; /* Adjust content padding */
+                padding: 0 15px 15px;
             }
             
             .step-content {
-                padding: 16px 15px; /* Reduce padding */
-                gap: 12px; /* Increase gap between elements for better separation */
-                /* height: 450px; original fixed height */
-                /* Let step content be flexible within calculator-container */
-                flex-grow: 1; /* Allow it to take available space */
-                 /* overflow-y: auto; is already set on base class */
+                padding: 16px 15px;
+                gap: 12px;
+                flex-grow: 1;
             }
 
             #step-result {
-                /* height: auto; (already default) */
-                min-height: 0; /* Remove min-height if not strictly needed, or set to a smaller value like 300px */
-                /* Let it grow naturally with content */
+                min-height: 0;
             }
             
             .prose p {
-                font-size: 15px; /* Adjusted for mobile */
-                margin-bottom: 10px; /* Adjusted for mobile */
+                font-size: 15px;
+                margin-bottom: 10px;
             }
 
             .important-box {
-                margin: 15px 0; /* Adjust margin */
-                padding: 15px; /* Adjust padding */
+                margin: 15px 0;
+                padding: 15px;
             }
 
             .important-header {
-                margin-left: -15px; /* Match new padding */
-                font-size: 18px; /* Adjust font size */
+                margin-left: -15px;
+                font-size: 18px;
             }
             
             .important-label {
-                padding: 5px 12px; /* Adjust padding */
-                font-size: 13px; /* Adjust font size */
-                top: -10px; /* Adjust position */
+                padding: 5px 12px;
+                font-size: 13px;
+                top: -10px;
             }
 
             .important-content {
-                font-size: 14px; /* Adjust font size */
-                padding-bottom: 15px; /* Adjust padding */
+                font-size: 14px;
+                padding-bottom: 15px;
             }
 
             .button-group {
-                flex-direction: row; /* Changed from column to row */
-                gap: 10px; /* Adjust gap */
-                margin-top: 12px; /* Adjust margin */
+                flex-direction: row;
+                gap: 10px;
+                margin-top: 12px;
             }
 
             .button-group .btn {
-                flex: 1; /* Make buttons take equal width */
+                flex: 1;
             }
 
             .print-section {
                 flex-direction: column;
-                gap: 10px; /* Adjust gap */
+                gap: 10px;
             }
 
             .btn {
                 width: 100%;
-                min-height: 44px; /* Standard tap target size */
-                font-size: 15px; /* Adjust font size */
-                padding: 10px 20px; /* Adjust padding */
+                min-height: 44px;
+                font-size: 15px;
+                padding: 10px 20px;
             }
             
             .btn-large {
-                font-size: 16px; /* Adjust font size */
-                padding: 12px 20px; /* Adjust padding */
+                font-size: 16px;
+                padding: 12px 20px;
             }
 
-
             .radio-option, .checkbox-option {
-                padding: 12px; /* Adjust padding */
-                min-height: 44px; /* Standard tap target size */
-                gap: 8px; /* Adjust gap */
+                padding: 12px;
+                min-height: 44px;
+                gap: 8px;
             }
             
             .radio-option input[type="radio"],
             .checkbox-option input[type="checkbox"] {
-                width: 18px; /* Slightly smaller */
+                width: 18px;
                 height: 18px;
-                margin-top: 2px; /* Adjust alignment */
+                margin-top: 2px;
             }
 
             .condition-description {
-                font-size: 13px; /* Adjust font size */
+                font-size: 13px;
             }
 
             h2 {
-                font-size: 20px; /* Adjusted for mobile */
-                margin-bottom: 4px; /* Add a bit of space if direct children */
+                font-size: 20px;
+                margin-bottom: 4px;
             }
 
             h3 {
-                font-size: 18px; /* Adjusted for mobile */
-                margin-bottom: 10px; /* Adjusted for mobile */
+                font-size: 18px;
+                margin-bottom: 10px;
             }
             
             .input-label {
-                font-size: 14px; /* Adjust font size */
+                font-size: 14px;
                 margin-bottom: 4px;
             }
             
             .modern-input, .modern-select {
-                padding: 10px 12px; /* Adjust padding */
-                font-size: 15px;    /* Adjust font size */
+                padding: 10px 12px;
+                font-size: 15px;
             }
 
             .modern-select {
-                background-position: right 12px center; /* Adjust arrow position */
+                background-position: right 12px center;
             }
 
-            /* Mobile responsive for inline unit toggle in BMI */
-            .input-row { /* This is for BMI calculator inputs */
+            .input-row {
                 flex-direction: column;
-                gap: 10px; /* Adjust gap */
-                margin-bottom: 15px; /* Adjust margin */
+                gap: 10px;
+                margin-bottom: 15px;
             }
 
-            /* Height inputs stay horizontal on mobile */
             .height-input-row {
-                flex-direction: row; /* Keep horizontal */
-                gap: 10px; /* Adjust gap for mobile */
-                margin-bottom: 15px; /* Adjust margin */
+                flex-direction: row;
+                gap: 10px;
+                margin-bottom: 15px;
             }
 
-            /* Weight + toggle inputs stay horizontal on mobile */
             .weight-toggle-row {
-                flex-direction: row; /* Keep horizontal */
-                gap: 10px; /* Adjust gap for mobile */
-                margin-bottom: 15px; /* Adjust margin */
+                flex-direction: row;
+                gap: 10px;
+                margin-bottom: 15px;
             }
 
             .weight-toggle-row .input-col:last-child {
-                flex: 0 0 auto; /* Allow natural sizing on mobile */
+                flex: 0 0 auto;
             }
 
-            .input-col[style*="flex: 0 0 120px"] { /* Unit toggle container */
-                flex: 0 0 auto !important; /* Allow it to size naturally */
-                align-self: flex-start; /* Align to start if preferred, or center */
-                width: auto; /* Allow natural width */
+            .input-col[style*="flex: 0 0 120px"] {
+                flex: 0 0 auto !important;
+                align-self: flex-start;
+                width: auto;
             }
 
             #step-result {
-                /* height: auto; (already default) */
-                min-height: 0; /* Remove min-height if not strictly needed, or set to a smaller value like 300px */
-                /* Let it grow naturally with content */
+                min-height: 0;
             }
             
             .prose p {
-                font-size: 15px; /* Adjusted for mobile */
-                margin-bottom: 10px; /* Adjusted for mobile */
+                font-size: 15px;
+                margin-bottom: 10px;
             }
 
             .important-box {
-                margin: 15px 0; /* Adjust margin */
-                padding: 15px; /* Adjust padding */
+                margin: 15px 0;
+                padding: 15px;
             }
 
             .important-header {
-                margin-left: -15px; /* Match new padding */
-                font-size: 18px; /* Adjust font size */
+                margin-left: -15px;
+                font-size: 18px;
             }
             
             .important-label {
-                padding: 5px 12px; /* Adjust padding */
-                font-size: 13px; /* Adjust font size */
-                top: -10px; /* Adjust position */
+                padding: 5px 12px;
+                font-size: 13px;
+                top: -10px;
             }
 
             .important-content {
-                font-size: 14px; /* Adjust font size */
-                padding-bottom: 15px; /* Adjust padding */
+                font-size: 14px;
+                padding-bottom: 15px;
             }
 
             .button-group {
-                flex-direction: row; /* Changed from column to row */
-                gap: 10px; /* Adjust gap */
-                margin-top: 12px; /* Adjust margin */
+                flex-direction: row;
+                gap: 10px;
+                margin-top: 12px;
             }
 
             .button-group .btn {
-                flex: 1; /* Make buttons take equal width */
+                flex: 1;
             }
 
             .print-section {
                 flex-direction: column;
-                gap: 10px; /* Adjust gap */
+                gap: 10px;
             }
 
             .btn {
                 width: 100%;
-                min-height: 44px; /* Standard tap target size */
-                font-size: 15px; /* Adjust font size */
-                padding: 10px 20px; /* Adjust padding */
+                min-height: 44px;
+                font-size: 15px;
+                padding: 10px 20px;
             }
             
             .btn-large {
-                font-size: 16px; /* Adjust font size */
-                padding: 12px 20px; /* Adjust padding */
+                font-size: 16px;
+                padding: 12px 20px;
             }
 
-
             .radio-option, .checkbox-option {
-                padding: 12px; /* Adjust padding */
-                min-height: 44px; /* Standard tap target size */
-                gap: 8px; /* Adjust gap */
+                padding: 12px;
+                min-height: 44px;
+                gap: 8px;
             }
             
             .radio-option input[type="radio"],
             .checkbox-option input[type="checkbox"] {
-                width: 18px; /* Slightly smaller */
+                width: 18px;
                 height: 18px;
-                margin-top: 2px; /* Adjust alignment */
+                margin-top: 2px;
             }
 
             .condition-description {
-                font-size: 13px; /* Adjust font size */
+                font-size: 13px;
             }
 
             h2 {
-                font-size: 20px; /* Adjusted for mobile */
-                margin-bottom: 4px; /* Add a bit of space if direct children */
+                font-size: 20px;
+                margin-bottom: 4px;
             }
 
             h3 {
-                font-size: 18px; /* Adjusted for mobile */
-                margin-bottom: 10px; /* Adjusted for mobile */
+                font-size: 18px;
+                margin-bottom: 10px;
             }
             
             .input-label {
-                font-size: 14px; /* Adjust font size */
+                font-size: 14px;
                 margin-bottom: 4px;
             }
             
             .modern-input, .modern-select {
-                padding: 10px 12px; /* Adjust padding */
-                font-size: 15px;    /* Adjust font size */
+                padding: 10px 12px;
+                font-size: 15px;
             }
 
             .modern-select {
-                background-position: right 12px center; /* Adjust arrow position */
+                background-position: right 12px center;
             }
 
-            /* Mobile responsive for inline unit toggle in BMI */
-            .input-row { /* This is for BMI calculator inputs */
+            .input-row {
                 flex-direction: column;
-                gap: 10px; /* Adjust gap */
-                margin-bottom: 15px; /* Adjust margin */
+                gap: 10px;
+                margin-bottom: 15px;
             }
 
-            /* Height inputs stay horizontal on mobile */
             .height-input-row {
-                flex-direction: row; /* Keep horizontal */
-                gap: 10px; /* Adjust gap for mobile */
-                margin-bottom: 15px; /* Adjust margin */
+                flex-direction: row;
+                gap: 10px;
+                margin-bottom: 15px;
             }
 
-            /* Weight + toggle inputs stay horizontal on mobile */
             .weight-toggle-row {
-                flex-direction: row; /* Keep horizontal */
-                gap: 10px; /* Adjust gap for mobile */
-                margin-bottom: 15px; /* Adjust margin */
+                flex-direction: row;
+                gap: 10px;
+                margin-bottom: 15px;
             }
 
             .weight-toggle-row .input-col:last-child {
-                flex: 0 0 auto; /* Allow natural sizing on mobile */
+                flex: 0 0 auto;
             }
 
-            .input-col[style*="flex: 0 0 120px"] { /* Unit toggle container */
-                flex: 0 0 auto !important; /* Allow it to size naturally */
-                align-self: flex-start; /* Align to start if preferred, or center */
-                width: auto; /* Allow natural width */
+            .input-col[style*="flex: 0 0 120px"] {
+                flex: 0 0 auto !important;
+                align-self: flex-start;
+                width: auto;
             }
+
+            .condition-list li {
+            padding: 4px 0;
+            font-size: 12px;
+            color: var(--text-primary);
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
         }
 
-        /* Unit toggle styles */
         .unit-toggle {
             display: flex;
             gap: 8px;
@@ -755,7 +738,6 @@
             border-color: #9ca3af;
         }
 
-        /* Animation and transition styles */
         .radio-option, .checkbox-option {
             transition: all 0.2s ease-out;
         }
@@ -823,7 +805,6 @@
             transition: opacity 0.4s ease-in-out;
         }
 
-        /* Imperial input styling */
         .height-imperial {
             display: flex;
             gap: 8px;
@@ -838,7 +819,6 @@
             flex: 0 0 80px;
         }
 
-        /* Accessibility - reduced motion */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -847,18 +827,15 @@
             }
         }
 
-        /* Enhanced focus indicators */
         .radio-option:focus-within, .checkbox-option:focus-within {
             border-color: #0E0661;
             box-shadow: 0 0 0 3px rgba(14, 6, 97, 0.1);
         }
 
-        /* Smooth counter animation */
         #condition-count {
             transition: all 0.2s ease-out;
         }
 
-        /* Form validation feedback */
         .input-error {
             border-color: #ef4444 !important;
             box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
@@ -868,7 +845,6 @@
             border-color: #2EB67D !important;
         }
 
-        /* Modern BMI Section Styles */
         .bmi-card {
             background: white;
             border-radius: 12px;
@@ -1102,13 +1078,12 @@
             }
         }
 
-        /* Progress Bar Styles */
         .progress-container {
             position: relative;
             background: #f8fafc;
             border-top: 1px solid #e5e7eb;
             padding: 16px 32px;
-            margin-top: auto; /* Pushes to bottom of flex container */
+            margin-top: auto;
         }
 
         .progress-header {
@@ -1165,9 +1140,6 @@
             100% { transform: translateX(100%); }
         }
 
-        /* Mobile responsive for progress bar already exists, additional check in main mobile block */
-
-        /* Inline unit toggle styles */
         .inline-unit-toggle {
             display: flex;
             flex-direction: column;
@@ -1178,7 +1150,7 @@
             border-radius: 8px;
             border: 1px solid #e5e7eb;
             min-width: 100px;
-            margin-top: 20px; /* Default margin */
+            margin-top: 20px;
         }
 
         .inline-unit-label {
@@ -1232,8 +1204,6 @@
             font-weight: 600;
         }
 
-        /* .input-row is defined above, mobile overrides in media query */
-
         .selected-conditions {
             background: #f8fafc;
             border: 1px solid var(--border-color);
@@ -1260,7 +1230,6 @@
 
         .condition-list li {
             padding: 4px 0;
-            font-size: 12px;
             color: var(--text-primary);
             break-inside: avoid;
             page-break-inside: avoid;
@@ -1301,7 +1270,6 @@
             box-shadow: 0 6px 20px rgba(31, 184, 219, 0.3);
         }
 
-        /* Print-specific styles */
         @media print {
             @page {
                 size: A4;
@@ -1339,7 +1307,6 @@
 
             .header-title {
                 display: none;
-                
             }
 
             .header-logo {
@@ -1428,14 +1395,12 @@
                 line-height: 1.2 !important;
             }
 
-            /* Ensure no page breaks in critical sections */
             .result-box h3,
             .timeline-box h3,
             .cohort-info p:first-child {
                 page-break-after: avoid !important;
             }
 
-            /* Compress spacing in results */
             #step-result .result-box {
                 margin-bottom: 4pt !important;
             }
@@ -1468,52 +1433,49 @@
             display: none;
         }
 
-        /* Specific styling for results page to reduce spacing */
         #step-result {
             height: auto;
             min-height: 550px;
             gap: 6px;
         }
 
-        /* Styles for the new modern select dropdown */
         .modern-select {
             width: 100%;
             padding: 12px 16px;
-            border: 2px solid #e5e7eb; /* Match .modern-input */
-            border-radius: 8px; /* Match .modern-input */
-            font-size: 16px; /* Match .modern-input */
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
             background-color: white;
-            appearance: none; /* Remove default OS styling */
+            appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            /* Custom arrow using inline SVG */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 16px center;
-            background-size: 1.2em; /* Adjust size of the arrow */
+            background-size: 1.2em;
             cursor: pointer;
-            transition: all 0.2s ease-out; /* Match .modern-input */
-            line-height: 1.5; /* Ensure text is vertically centered */
+            transition: all 0.2s ease-out;
+            line-height: 1.5;
         }
 
         .modern-select:focus {
             outline: none;
-            border-color: #0E0661; /* Match .modern-input focus */
-            box-shadow: 0 0 0 3px rgba(14, 6, 97, 0.1); /* Match .modern-input focus */
+            border-color: #0E0661;
+            box-shadow: 0 0 0 3px rgba(14, 6, 97, 0.1);
         }
 
-        .modern-select:hover:not(:disabled) { /* Add :not(:disabled) for consistency */
-            border-color: #9ca3af; /* Match .modern-input hover */
+        .modern-select:hover:not(:disabled) {
+            border-color: #9ca3af;
         }
 
         .modern-select:disabled {
-            background-color: #f3f4f6; /* Standard disabled style */
+            background-color: #f3f4f6;
             color: #9ca3af;
             cursor: not-allowed;
         }
 
         .modern-select option {
-            padding: 8px 12px; /* Note: Styling options is limited and browser-dependent */
+            padding: 8px 12px;
             background-color: white;
             color: #231f20;
         }
@@ -1548,7 +1510,6 @@
             position: relative;
         }
 
-        /* Modern scrollbar styling */
         .calculator-container::-webkit-scrollbar,
         .step-content::-webkit-scrollbar {
             width: 8px;
@@ -1577,19 +1538,16 @@
             background: rgba(14, 6, 97, 0.8);
         }
 
-        /* For Firefox */
         .calculator-container,
         .step-content {
             scrollbar-width: thin;
             scrollbar-color: rgba(14, 6, 97, 0.4) rgba(248, 250, 252, 0.3);
         }
 
-        .progress-bar-track { /* Ensured this is not duplicated with slightly different content */
+        .progress-bar-track {
             width: 100%;
-            /* height: 8px; /* This was already defined above */
         }
 
-        /* Height inputs that should stay horizontal even on mobile */
         .height-input-row {
             display: flex;
             gap: 16px;
@@ -1600,7 +1558,6 @@
             flex: 1;
         }
 
-        /* Weight + toggle inputs that should stay horizontal on mobile */
         .weight-toggle-row {
             display: flex;
             gap: 16px;
@@ -1629,7 +1586,6 @@
             </div>
         </div>
         <div class="content">
-            <!-- Start Step -->
             <div id="step-start" class="step-content" role="region" aria-labelledby="start-heading">
                 <div class="prose">
                     <p>
@@ -1666,7 +1622,6 @@
                 </button>
             </div>
 
-            <!-- Age Step -->
             <div id="step-age" class="step-content hidden">
                 <h2>What is your age?</h2>
                 
@@ -1685,11 +1640,10 @@
                 </div>
             </div>
 
-            <!-- Ethnicity Step -->
             <div id="step-ethnicity" class="step-content hidden">
                 <h2>Ethnicity</h2>
                 
-                <p class="prose"> <!-- Added prose class for consistent mobile styling -->
+                <p class="prose">
                     NHS guidance uses lower BMI thresholds for certain ethnicity groups. 
                     Please select your ethnicity:
                 </p>
@@ -1723,12 +1677,10 @@
                 </div>
             </div>
 
-            <!-- BMI Step -->
             <div id="step-bmi" class="step-content hidden">
                 <h2>Body Mass Index (BMI)</h2>
                 
                 <div class="bmi-card">
-                    <!-- Method Selection Tabs -->
                     <div class="bmi-tabs">
                         <button id="calculate-tab" class="bmi-tab active" onclick="switchBmiMethod('calculate')">
                         Calculate my BMI
@@ -1738,14 +1690,10 @@
                     </button>
                 </div>
                 
-                    <!-- BMI Content Area -->
                     <div id="bmi-content" class="bmi-content">
                         
-                        <!-- Calculator Mode -->
                         <div id="calculator-mode" class="fade-in">
-                            <!-- Input Fields -->
                             <div id="metric-inputs">
-                                <!-- Weight + toggle row -->
                                 <div class="weight-toggle-row">
                                     <div class="input-col">
                                         <label class="input-label" for="weight-input">Weight (kg)</label>
@@ -1771,7 +1719,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Height input row -->
                                 <div class="input-row">
                                     <div class="input-col">
                                         <label class="input-label" for="height-input">Height (cm)</label>
@@ -1788,7 +1735,6 @@
                             </div>
                     
                             <div id="imperial-inputs" style="display: none;">
-                                <!-- Weight + toggle row -->
                                 <div class="weight-toggle-row">
                                     <div class="input-col">
                                         <label class="input-label" for="weight-lbs-input">Weight (lbs)</label>
@@ -1814,7 +1760,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Height inputs row with 50:50 split -->
                                 <div class="height-input-row">
                                     <div class="input-col">
                                         <label class="input-label" for="height-ft-input">Height - Feet</label>
@@ -1842,10 +1787,9 @@
                             </div>
                         </div>
 
-                        <!-- Manual Mode -->
                         <div id="manual-mode" style="display: none;">
                             <div class="manual-bmi-input">
-                                <label class="input-label" for="manual-bmi-input-field">Your BMI</label> <!-- Changed id to avoid conflict -->
+                                <label class="input-label" for="manual-bmi-input-field">Your BMI</label>
                         <input
                             type="text"
                                     id="manual-bmi-input"  
@@ -1860,11 +1804,9 @@
                             </div>
                         </div>
 
-                        <!-- BMI Result Display -->
                         <div id="bmi-result" class="bmi-result-card" style="display: none;">
                             <div class="bmi-value" id="bmi-display">--</div>
                             <div class="bmi-category" id="bmi-category">BMI Category</div>
-                            <!-- Removed bmi-description div as it wasn't used in JS -->
                         </div>
                     </div>
                 </div>
@@ -1875,11 +1817,10 @@
                 </div>
             </div>
 
-            <!-- Comorbidities Step -->
             <div id="step-comorbidities" class="step-content hidden">
                 <h2>Qualifying Health Conditions</h2>
                 
-                <p class="prose"> <!-- Added prose class for consistent mobile styling -->
+                <p class="prose">
                     Please select any of the following qualifying health conditions that apply to you. 
                     These are specific conditions defined in NHS guidance:
                 </p>
@@ -1952,11 +1893,10 @@
                 </div>
             </div>
 
-            <!-- Previous Attempts Step -->
             <div id="step-previousAttempts" class="step-content hidden">
                 <h2>Previous Weight Loss Attempts</h2>
                 
-                <p class="prose"> <!-- Added prose class for consistent mobile styling -->
+                <p class="prose">
                     Have you made serious attempts to lose weight through diet, exercise, 
                     and/or behavior changes for at least 6 months without achieving or 
                     maintaining significant weight loss?
@@ -1987,7 +1927,6 @@
                 </div>
             </div>
 
-            <!-- Result Step -->
             <div id="step-result" class="step-content hidden">
                 <div class="print-header">
                     <p><strong>NHS Norfolk & Waveney ICB Weight Loss Medicine Eligibility Checker</strong></p>
@@ -2000,7 +1939,7 @@
 
                 <div class="timeline-box">
                     <h3>Phased rollout details</h3>
-                    <div style="font-size: 14px; margin-top: 8px;"> <!-- Base font-size, mobile overrides if needed -->
+                    <div style="font-size: 14px; margin-top: 8px;">
                         <div class="timeline-item"><strong>Year 1 (2025/26):</strong> 4 or more qualifying conditions and BMI greater or equal to <span id="timeline-bmi-1">40</span></div>
                         <div class="timeline-item"><strong>Year 2 (2026/27):</strong> 4 or more qualifying conditions and BMI between <span id="timeline-bmi-2a">35</span> and <span id="timeline-bmi-2b">39.9</span></div>
                         <div class="timeline-item"><strong>Year 3 (2027/28):</strong> 3 or more qualifying conditions and BMI greater or equal to <span id="timeline-bmi-3">40</span></div>
@@ -2025,20 +1964,19 @@
                     </button>
                 </div>
             </div>
-        </div>
-        <div class="progress-container">
-
-            <div class="progress-bar-container">
-                <div class="progress-bar-track">
-                    <div class="progress-bar-fill" id="progress-bar-fill"></div>
+            
+            <div class="progress-container">
+                <div class="progress-bar-container">
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                    </div>
+                    <span class="progress-percentage" id="progress-percentage">0%</span>
                 </div>
-                <span class="progress-percentage" id="progress-percentage">0%</span>
             </div>
         </div>
     </div>
 
     <script>
-        // Application state
         let currentStep = 'start';
         let answers = {
             ethnicity: null,
@@ -2054,11 +1992,10 @@
         };
         let bmiMethod = 'calculate';
         let unitSystem = 'metric';
-        let ageBasedIneligible = false; // Track if user is ineligible due to age
+        let ageBasedIneligible = false;
 
         const steps = ['start', 'age', 'ethnicity', 'bmi', 'comorbidities', 'previousAttempts', 'result'];
 
-        // Utility functions
         function getAdjustedBmiThreshold(threshold) {
             const lowerThresholdEthnicities = ['south_asian', 'chinese', 'other_asian', 'middle_eastern', 'black_african', 'african_caribbean'];
             if (answers.ethnicity && lowerThresholdEthnicities.includes(answers.ethnicity)) {
@@ -2071,7 +2008,6 @@
             return Object.values(answers.comorbidities).filter(Boolean).length;
         }
 
-        // Imperial to metric conversion functions
         function lbsToKg(lbs) {
             return lbs * 0.453592;
         }
@@ -2081,7 +2017,6 @@
             return totalInches * 2.54;
         }
 
-        // Modern BMI Interface Functions
         function switchBmiMethod(method) {
             bmiMethod = method;
             
@@ -2153,17 +2088,14 @@
         }
 
         function handleBmiInput() {
-            // Validate numeric input
             const inputs = document.querySelectorAll('#calculator-mode .modern-input');
             inputs.forEach(input => {
-                // Allow only numbers and a single decimal point
                 input.value = input.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
 
-                // Add visual feedback
                 input.classList.remove('error', 'success');
                 if (input.value && parseFloat(input.value) > 0) {
                     input.classList.add('success');
-                } else if (input.value && parseFloat(input.value) <= 0 && input.value !== '') { // Check for non-empty string for 0 or negative
+                } else if (input.value && parseFloat(input.value) <= 0 && input.value !== '') {
                     input.classList.add('error');
                 }
             });
@@ -2175,7 +2107,6 @@
         function handleManualBmiInput() {
             const input = document.getElementById('manual-bmi-input');
             
-            // Allow only numbers and a single decimal point
             input.value = input.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
             const value = input.value;
             
@@ -2183,7 +2114,7 @@
             if (value && parseFloat(value) > 0) {
                 input.classList.add('success');
                 answers.bmi = parseFloat(value);
-            } else if (value && parseFloat(value) <= 0 && value !== '') { // Check for non-empty string
+            } else if (value && parseFloat(value) <= 0 && value !== '') {
                 input.classList.add('error');
                 answers.bmi = null;
             } else {
@@ -2223,7 +2154,7 @@
             if (bmi < 25) return { category: 'Normal weight', class: 'normal' };
             if (bmi < 30) return { category: 'Overweight', class: 'overweight' };
             if (bmi < 35) return { category: 'Obese', class: 'obese' };
-            return { category: 'Severely obese', class: 'obese' }; // Using 'obese' class for severe for styling consistency
+            return { category: 'Severely obese', class: 'obese' };
         }
 
         function updateBmiDisplay() {
@@ -2237,13 +2168,12 @@
                 bmi = calculateBmiFromInputs();
                 if (bmi) {
                     answers.bmi = bmi;
-                     // Update manual input field if user switches back
                     const manualBmiInputField = document.getElementById('manual-bmi-input');
                     if (manualBmiInputField) manualBmiInputField.value = bmi;
                 } else {
                     answers.bmi = null;
                 }
-            } else { // manual method
+            } else {
                 const manualBmiInputField = document.getElementById('manual-bmi-input');
                 if (manualBmiInputField && manualBmiInputField.value) {
                     bmi = parseFloat(manualBmiInputField.value);
@@ -2254,7 +2184,7 @@
             }
 
 
-            if (answers.bmi && answers.bmi > 0) { // Check answers.bmi
+            if (answers.bmi && answers.bmi > 0) {
                 const categoryInfo = getBmiCategory(answers.bmi);
                 
                 bmiDisplay.textContent = answers.bmi;
@@ -2265,16 +2195,15 @@
             } else {
                 bmiDisplay.textContent = '--';
                 categoryDisplay.textContent = 'BMI Category';
-                resultCard.className = 'bmi-result-card'; // Reset class
+                resultCard.className = 'bmi-result-card';
                 resultCard.style.display = 'none';
-                if (bmiMethod === 'calculate') { // Only nullify if in calculate mode and inputs are bad
+                if (bmiMethod === 'calculate') {
                     answers.bmi = null;
                 }
             }
-             updateUI(); // Ensure Next button state is updated
+             updateUI();
         }
 
-        // Navigation functions
         function showStep(stepName) {
             steps.forEach(step => {
                 const element = document.getElementById(`step-${step}`);
@@ -2286,7 +2215,6 @@
             const currentElement = document.getElementById(`step-${stepName}`);
             if (currentElement) {
                 currentElement.classList.remove('hidden');
-                 // Scroll to top of step content on mobile or if content is long
                 if (currentElement.scrollTop > 0) {
                     currentElement.scrollTop = 0;
                 } else if (document.querySelector('.calculator-container').scrollTop > 0) {
@@ -2347,13 +2275,12 @@
                 }
             });
 
-            switchBmiMethod('calculate'); // Resets to calculator mode
-             // Ensure unit toggle is reset to metric
+            switchBmiMethod('calculate');
             const unitToggle = document.getElementById('unit-toggle');
             const unitToggleImperial = document.getElementById('unit-toggle-imperial');
-            if (unitSystem === 'imperial') { // If it was imperial, toggle back to metric
-                 toggleUnits(); // This will set unitSystem to 'metric'
-            } else { // If it was already metric, ensure visuals are correct
+            if (unitSystem === 'imperial') {
+                 toggleUnits();
+            } else {
                 if (unitToggle) unitToggle.classList.remove('active');
                 if (unitToggleImperial) unitToggleImperial.classList.remove('active');
                 document.getElementById('metric-inputs').style.display = 'block';
@@ -2375,22 +2302,20 @@
             const conditionCountEl = document.getElementById('condition-count');
             if(conditionCountEl) conditionCountEl.textContent = '0';
 
-            updateUI(); // This will disable next buttons etc.
-            showStep('start'); // This calls updateProgressBar
+            updateUI();
+            showStep('start');
         }
 
-        // Event handlers
         function handleAgeChange() {
             const selected = document.querySelector('input[name="age"]:checked');
             if (selected) {
                 if (selected.value === 'under18') {
                     ageBasedIneligible = true;
-                    showStep('result'); // This will call updateResult and updateProgressBar
+                    showStep('result');
                 } else {
                     ageBasedIneligible = false;
-                    showStep('ethnicity'); // This will call updateProgressBar
+                    showStep('ethnicity');
                 }
-                // updateUI(); // Not strictly needed here as showStep triggers progress bar update
             }
         }
 
@@ -2406,13 +2331,13 @@
         }
         
         function handleComorbidityChange() {
-            const checkboxes = document.querySelectorAll('input[name="comorbidities"]'); // Get all, not just checked
+            const checkboxes = document.querySelectorAll('input[name="comorbidities"]');
             
             Object.keys(answers.comorbidities).forEach(key => {
-                answers.comorbidities[key] = false; // Reset all
+                answers.comorbidities[key] = false;
             });
 
-            checkboxes.forEach((checkbox) => { // Iterate over all
+            checkboxes.forEach((checkbox) => {
                 if(checkbox.checked) {
                     answers.comorbidities[checkbox.value] = true;
                 }
@@ -2431,13 +2356,9 @@
         }
 
         function handleBmiSubmit() {
-            // BMI value is already in answers.bmi from handleBmiInput/handleManualBmiInput via updateBmiDisplay
-            // Just need to ensure it's valid before proceeding
             if (answers.bmi && answers.bmi > 0) {
                 goToNextStep();
             } else {
-                // This case should ideally be prevented by a disabled Next button,
-                // but as a fallback:
                 alert('Please enter or calculate a valid BMI value before continuing.');
             }
         }
@@ -2460,8 +2381,6 @@
 
             const bmiNextBtn = document.getElementById('bmi-next-btn');
             if (bmiNextBtn) {
-                // The enabling/disabling of bmiNextBtn relies on answers.bmi being correctly set
-                // by updateBmiDisplay, which is called by handleBmiInput and handleManualBmiInput.
                 bmiNextBtn.disabled = !(answers.bmi && answers.bmi > 0);
             }
 
@@ -2482,9 +2401,9 @@
                 attemptsNextBtn.disabled = answers.previousAttempts === null;
             }
 
-            updateTimelineBMI(); // Update timeline based on ethnicity
+            updateTimelineBMI();
 
-            if (currentStep === 'result') { // If already on result page, refresh it
+            if (currentStep === 'result') {
                 updateResult();
             }
         }
@@ -2512,13 +2431,13 @@
             if (ageBasedIneligible) {
                 let html = '<div class="result-box warning">';
                 html += '<h3>You are not eligible for tirzepatide (Mounjaro)</h3>';
-                html += '<div style="margin-top: 16px;">'; // Base margin, mobile might adjust
+                html += '<div style="margin-top: 16px;">';
                 html += '<p><strong>Age:</strong> You must be over the age of 18 to be eligible for NHS weight loss medications.</p>';
                 html += '<p style="margin-top: 12px;">Please speak with your GP or healthcare provider about appropriate weight management support for your age group.</p>';
                 html += '</div>';
                 html += '</div>';
                 resultContent.innerHTML = html;
-                document.querySelector('.timeline-box').style.display = 'none'; // Hide timeline if age ineligible
+                document.querySelector('.timeline-box').style.display = 'none';
                 return;
             }
 
@@ -2528,7 +2447,6 @@
 
             const timelineBox = document.querySelector('.timeline-box');
             if (timelineBox) {
-                // Show timeline only if NOT eligible for Cohort 1, OR not eligible at all but meets some future criteria
                 if (eligibilityResult.eligible && eligibilityResult.cohort === "1") {
                     timelineBox.style.display = 'none';
                 } else {
@@ -2536,12 +2454,12 @@
                 }
             }
 
-            let resultClass = 'warning'; // Default for not eligible
+            let resultClass = 'warning';
             if (eligibilityResult.eligible) {
                 if (eligibilityResult.cohort === '1') {
                     resultClass = 'success';
                 } else if (eligibilityResult.cohort === '2' || eligibilityResult.cohort === '3') {
-                    resultClass = 'orange'; // Eligible for future cohorts
+                    resultClass = 'orange';
                 }
             }
 
@@ -2550,7 +2468,7 @@
             html += '<h3>';
             if (eligibilityResult.eligible) {
                 html += 'You may be eligible for tirzepatide';
-                if (eligibilityResult.cohort !== '1') { // For cohort 2 or 3
+                if (eligibilityResult.cohort !== '1') {
                     html += ' in the future';
                 };
             } else {
@@ -2566,18 +2484,18 @@
             } else {
                 html += '.';
             }
-            html += '</p>'; // Close BMI paragraph
+            html += '</p>';
 
             html += '<p><strong>Qualifying conditions:</strong> You have ' + comorbidityCount + ' out of 5 qualifying conditions.</p>';
             
-            if (answers.previousAttempts === false) { // Only show if explicitly 'No'
+            if (answers.previousAttempts === false) {
                  html += '<p><strong>Previous Weight Loss Attempts:</strong> You indicated you have not made serious attempts to lose weight through lifestyle changes. NHS guidelines require this before prescribing weight loss medication.</p>';
             } else if (answers.previousAttempts === true) {
                  html += '<p><strong>Previous Weight Loss Attempts:</strong> You indicated you have made serious attempts to lose weight through lifestyle changes.</p>';
             }
 
 
-            if (selectedConditions.length > 0) { // Show selected conditions regardless of eligibility for user's review
+            if (selectedConditions.length > 0) {
                 html += '<div class="selected-conditions">';
                 html += '<h4>Your Selected Qualifying Conditions:</h4>';
                 html += '<ul class="condition-list">';
@@ -2612,8 +2530,8 @@
                 
                 html += '</p>';
                 html += '</div>';
-            } else if (!eligibilityResult.eligible && answers.previousAttempts === true) { // Not eligible, but tried lifestyle changes
-                 html += '<div class="cohort-info" style="border-color: #FFC240;">'; // Yellow border for potential
+            } else if (!eligibilityResult.eligible && answers.previousAttempts === true) {
+                 html += '<div class="cohort-info" style="border-color: #FFC240;">';
                  html += '<p style="font-weight: 500;">Potential future eligibility (based on timeline):</p>';
                  let potentialShown = false;
 
@@ -2622,7 +2540,6 @@
                      potentialShown = true;
                 }
                 if (comorbidityCount >= 3 && answers.bmi >= getAdjustedBmiThreshold(40)) {
-                     // This condition might overlap with Year 1 if comorbidityCount is 4+, but if not eligible for Y1 (e.g. due to prev attempts), it's a future path
                      html += '<p style="margin-top: 4px;">• With ' + comorbidityCount + ' conditions and BMI ' + answers.bmi + ', you might meet criteria for Year 3 (2027/28) if not Year 1.</p>';
                      potentialShown = true;
                 }
@@ -2633,27 +2550,25 @@
             }
 
 
-            html += '</div>'; // Close main content div
-            html += '</div>'; // Close result-box
+            html += '</div>';
+            html += '</div>';
 
             resultContent.innerHTML = html;
         }
 
 
         function determineEligibilityAndCohort() {
-            // Age check is handled by ageBasedIneligible already
             const hasMadePreviousAttempts = answers.previousAttempts;
             const comorbidityCount = countQualifyingComorbidities();
             const bmi = answers.bmi;
 
-            if (!bmi || bmi <=0) { // No valid BMI
+            if (!bmi || bmi <=0) {
                 return { eligible: false, cohort: null, year: null };
             }
             
-            if (hasMadePreviousAttempts === false) { // Explicitly 'No' to previous attempts
+            if (hasMadePreviousAttempts === false) {
                 return { eligible: false, cohort: null, year: null, reason: "previousAttempts" };
             }
-            // If previousAttempts is null (unanswered), also ineligible but this should be caught by button states
 
             const year1BmiThreshold = getAdjustedBmiThreshold(40);
             if (comorbidityCount >= 4 && bmi >= year1BmiThreshold && hasMadePreviousAttempts) {
@@ -2661,13 +2576,13 @@
             }
 
             const year2LowerBmi = getAdjustedBmiThreshold(35);
-            const year2UpperBmi = getAdjustedBmiThreshold(39.9); // NICE uses <40, so 39.9 is a practical upper limit for this band
+            const year2UpperBmi = getAdjustedBmiThreshold(39.9);
             if (comorbidityCount >= 4 && bmi >= year2LowerBmi && bmi <= year2UpperBmi && hasMadePreviousAttempts) {
                 return { eligible: true, cohort: "2", year: "Year 2 (2026/27)"};
             }
 
-            const year3BmiThreshold = getAdjustedBmiThreshold(40); // Same as year 1, but fewer comorbidities
-            if (comorbidityCount === 3 && bmi >= year3BmiThreshold && hasMadePreviousAttempts) { // Specifically 3 conditions
+            const year3BmiThreshold = getAdjustedBmiThreshold(40);
+            if (comorbidityCount === 3 && bmi >= year3BmiThreshold && hasMadePreviousAttempts) {
                 return { eligible: true, cohort: "3", year: "Year 3 (2027/28)"};
             }
 
@@ -2677,20 +2592,17 @@
 
         function updateProgressBar() {
             const currentStepIndex = steps.indexOf(currentStep);
-            // Total "question" steps are age, ethnicity, bmi, comorbidities, previousAttempts (5 steps)
-            // Start is step 0 conceptually, Result is step 6
             const totalProgressSteps = 5; 
             
             let progressPercentage = 0;
             
             if (currentStep === 'start') {
                 progressPercentage = 0;
-            } else if (currentStep === 'result' || ageBasedIneligible) { // If age ineligible, jump to 100%
+            } else if (currentStep === 'result' || ageBasedIneligible) {
                 progressPercentage = 100;
             } else {
-                // Map step names to an ordered index for progress
                 const progressOrder = ['age', 'ethnicity', 'bmi', 'comorbidities', 'previousAttempts'];
-                const progressStepIndex = progressOrder.indexOf(currentStep); // 0 to 4
+                const progressStepIndex = progressOrder.indexOf(currentStep);
                 if (progressStepIndex !== -1) {
                      progressPercentage = ((progressStepIndex +1) / totalProgressSteps) * 100;
                 }
@@ -2730,15 +2642,13 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Initial UI setup
             updateUI();
-            updateProgressBar(); // Set initial progress bar state
+            updateProgressBar();
             
-            // Ensure BMI display is correctly initialized
-            switchBmiMethod('calculate'); // Default to calculate
-            if (unitSystem === 'imperial') { // If default is imperial, toggle
+            switchBmiMethod('calculate');
+            if (unitSystem === 'imperial') {
                 toggleUnits();
-            } else { // Ensure metric visuals are correct
+            } else {
                  const unitToggle = document.getElementById('unit-toggle');
                  if (unitToggle) unitToggle.classList.remove('active');
                  document.getElementById('metric-inputs').style.display = 'block';
