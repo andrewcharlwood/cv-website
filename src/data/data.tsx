@@ -3,7 +3,6 @@ import {
   AcademicCapIcon,
   ArrowDownTrayIcon,
   BuildingOffice2Icon,
-  CalendarIcon,
   DevicePhoneMobileIcon,
   EnvelopeIcon,
   FingerPrintIcon,
@@ -27,6 +26,7 @@ import {
   Hero,
   HomepageMeta,
   PortfolioItem,
+  SkillCategory,
   SkillGroup,
   Social,
   Summary,
@@ -81,15 +81,13 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-100 sm:prose-base lg:prose-lg">
-        As Deputy Head of Population Health & Data Analysis within the Medicines Optimisation team at the NHS Norfolk
-        and Waveney ICB, I focus on leveraging data analytics to optimise medicines usage, enhance prescribing quality,
-        and address health inequalities. I develop analysis via Python, SQL, and Power BI to inform and guide the
-        strategic plan of the medicine optimisation team.
+        Strategic healthcare leader combining pharmacy expertise with advanced technical capabilities. Currently serving
+        as Deputy Head of Population Health & Data Analysis at NHS Norfolk and Waveney ICB, managing a £220M prescribing
+        budget and delivering £14.6M+ in efficiency savings across a 1.1 million patient population.
       </p>
       <p className="prose-sm text-stone-100 sm:prose-base lg:prose-lg">
-        An innovative, data-driven medicine optimisation Pharmacist with a passion for utilising technology to drive
-        efficiencies through automation. In my free time, I'm a father, an avid video/photographer and a tech
-        enthusiast.
+        Proven track record developing automated solutions using Python, SQL, and Power BI that transform healthcare
+        delivery at scale. In my free time, I'm a father, an avid video/photographer and a tech enthusiast.
       </p>
     </>
   ),
@@ -125,30 +123,24 @@ export const heroData: Hero = {
     },
     {
       id: 2,
-      label: 'Age',
-      text: '31',
-      Icon: CalendarIcon,
-    },
-    {
-      id: 3,
       label: 'Registration number',
       text: '2211810',
       Icon: FingerPrintIcon,
     },
     {
-      id: 4,
+      id: 3,
       label: 'Interests',
       text: 'Technology, Photography, Rugby',
       Icon: SparklesIcon,
     },
     {
-      id: 5,
+      id: 4,
       label: 'Education',
       text: 'Master of Pharmacy, University of East Anglia',
       Icon: AcademicCapIcon,
     },
     {
-      id: 6,
+      id: 5,
       label: 'Employment',
       text: 'NHS Norfolk & Waveney Integrated Care Board',
       Icon: BuildingOffice2Icon,
@@ -165,107 +157,62 @@ export const summaryData: Summary = {
     <>
       <p className="prose-base mb-4 mt-4">
         <strong>My career as a registered pharmacist started in Tesco pharmacy, Great Yarmouth.</strong> It was here
-        where I first became curious to the idea of automating workflows through coding, specifically, I created and
-        implemented a system that could automatically check if prescription requests to local GPs could be automatically
-        checked against dispensed items to identify unfilled requests. This saved ~6 hours of staff time checking repeat
-        requests by staff each week.
-        <br />
-        <br />
-        That was the first time I built my own software solution to a problem I was facing. It led me down a path where
-        I not only see the value in learning these skills but have a passion for it. This hobby led me to becoming
-        proficient in python & SQL, and enables me to provide significant value in my current role as Deputy Head of
-        Population Health & Data Analysis within the Medicines Optimisation team.
-        <br />
-        <br />
-        I've initiated and completed projects which have improved efficiencies for my colleagues and clinicians in the
-        wider integrated care system. To see some of these examples, please see the{' '}
+        where I first became curious about automating workflows through coding. I created a system that automatically
+        checked prescription requests against dispensed items to identify unfilled requests, saving ~6 hours of staff
+        time weekly.
+      </p>
+      <p className="prose-base mb-4">
+        That first software solution sparked a passion that led me to become proficient in Python and SQL. These skills
+        now enable me to deliver significant value in my current role, where I've developed algorithms identifying £2.8M
+        in annual savings and automated processes that reduced months of manual work to just 3 days.
+      </p>
+      <p className="prose-base mb-4">
+        I've initiated projects that have improved efficiencies for colleagues and clinicians across the integrated care
+        system. See the{' '}
         <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="#projects">
-          projects part of this page.
-        </a>
-        <br />
-        <br />
-        My motivation has always been to facilitate excellent healthcare. How I channel that motivation has changed
-        massively since 2016. I realise I don't need to be patient facing to achieve that goal. Pivoting from community
-        pharmacy to local health commissioning was driven by a desire to positively impact patient outcomes at a
-        regional level.
+          projects section
+        </a>{' '}
+        for examples.
+      </p>
+      <p className="prose-base mb-4">
+        My motivation has always been to facilitate excellent healthcare. Pivoting from community pharmacy to health
+        commissioning was driven by a desire to positively impact patient outcomes at a regional level—I realised I
+        don't need to be patient-facing to achieve that goal.
       </p>
     </>
   ),
 };
 
 /**
- * Skills section
+ * Skills section (badge style)
  */
-export const skills: SkillGroup[] = [
+export const skillCategories: SkillCategory[] = [
   {
-    name: 'Spoken languages',
-    skills: [
-      {
-        name: 'English',
-        level: 10,
-      },
-      {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
-      },
-    ],
+    name: 'Programming',
+    skills: ['Python', 'JavaScript', 'TypeScript', 'SQL'],
   },
   {
-    name: 'Frontend development',
-    skills: [
-      {
-        name: 'React',
-        level: 9,
-      },
-      {
-        name: 'Typescript',
-        level: 7,
-      },
-      {
-        name: 'GraphQL',
-        level: 6,
-      },
-    ],
+    name: 'Data & Analytics',
+    skills: ['Power BI', 'Excel', 'pandas', 'Data Modeling'],
   },
   {
-    name: 'Backend development',
-    skills: [
-      {
-        name: 'Node.js',
-        level: 8,
-      },
-      {
-        name: 'Rust',
-        level: 5,
-      },
-      {
-        name: 'Golang',
-        level: 4,
-      },
-    ],
+    name: 'Healthcare Systems',
+    skills: ['NHS Data Systems', 'dm+d', 'Blueteq', 'EPACT', 'SystmOne'],
   },
   {
-    name: 'Mobile development',
-    skills: [
-      {
-        name: 'React Native',
-        level: 9,
-      },
-      {
-        name: 'Flutter',
-        level: 4,
-      },
-      {
-        name: 'Swift',
-        level: 3,
-      },
-    ],
+    name: 'Clinical Informatics',
+    skills: ['EHR Integration', 'Population Health Management', 'Clinical Decision Support'],
+  },
+  {
+    name: 'Regulatory',
+    skills: ['NICE Guidance', 'MHRA', 'NHS Digital', 'GDPR'],
   },
 ];
+
+/**
+ * Skills section (legacy - keeping for reference)
+ */
+export const skills: SkillGroup[] = [];
 
 /**
  * Portfolio section
@@ -305,37 +252,47 @@ export const portfolioItems: PortfolioItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'June 2024 - ',
+    date: 'July 2024 - Current',
     location: 'NHS Norfolk and Waveney Integrated Care Board',
-    title: 'Deputy Head of Population Health & Data Analysis, Medicines Optimisation',
+    title: 'Deputy Head of Population Health & Data Analysis (Interim Head: May–Sept 2025)',
     grade: '',
     content: (
       <div>
         <p className="prose-base">
-          I drive the strategic delivery of population health initiatives from the perspective of medicines
-          optimisation. My role involves spearheading data-driven approaches to improve prescribing quality, address
-          health inequalities, and enhance system efficiency. I provide clinical expertise and oversee complex projects,
-          ensuring alignment with national policies and local healthcare needs.
-          <br />
-          <br />
-          In this role, I have successfully implemented solutions using Python, SQL, and Power BI to deliver actionable
-          insights, develop interactive dashboards, and streamline decision-making processes for medicines optimisation
-          and population health management.
+          Lead data analytics strategy for medicines optimisation, developing bespoke datasets and analytical frameworks
+          to identify efficiency opportunities across the integrated care system serving 1.1 million population. During
+          interim period, reported directly to Associate Director of Pharmacy with presentation accountability to Chief
+          Medical Director.
         </p>
         <br />
-        <h2 className="text-lg font-bold">Responsibilities & key achievements</h2>
+        <h2 className="text-lg font-bold">Key achievements</h2>
         <Line></Line>
         <div className="prose max-w-none">
           <ul>
             <li>
-              Collaborating with the ICB data team to access, and create insights with patient-level data. Previously
-              the Medicine Optimisation team has been limited to practice-level.
+              <strong>Budget Leadership:</strong> Managed £220M prescribing budget; developed £14.6M QIPP efficiency
+              savings target, achieving over-target performance.
             </li>
             <li>
-              Creating an Opioid dashboard to convert all opiates to oral morphine equivalent, to identify and
-              prioritise reviews of patients being over prescribed opiates
+              <strong>Algorithm Innovation:</strong> Designed Python-based cost-optimisation algorithm identifying £2.8M
+              annual savings potential across 14,000 patients (£200 average per patient).
             </li>
-            <li>Leveraging AI to audit repeat prescription adherence at a system-wide level.</li>
+            <li>
+              <strong>Process Transformation:</strong> Automated incentive scheme analysis, reducing process from months
+              of manual work to 3 days while improving accuracy.
+            </li>
+            <li>
+              <strong>Data Infrastructure:</strong> Created comprehensive medicines data table integrating all dm+d
+              products with standardised strength calculations, morphine equivalent conversions, and ACB scoring.
+            </li>
+            <li>
+              <strong>Clinical Safety:</strong> Created opioid monitoring dashboard converting all prescriptions to oral
+              morphine equivalents, identifying high-risk patients.
+            </li>
+            <li>
+              <strong>AI Integration:</strong> Leveraged artificial intelligence to audit repeat prescription adherence
+              at system-wide scale.
+            </li>
           </ul>
         </div>
       </div>
@@ -468,32 +425,35 @@ export const experience: TimelineItem[] = [
       </>
     ),
   },
+  {
+    date: 'September 2009 - June 2014',
+    location: "McDonald's Corporation",
+    title: 'Crew Member → Trainer → Floor Manager',
+    grade: '',
+    content: (
+      <p className="prose-base">
+        Developed leadership and operational management skills in a fast-paced environment, progressing from crew member
+        to floor manager overseeing teams during peak trading periods. Trained and evaluated staff performance,
+        demonstrating ability to maintain service quality under pressure.
+      </p>
+    ),
+  },
 ];
 
 export const education: TimelineItem[] = [
-  // {
-  //   date: 'April - October 2018',
-  //   location: 'NHS Leadership Academy',
-  //   title: 'Mary Seacole',
-  //   grade: '78%',
-  //   content: (
-  //     <p className="prose">
-  //       I took the opportunity to undertake the Mary Seacole leadership programme offered by the NHS leadership academy
-  //       when it was first made available to community pharmacists. Seacole provided me with the tools necessary to embed
-  //       the values of healthcare leadership in my regular practice and has been the single biggest influence on how I
-  //       manage and lead a team.
-  //       <br />
-  //       <br />
-  //       The course took ~6 months to complete, and concluded with a reflective, and reflexive essay for assessment.
-  //       <br />
-  //       <br />
-  //       One of the biggest shifts in perspective I had from the course was seeing leadership as a behaviour that we
-  //       employ, rather than being restricted to a person or a position. Practical skills such as providing effective
-  //       feedback, interviewing skills, and inspiring colleagues through techniques such as "line-of-sight" have been
-  //       extremely effective when managing colleagues.
-  //     </p>
-  //   ),
-  // },
+  {
+    date: 'April - October 2018',
+    location: 'NHS Leadership Academy',
+    title: 'Mary Seacole Leadership Programme',
+    grade: '78%',
+    content: (
+      <p className="prose-base">
+        Formal NHS leadership qualification providing theoretical grounding in healthcare leadership approaches, change
+        management, and system-level thinking. This programme has been the single biggest influence on how I manage and
+        lead a team, teaching me to see leadership as a behaviour we employ rather than a position we hold.
+      </p>
+    ),
+  },
   {
     date: 'September 2011 - June 2015',
     location: 'University of East Anglia',

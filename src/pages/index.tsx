@@ -6,6 +6,7 @@ import Carousel from '../components/Sections/Carousel';
 import Footer from '../components/Sections/Footer';
 import Hero from '../components/Sections/Hero';
 import Timeline from '../components/Sections/Resume';
+import Skills from '../components/Sections/Skills';
 import Summary from '../components/Sections/Summary';
 import {homePageMeta} from '../data/data';
 
@@ -20,6 +21,7 @@ const Home: FC = memo(() => {
       <Hero />
       <Summary />
       <Timeline />
+      <Skills />
       <Carousel />
       <Footer />
     </Page>

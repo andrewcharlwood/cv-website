@@ -80,6 +80,14 @@ export interface SkillGroup {
 }
 
 /**
+ * Skills section (badge style)
+ */
+export interface SkillCategory {
+  name: string;
+  skills: string[];
+}
+
+/**
  * Portfolio section
  */
 export interface PortfolioItem {

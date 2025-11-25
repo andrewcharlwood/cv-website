@@ -53,6 +53,7 @@ const Header: FC = memo(() => {
       SectionId.Summary,
       SectionId.Resume,
       SectionId.Education,
+      SectionId.Skills,
       SectionId.Carousel,
     ],
     [],
