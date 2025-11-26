@@ -69,14 +69,14 @@ TerminalLine.displayName = 'TerminalLine';
 const TerminalStats: FC<{delay: number}> = memo(({delay}) => {
   const [showStats, setShowStats] = useState(false);
 
-  // Rows analyzed: rapid increase up to 9,999,999,999 (very fast - 500M per minute)
-  const rowsAnalyzed = useRisingCounter(1000000, 500000000, 9999999999);
-  // Cost optimizations: same speed as Patients Impacted (5k per minute), resets at 99,999
-  const costOptimizations = useRisingCounter(10000, 5000, 99999);
+  // Rows analysed: rapid increase up to 9,999,999,999 (very fast - 500M per minute)
+  const rowsAnalysed = useRisingCounter(1000000, 500000000, 9999999999);
+  // Cost optimisations: same speed as Patients Impacted (5k per minute), resets at 99,999
+  const costoptimisations = useRisingCounter(10000, 5000, 99999);
   // Quality optimisations: same speed as cost
-  const qualityOptimizations = useRisingCounter(8000, 5000, 99999);
+  const qualityoptimisations = useRisingCounter(8000, 5000, 99999);
   // Cost & Quality: faster (10k per minute)
-  const costQualityOptimizations = useRisingCounter(5000, 10000, 99999);
+  const costQualityoptimisations = useRisingCounter(5000, 10000, 99999);
 
   useEffect(() => {
     setShowStats(false);
@@ -99,16 +99,16 @@ const TerminalStats: FC<{delay: number}> = memo(({delay}) => {
   return (
     <div className="font-mono text-sm leading-relaxed space-y-1">
       <div className="text-dash-muted">
-        Rows analyzed: <span className="text-nhs-light-blue">{rowsAnalyzed}</span>
+        Rows analysed: <span className="text-nhs-light-blue">{rowsAnalysed}</span>
       </div>
       <div className="text-dash-muted">
-        Cost optimizations found: <span className="text-dash-success">{costOptimizations}</span>
+        Cost optimisations found: <span className="text-dash-success">{costoptimisations}</span>
       </div>
       <div className="text-dash-muted">
-        Quality optimisations found: <span className="text-dash-warning">{qualityOptimizations}</span>
+        Quality optimisations found: <span className="text-dash-warning">{qualityoptimisations}</span>
       </div>
       <div className="text-dash-muted">
-        Cost & Quality optimizations: <span className="text-purple-400">{costQualityOptimizations}</span>
+        Cost & Quality optimisations: <span className="text-purple-400">{costQualityoptimisations}</span>
       </div>
     </div>
   );

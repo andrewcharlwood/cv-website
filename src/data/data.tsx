@@ -307,7 +307,7 @@ export const experience: TimelineItem[] = [
       <div>
         <p className="prose-base">
           Collaborated with specialists to ensure patient access to medicines mandated by new NICE technology appraisals
-          (TAs) while optimizing care pathways to align with national and local guidance and minimize waste.
+          (TAs) while optimising care pathways to align with national and local guidance and minimise waste.
         </p>
         <br />
         <h2 className="text-lg font-bold">Responsibilities & achievements</h2>

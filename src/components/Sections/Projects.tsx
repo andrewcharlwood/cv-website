@@ -30,9 +30,9 @@ const projects: Project[] = [
   },
   {
     title: 'Patient Pathway Analysis',
-    description: 'Interactive Sankey chart displaying patient care pathways for high-cost drugs. Enables intuitive exploration of patient journeys by trust/directorate with detailed cost breakdowns.',
+    description: 'Interactive Icicle chart displaying patient care pathways for high-cost drugs. Enables intuitive exploration of patient journeys by trust/directorate with detailed cost breakdowns. Produced with fake data for demonstration purposes.',
     image: ppaImg,
-    tags: ['Python', 'Data Visualization', 'Sankey'],
+    tags: ['Python', 'Data Visualization', 'Icicle'],
     url: './patient_pathway_analysis.html',
   },
   {
