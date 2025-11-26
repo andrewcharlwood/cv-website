@@ -15,8 +15,8 @@ const InfoCard: FC<{
 }> = memo(({icon, label, value, index, isVisible}) => (
   <div
     className={`flex items-center gap-4 p-4 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10
-               hover:bg-white/10 transition-all duration-500
-               ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+               hover:bg-white/10 transition-opacity duration-500
+               ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     style={{transitionDelay: `${index * 100}ms`}}
   >
     <div className="p-2 rounded-lg bg-nhs-blue/20 text-nhs-light-blue">
@@ -69,7 +69,7 @@ const About: FC = memo(() => {
           <div
             ref={storyRef}
             className={`transition-all duration-600
-                       ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+                       ${storyVisible ? 'opacity-100' : 'opacity-0'}`}
           >
             <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20
                            rounded-full text-white/90 text-sm font-medium mb-6">
@@ -104,7 +104,7 @@ const About: FC = memo(() => {
 
             <a
               href="#experience"
-              className={`inline-flex items-center gap-2 mt-8 text-white hover:text-nhs-light-blue transition-all duration-500 group
+              className={`inline-flex items-center gap-2 mt-8 text-white hover:text-nhs-light-blue transition-opacity duration-500 group
                          ${storyVisible ? 'opacity-100' : 'opacity-0'}`}
               style={{transitionDelay: '400ms'}}
             >
@@ -148,8 +148,8 @@ const About: FC = memo(() => {
 
             {/* Quote card */}
             <div
-              className={`p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 mt-6 transition-all duration-500
-                         ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+              className={`p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 mt-6 transition-opacity duration-500
+                         ${cardsVisible ? 'opacity-100' : 'opacity-0'}`}
               style={{transitionDelay: '500ms'}}
             >
               <blockquote className="text-white/90 italic">

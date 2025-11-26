@@ -81,6 +81,7 @@ const ProjectCard: FC<{project: Project; index: number; isVisible: boolean}> = m
           whileTap={{scale: 0.95}}
           className="inline-flex items-center gap-2 px-6 py-3 bg-white text-dash-dark font-semibold
                      rounded-lg hover:bg-nhs-light-blue transition-colors"
+          aria-label={project.isGithub ? `View code for ${project.title}` : `View ${project.title} project`}
         >
           {project.isGithub ? <Github className="w-5 h-5" /> : <ExternalLink className="w-5 h-5" />}
           {project.isGithub ? 'View Code' : 'View Project'}

@@ -279,7 +279,7 @@ const DashboardHero: FC = memo(() => {
                 rel="noopener noreferrer"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-nhs-teal hover:bg-nhs-teal/80
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#007A6D] hover:bg-[#006459]
                          text-white font-semibold rounded-lg transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
