@@ -2,27 +2,29 @@ import dynamic from 'next/dynamic';
 import React, {FC, memo} from 'react';
 
 import Page from '../components/Layout/Page';
-import Carousel from '../components/Sections/Carousel';
+import About from '../components/Sections/About';
+import Education from '../components/Sections/Education';
+import ExperienceTimeline from '../components/Sections/ExperienceTimeline';
 import Footer from '../components/Sections/Footer';
-import Hero from '../components/Sections/Hero';
-import Timeline from '../components/Sections/Resume';
-import Skills from '../components/Sections/Skills';
-import Summary from '../components/Sections/Summary';
+import Projects from '../components/Sections/Projects';
+import TechSkills from '../components/Sections/TechSkills';
 import {homePageMeta} from '../data/data';
 
-// eslint-disable-next-line react-memo/require-memo
-const Header = dynamic(() => import('../components/Sections/Header'), {ssr: false});
+// Dynamic imports for client-only components
+const Navigation = dynamic(() => import('../components/Sections/Navigation'), {ssr: false});
+const DashboardHero = dynamic(() => import('../components/Sections/DashboardHero'), {ssr: false});
 
 const Home: FC = memo(() => {
   const {title, description} = homePageMeta;
   return (
     <Page description={description} title={title}>
-      <Header />
-      <Hero />
-      <Summary />
-      <Timeline />
-      <Skills />
-      <Carousel />
+      <Navigation />
+      <DashboardHero />
+      <About />
+      <TechSkills />
+      <ExperienceTimeline />
+      <Education />
+      <Projects />
       <Footer />
     </Page>
   );

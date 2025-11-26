@@ -45,7 +45,7 @@ const Hero: FC = memo(() => {
           loop
           muted
           playsInline
-          src={imageSrc}
+          src={typeof imageSrc === 'string' ? imageSrc : undefined}
         />
         <div className="z-10 pt-4 sm:pt-14 max-w-screen-xl px-4 lg:px-0">
           <motion.div

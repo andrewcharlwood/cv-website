@@ -1,11 +1,15 @@
 // Modules
+/* eslint-disable import/newline-after-import */
 
 declare module '*.jpg' {
-  const value: string;
+  import type {StaticImageData} from 'next/image';
+  const value: StaticImageData;
   export default value;
 }
+
 declare module '*.webp' {
-  const value: string;
+  import type {StaticImageData} from 'next/image';
+  const value: StaticImageData;
   export default value;
 }
 
@@ -15,7 +19,14 @@ declare module '*.svg' {
 }
 
 declare module '*.png' {
-  const value: string;
+  import type {StaticImageData} from 'next/image';
+  const value: StaticImageData;
+  export default value;
+}
+
+declare module '*.jpeg' {
+  import type {StaticImageData} from 'next/image';
+  const value: StaticImageData;
   export default value;
 }
 
@@ -28,12 +39,8 @@ declare module '*.mp4' {
   const value: string;
   export default value;
 }
-//declare module 'read-more-read-less-toggler-edit';
+
 declare module 'video-react';
-//declare module "read-more-read-less-toggler" {
-//function ReadMoreToggler(): any;
-//export = ReadMoreToggler;
-//}
 
 declare module 'lodash/debounce' {
   import {debounce} from 'lodash';
