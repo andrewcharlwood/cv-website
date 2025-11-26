@@ -76,7 +76,7 @@ const Navigation: FC = memo(() => {
 
               {/* CTA Button */}
               <motion.a
-                href="#contact"
+                href="#contact-form"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
                 className="ml-4 px-5 py-2 bg-nhs-blue text-white rounded-lg font-medium
@@ -126,7 +126,7 @@ const Navigation: FC = memo(() => {
                   </motion.a>
                 ))}
                 <motion.a
-                  href="#contact"
+                  href="#contact-form"
                   initial={{opacity: 0, x: -20}}
                   animate={{opacity: 1, x: 0}}
                   transition={{delay: navLinks.length * 0.05}}
